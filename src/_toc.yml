@@ -2,8 +2,17 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: home
 chapters:
+- file: week01
+  sections: 
+    - file: w01/intro-to-week01
+- file: week02
+- file: week03
+- file: week04
+- file: week05
+- file: week06
+- file: week07
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
