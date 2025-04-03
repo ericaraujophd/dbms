@@ -1,4 +1,4 @@
-# Week 1 - Relational Model, SQL and more
+# W01C00 - Relational Model, SQL and more
 
 ## Initial Instructions
 
