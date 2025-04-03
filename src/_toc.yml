@@ -4,15 +4,46 @@
 format: jb-book
 root: home
 chapters:
-- file: week01
-  sections: 
-    - file: w01/intro-to-week01
-- file: week02
-- file: week03
-- file: week04
-- file: week05
-- file: week06
-- file: week07
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+  - file: week1
+    sections:
+      # Class 1 - CONCEPTS
+      - file: w01/c01/A-intro
+      - file: w01/c01/B-intro-to-relational-databases
+      - file: w01/c01/C-history-relational-models
+      - file: w01/c01/D-relational-dbs-dissected
+      - file: w01/c01/E-sql-brief-history
+      # Class 2 - SELECT and ORDER BY
+      - file: w01/c02/A-methods
+      - file: w01/c02/B-first-query
+      - file: w01/c02/C-order-by
+      - file: w01/c02/D-distinct
+      - file: w01/c02/E-practice
+      # Class 3 - EXPRESSIONS, CASE, WHERE and DISTINCT
+      - file: w01/c03/A-expressions
+      - file: w01/c03/B-case
+      - file: w01/c03/C-where
+      - file: w01/c03/D-practice
+  - file: week2
+    sections:
+      # Class 1 - SET OPERATIONS and JOINS
+      - file: w02/c01/A-what-is-a-set
+      - file: w02/c01/B-sql-set-operations
+      - file: w02/c01/C-joins
+      - file: w02/c01/D-practice
+      # Class 2 - SUBQUERIES
+      - file: w02/c02/A-what-is-a-subquery
+      - file: w02/c02/B-subqueries
+      - file: w02/c02/C-practice
+      # Class 3 - AGGREGATED FUNCTIONS
+      - file: w02/c03/A-aggregate-functions
+      - file: w02/c03/B-aggregate-functions
+      - file: w02/c03/C-group-by
+      - file: w02/c03/D-practice
+  - file: week3
+  - file: week04
+  - file: week05
+  - file: week06
+  - file: week07
+  - file: markdown
+  - file: notebooks
+  - file: markdown-notebooks
