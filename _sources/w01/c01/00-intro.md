@@ -1,4 +1,2 @@
 # Intro to class
 
-```{contents}
-```

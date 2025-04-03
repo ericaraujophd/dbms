@@ -24,3 +24,6 @@ This week requires you to complete the following tasks:
 ## Week 1 Overview
 
 This week, we will cover the topics shown below. This is a shortcut in case you want to go back to a specific topic.
+
+```{tablecontents}
+```
