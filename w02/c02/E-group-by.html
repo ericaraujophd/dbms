@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.3.B Aggregate Functions &#8212; Database Management Systems</title>
+    <title>2.2.E Group By &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w02/c03/B-aggregate-functions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w02/c02/E-group-by';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3.C Group By" href="C-group-by.html" />
-    <link rel="prev" title="2.3.A Aggregate Functions" href="A-aggregate-functions.html" />
+    <link rel="next" title="2.3.A Focusing" href="../c03/A-filtering.html" />
+    <link rel="prev" title="2.2.F Practice" href="F-practice.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,16 +203,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../c01/B-sql-set-operations.html">2.1.B SQL Set Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c01/C-joins.html">2.1.C Joins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c01/D-practice.html">2.1.D Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c02/A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c02/B-subqueries.html">2.2.B Subqueries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c02/C-practice.html">2.2.C Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A-aggregate-functions.html">2.3.A Aggregate Functions</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3.B Aggregate Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-group-by.html">2.3.C Group By</a></li>
-<li class="toctree-l2"><a class="reference internal" href="D-practice.html">2.3.D Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B-subqueries.html">2.2.B Subqueries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-aggregate-functions.html">2.2.C Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-aggregate-functions.html">2.2.D Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="F-practice.html">2.2.F Practice</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2.E Group By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c03/A-filtering.html">2.3.A Focusing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c03/D-practice.html">2.3.D Practice</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../../week3.html">Week 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week3.html">Week 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week04.html">Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week05.html">Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week06.html">Week 6</a></li>
@@ -274,7 +278,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w02/c03/B-aggregate-functions.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w02/c02/E-group-by.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -340,7 +344,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw02/c03/B-aggregate-functions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw02/c02/E-group-by.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -370,7 +374,7 @@
       
       
       
-      <li><a href="../../_sources/w02/c03/B-aggregate-functions.ipynb" target="_blank"
+      <li><a href="../../_sources/w02/c02/E-group-by.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -452,7 +456,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>2.3.B Aggregate Functions</h1>
+    <h1>2.2.E Group By</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -466,8 +470,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="b-aggregate-functions">
-<h1>2.3.B Aggregate Functions<a class="headerlink" href="#b-aggregate-functions" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="e-group-by">
+<h1>2.2.E Group By<a class="headerlink" href="#e-group-by" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -483,7 +487,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./w02/c03"
+            path: "./w02/c02"
         },
         predefinedOutput: true
     }
@@ -501,20 +505,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="A-aggregate-functions.html"
+       href="F-practice.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2.3.A Aggregate Functions</p>
+        <p class="prev-next-title">2.2.F Practice</p>
       </div>
     </a>
     <a class="right-next"
-       href="C-group-by.html"
+       href="../c03/A-filtering.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2.3.C Group By</p>
+        <p class="prev-next-title">2.3.A Focusing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
