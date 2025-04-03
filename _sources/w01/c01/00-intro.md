@@ -1,2 +1,2 @@
-# Intro to class
+# Class 01 - In the Beginning...
 
