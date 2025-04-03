@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.2.C Sorting and Collating &#8212; Database Management Systems</title>
+    <title>2.1.C Joins &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w01/c02/D-distinct';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w02/c01/C-joins';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.2.D Practicing What You Learned" href="E-practice.html" />
-    <link rel="prev" title="1.2.C Sorting and Collating" href="C-order-by.html" />
+    <link rel="next" title="2.1.D Exercises" href="D-practice.html" />
+    <link rel="prev" title="2.1.B SQL Set Operations" href="B-sql-set-operations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,31 +181,31 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week1.html">Week 01 - Relational Model, SQL and more</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../c01/A-intro.html">1.1.A - In the Beginning…</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c01/B-intro-to-relational-databases.html">1.1.B What is Relational?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c01/C-history-relational-models.html">1.1.C History of Relational Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c01/D-relational-dbs-dissected.html">1.1.D Relational Database Dissected</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c01/E-sql-brief-history.html">1.1.E A Brief History of SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A-methods.html">1.2.A SQLite, Jupyter etc.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="B-first-query.html">1.2.B Creating a First Query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-order-by.html">1.2.C Sorting and Collating</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2.C Sorting and Collating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-practice.html">1.2.D Practicing What You Learned</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/A-expressions.html">1.3.A What are Expressions?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/B-case.html">1.3.B CASE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/C-where.html">1.3.C WHERE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/D-practice.html">1.3.D Hands-on!</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week1.html">Week 01 - Relational Model, SQL and more</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/A-intro.html">1.1.A - In the Beginning…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/B-intro-to-relational-databases.html">1.1.B What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/C-history-relational-models.html">1.1.C History of Relational Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/D-relational-dbs-dissected.html">1.1.D Relational Database Dissected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/E-sql-brief-history.html">1.1.E A Brief History of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/A-methods.html">1.2.A SQLite, Jupyter etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/B-first-query.html">1.2.B Creating a First Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/C-order-by.html">1.2.C Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/D-distinct.html">1.2.C Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/E-practice.html">1.2.D Practicing What You Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/A-expressions.html">1.3.A What are Expressions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/B-case.html">1.3.B CASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/C-where.html">1.3.C WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/D-practice.html">1.3.D Hands-on!</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../week2.html">Week 2 - Working with Multiple Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/A-what-is-a-set.html">2.1.A What is a Set?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/B-sql-set-operations.html">2.1.B SQL Set Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/C-joins.html">2.1.C Joins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/D-practice.html">2.1.D Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/B-subqueries.html">2.2.B Subqueries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/C-practice.html">2.2.C Practice</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week2.html">Week 2 - Working with Multiple Tables</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="A-what-is-a-set.html">2.1.A What is a Set?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B-sql-set-operations.html">2.1.B SQL Set Operations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1.C Joins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-practice.html">2.1.D Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/B-subqueries.html">2.2.B Subqueries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/C-practice.html">2.2.C Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../week3.html">Week 3</a></li>
@@ -270,7 +270,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w01/c02/D-distinct.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w02/c01/C-joins.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +336,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw01/c02/D-distinct.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw02/c01/C-joins.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +366,7 @@
       
       
       
-      <li><a href="../../_sources/w01/c02/D-distinct.ipynb" target="_blank"
+      <li><a href="../../_sources/w02/c01/C-joins.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -448,7 +448,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.2.C Sorting and Collating</h1>
+    <h1>2.1.C Joins</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -462,8 +462,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="c-sorting-and-collating">
-<h1>1.2.C Sorting and Collating<a class="headerlink" href="#c-sorting-and-collating" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="c-joins">
+<h1>2.1.C Joins<a class="headerlink" href="#c-joins" title="Link to this heading">#</a></h1>
+<p>INNER JOINS, OUTER JOINS</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,7 +480,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./w01/c02"
+            path: "./w02/c01"
         },
         predefinedOutput: true
     }
@@ -497,20 +498,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="C-order-by.html"
+       href="B-sql-set-operations.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">1.2.C Sorting and Collating</p>
+        <p class="prev-next-title">2.1.B SQL Set Operations</p>
       </div>
     </a>
     <a class="right-next"
-       href="E-practice.html"
+       href="D-practice.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.2.D Practicing What You Learned</p>
+        <p class="prev-next-title">2.1.D Exercises</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
