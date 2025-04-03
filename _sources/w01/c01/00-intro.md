@@ -1,4 +1,4 @@
 # Intro to class
 
-```{tableofcontents}
+```{contents}
 ```
