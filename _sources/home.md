@@ -17,7 +17,7 @@ The SLOs (Student Learning Objectives), labs, and projects for each week are giv
 
 | Week | Topics | Laboratories | Projects | Tests, Video Links, etc. |
 |---------------|---------------|---------------|---------------|---------------|
-| 1 <br> --- <br> 3/17 | Introduction to Databases & SQL Basics | [Homework 1]() | [Proj 1]() |  |
+| 1 <br> --- <br> 3/17 | Introduction to Databases & SQL Basics | Homework 1 | Proj 1 |  |
 | 2 <br> --- <br> 3/24 | SQL – Intermediate Concepts <br> Advising days – no class 26-27 | [Homework 2]() | [Proj 2]() |  |
 | 3 <br> --- <br> 3/31 | SQL – Data Modification & Advanced Queries | [Homework 3]() | [Proj 3]() |  |
 | 4 <br> --- <br> 4/7 | Database Design – ER Modeling & Schema Refinement | [Homework 4]() | [Proj 4]() | **Test 1:** Weeks 1 - 3, Friday |
