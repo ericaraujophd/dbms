@@ -33,13 +33,19 @@ chapters:
       # Class 2 - SUBQUERIES
       - file: w02/c02/A-what-is-a-subquery
       - file: w02/c02/B-subqueries
-      - file: w02/c02/C-practice
+      - file: w02/c02/C-aggregate-functions
+      - file: w02/c02/D-aggregate-functions
+      - file: w02/c02/F-practice
+      - file: w02/c02/E-group-by
       # Class 3 - AGGREGATED FUNCTIONS
-      - file: w02/c03/A-aggregate-functions
-      - file: w02/c03/B-aggregate-functions
-      - file: w02/c03/C-group-by
+      - file: w02/c03/A-filtering
+      - file: w02/c03/B-where
+      - file: w02/c03/C-having
       - file: w02/c03/D-practice
   - file: week3
+    sections:
+      # Project 03 - Animal Crossing
+      - file: projects/proj03
   - file: week04
   - file: week05
   - file: week06

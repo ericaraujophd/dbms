@@ -37,3 +37,7 @@ launch_buttons:
   notebook_interface: "jupyterlab"  # or "classic"
   binderhub_url: "https://mybinder.org"
   thebe: true
+
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.mermaid

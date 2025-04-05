@@ -56,6 +56,14 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="icon" href="_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="#" />
@@ -204,14 +212,20 @@
 <li class="toctree-l2"><a class="reference internal" href="w02/c01/D-practice.html">2.1.D Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="w02/c02/A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="w02/c02/B-subqueries.html">2.2.B Subqueries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="w02/c02/C-practice.html">2.2.C Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="w02/c03/A-aggregate-functions.html">2.3.A Aggregate Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="w02/c03/B-aggregate-functions.html">2.3.B Aggregate Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="w02/c03/C-group-by.html">2.3.C Group By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c02/C-aggregate-functions.html">2.2.C Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c02/D-aggregate-functions.html">2.2.D Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c02/F-practice.html">2.2.F Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c02/E-group-by.html">2.2.E Group By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c03/A-filtering.html">2.3.A Focusing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c03/B-where.html">2.3.B WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w02/c03/C-having.html">2.3.C HAVING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="w02/c03/D-practice.html">2.3.D Practice</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="week3.html">Week 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week3.html">Week 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="projects/proj03.html">Project 3</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="week04.html">Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week05.html">Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week06.html">Week 6</a></li>
