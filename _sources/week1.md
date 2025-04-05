@@ -1,5 +1,12 @@
 # Week 01 - Relational Model, SQL and more
 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+```
+
 ## Initial Instructions
 
 This week will mark the beginning of our journey into the world of databases, specifically focusing on relational databases and SQL (Structured Query Language). This course is meant to cover the basics of database management systems (DBMS) and SQL, providing you with the foundational knowledge and skills necessary to work with databases effectively.
