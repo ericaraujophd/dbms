@@ -1,11 +1,6 @@
 # Week 01 - Relational Model, SQL and more
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-```
+![Our roadmap for this course](src/imgs/sql-mindmap.png)
 
 ## Initial Instructions
 
