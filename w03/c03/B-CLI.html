@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.3 CTE using WITH" href="C-WITH.html" />
-    <link rel="prev" title="3.3.A CLI + Time" href="A-advanced-sql.html" />
+    <link rel="prev" title="3.3 CLI + Time" href="A-advanced-sql.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -229,36 +229,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../c02/F-autoincrement.html">3.2 DDL: AUTOINCREMENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c02/G-views.html">3.2 DDL: AUTOINCREMENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c02/Z-practice.html">3.2 DDL: Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A-advanced-sql.html">3.3.A CLI + Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A-advanced-sql.html">3.3 CLI + Time</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.3 CLI: Using SQLite3 Command Line Interface</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="C-WITH.html">3.3 CTE using WITH</a></li>
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="D-VACUUM.html">3.4 Optimization with VACUUM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.3 Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
@@ -515,25 +488,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.3 CLI: Using SQLite3 Command Line Interface</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-command-line-interface">3.3.1 SQLite3 Command Line Interface</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-is-a-command-line-tool-that-allows-you-to-interact-with-sqlite-databases">SQLite3 is a command line tool that allows you to interact with SQLite databases.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#it-is-a-powerful-tool-for-executing-sql-commands-managing-databases-and-performing-various-operations">It is a powerful tool for executing SQL commands, managing databases, and performing various operations.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#to-use-sqlite3-you-need-to-have-it-installed-on-your-system-you-can-check-if-it-is-installed-by-running-the-following-command-in-your-terminal">To use SQLite3, you need to have it installed on your system. You can check if it is installed by running the following command in your terminal:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#if-sqlite3-is-installed-you-will-see-the-version-number-if-not-you-can-install-it-using-your-package-manager">If SQLite3 is installed, you will see the version number. If not, you can install it using your package manager.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example-on-ubuntu-you-can-install-it-using">For example, on Ubuntu, you can install it using:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#on-macos-you-can-use-homebrew">On macOS, you can use Homebrew:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#on-windows-you-can-download-the-sqlite3-executable-from-the-official-sqlite-website-and-add-it-to-your-path">On Windows, you can download the SQLite3 executable from the official SQLite website and add it to your PATH.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#once-you-have-sqlite3-installed-you-can-start-using-it-by-running-the-following-command">Once you have SQLite3 installed, you can start using it by running the following command:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-will-open-the-sqlite3-command-line-interface-where-you-can-start-executing-sql-commands">This will open the SQLite3 command line interface, where you can start executing SQL commands.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-also-specify-a-database-file-to-open-or-create-a-new-database-file-by-running">You can also specify a database file to open or create a new database file by running:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-will-open-the-my-database-db-file-and-if-it-does-not-exist-it-will-create-a-new-database-file-with-that-name">This will open the <code class="docutils literal notranslate"><span class="pre">my_database.db</span></code> file, and if it does not exist, it will create a new database file with that name.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-then-start-executing-sql-commands-on-this-database">You can then start executing SQL commands on this database.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#to-exit-the-sqlite3-command-line-interface-you-can-type-exit-or-press-ctrl-d">To exit the SQLite3 command line interface, you can type <code class="docutils literal notranslate"><span class="pre">.exit</span></code> or press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code>.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-also-use-the-help-command-to-see-a-list-of-available-commands-and-options-in-the-sqlite3-cli">You can also use the <code class="docutils literal notranslate"><span class="pre">.help</span></code> command to see a list of available commands and options in the SQLite3 CLI.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sqlite3-command-line-interface-provides-a-powerful-and-flexible-way-to-interact-with-sqlite-databases">The SQLite3 command line interface provides a powerful and flexible way to interact with SQLite databases.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-command-line-interface">3.3.1 SQLite3 Command Line Interface</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -546,69 +502,39 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cli-using-sqlite3-command-line-interface">
 <h1>3.3 CLI: Using SQLite3 Command Line Interface<a class="headerlink" href="#cli-using-sqlite3-command-line-interface" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="sqlite3-command-line-interface">
-<h1>3.3.1 SQLite3 Command Line Interface<a class="headerlink" href="#sqlite3-command-line-interface" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="sqlite3-is-a-command-line-tool-that-allows-you-to-interact-with-sqlite-databases">
-<h1>SQLite3 is a command line tool that allows you to interact with SQLite databases.<a class="headerlink" href="#sqlite3-is-a-command-line-tool-that-allows-you-to-interact-with-sqlite-databases" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="it-is-a-powerful-tool-for-executing-sql-commands-managing-databases-and-performing-various-operations">
-<h1>It is a powerful tool for executing SQL commands, managing databases, and performing various operations.<a class="headerlink" href="#it-is-a-powerful-tool-for-executing-sql-commands-managing-databases-and-performing-various-operations" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="to-use-sqlite3-you-need-to-have-it-installed-on-your-system-you-can-check-if-it-is-installed-by-running-the-following-command-in-your-terminal">
-<h1>To use SQLite3, you need to have it installed on your system. You can check if it is installed by running the following command in your terminal:<a class="headerlink" href="#to-use-sqlite3-you-need-to-have-it-installed-on-your-system-you-can-check-if-it-is-installed-by-running-the-following-command-in-your-terminal" title="Link to this heading">#</a></h1>
+<section id="sqlite3-command-line-interface">
+<h2>3.3.1 SQLite3 Command Line Interface<a class="headerlink" href="#sqlite3-command-line-interface" title="Link to this heading">#</a></h2>
+<p>SQLite3 is a command line tool that allows you to interact with SQLite databases.
+It is a powerful tool for executing SQL commands, managing databases, and performing various operations.
+To use SQLite3, you need to have it installed on your system. You can check if it is installed by running the following command in your terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>--version
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="if-sqlite3-is-installed-you-will-see-the-version-number-if-not-you-can-install-it-using-your-package-manager">
-<h1>If SQLite3 is installed, you will see the version number. If not, you can install it using your package manager.<a class="headerlink" href="#if-sqlite3-is-installed-you-will-see-the-version-number-if-not-you-can-install-it-using-your-package-manager" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="for-example-on-ubuntu-you-can-install-it-using">
-<h1>For example, on Ubuntu, you can install it using:<a class="headerlink" href="#for-example-on-ubuntu-you-can-install-it-using" title="Link to this heading">#</a></h1>
+<p>If SQLite3 is installed, you will see the version number. If not, you can install it using your package manager.
+For example, on Ubuntu, you can install it using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>sqlite3
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="on-macos-you-can-use-homebrew">
-<h1>On macOS, you can use Homebrew:<a class="headerlink" href="#on-macos-you-can-use-homebrew" title="Link to this heading">#</a></h1>
+<p>On macOS, you can use Homebrew:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>sqlite3
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="on-windows-you-can-download-the-sqlite3-executable-from-the-official-sqlite-website-and-add-it-to-your-path">
-<h1>On Windows, you can download the SQLite3 executable from the official SQLite website and add it to your PATH.<a class="headerlink" href="#on-windows-you-can-download-the-sqlite3-executable-from-the-official-sqlite-website-and-add-it-to-your-path" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="once-you-have-sqlite3-installed-you-can-start-using-it-by-running-the-following-command">
-<h1>Once you have SQLite3 installed, you can start using it by running the following command:<a class="headerlink" href="#once-you-have-sqlite3-installed-you-can-start-using-it-by-running-the-following-command" title="Link to this heading">#</a></h1>
+<p>On Windows, you can download the SQLite3 executable from the official SQLite website and add it to your PATH.
+Once you have SQLite3 installed, you can start using it by running the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3
 </pre></div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="this-will-open-the-sqlite3-command-line-interface-where-you-can-start-executing-sql-commands">
-<h1>This will open the SQLite3 command line interface, where you can start executing SQL commands.<a class="headerlink" href="#this-will-open-the-sqlite3-command-line-interface-where-you-can-start-executing-sql-commands" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="you-can-also-specify-a-database-file-to-open-or-create-a-new-database-file-by-running">
-<h1>You can also specify a database file to open or create a new database file by running:<a class="headerlink" href="#you-can-also-specify-a-database-file-to-open-or-create-a-new-database-file-by-running" title="Link to this heading">#</a></h1>
+<p>This will open the SQLite3 command line interface, where you can start executing SQL commands.
+You can also specify a database file to open or create a new database file by running:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
 </pre></div>
 </div>
+<p>This will open the <code class="docutils literal notranslate"><span class="pre">my_database.db</span></code> file, and if it does not exist, it will create a new database file with that name.
+You can then start executing SQL commands on this database.
+To exit the SQLite3 command line interface, you can type <code class="docutils literal notranslate"><span class="pre">.exit</span></code> or press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code>.
+You can also use the <code class="docutils literal notranslate"><span class="pre">.help</span></code> command to see a list of available commands and options in the SQLite3 CLI.
+The SQLite3 command line interface provides a powerful and flexible way to interact with SQLite databases.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="this-will-open-the-my-database-db-file-and-if-it-does-not-exist-it-will-create-a-new-database-file-with-that-name">
-<h1>This will open the <code class="docutils literal notranslate"><span class="pre">my_database.db</span></code> file, and if it does not exist, it will create a new database file with that name.<a class="headerlink" href="#this-will-open-the-my-database-db-file-and-if-it-does-not-exist-it-will-create-a-new-database-file-with-that-name" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="you-can-then-start-executing-sql-commands-on-this-database">
-<h1>You can then start executing SQL commands on this database.<a class="headerlink" href="#you-can-then-start-executing-sql-commands-on-this-database" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="to-exit-the-sqlite3-command-line-interface-you-can-type-exit-or-press-ctrl-d">
-<h1>To exit the SQLite3 command line interface, you can type <code class="docutils literal notranslate"><span class="pre">.exit</span></code> or press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code>.<a class="headerlink" href="#to-exit-the-sqlite3-command-line-interface-you-can-type-exit-or-press-ctrl-d" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="you-can-also-use-the-help-command-to-see-a-list-of-available-commands-and-options-in-the-sqlite3-cli">
-<h1>You can also use the <code class="docutils literal notranslate"><span class="pre">.help</span></code> command to see a list of available commands and options in the SQLite3 CLI.<a class="headerlink" href="#you-can-also-use-the-help-command-to-see-a-list-of-available-commands-and-options-in-the-sqlite3-cli" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-sqlite3-command-line-interface-provides-a-powerful-and-flexible-way-to-interact-with-sqlite-databases">
-<h1>The SQLite3 command line interface provides a powerful and flexible way to interact with SQLite databases.<a class="headerlink" href="#the-sqlite3-command-line-interface-provides-a-powerful-and-flexible-way-to-interact-with-sqlite-databases" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -647,7 +573,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.3.A CLI + Time</p>
+        <p class="prev-next-title">3.3 CLI + Time</p>
       </div>
     </a>
     <a class="right-next"
@@ -675,25 +601,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.3 CLI: Using SQLite3 Command Line Interface</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-command-line-interface">3.3.1 SQLite3 Command Line Interface</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-is-a-command-line-tool-that-allows-you-to-interact-with-sqlite-databases">SQLite3 is a command line tool that allows you to interact with SQLite databases.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#it-is-a-powerful-tool-for-executing-sql-commands-managing-databases-and-performing-various-operations">It is a powerful tool for executing SQL commands, managing databases, and performing various operations.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#to-use-sqlite3-you-need-to-have-it-installed-on-your-system-you-can-check-if-it-is-installed-by-running-the-following-command-in-your-terminal">To use SQLite3, you need to have it installed on your system. You can check if it is installed by running the following command in your terminal:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#if-sqlite3-is-installed-you-will-see-the-version-number-if-not-you-can-install-it-using-your-package-manager">If SQLite3 is installed, you will see the version number. If not, you can install it using your package manager.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example-on-ubuntu-you-can-install-it-using">For example, on Ubuntu, you can install it using:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#on-macos-you-can-use-homebrew">On macOS, you can use Homebrew:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#on-windows-you-can-download-the-sqlite3-executable-from-the-official-sqlite-website-and-add-it-to-your-path">On Windows, you can download the SQLite3 executable from the official SQLite website and add it to your PATH.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#once-you-have-sqlite3-installed-you-can-start-using-it-by-running-the-following-command">Once you have SQLite3 installed, you can start using it by running the following command:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-will-open-the-sqlite3-command-line-interface-where-you-can-start-executing-sql-commands">This will open the SQLite3 command line interface, where you can start executing SQL commands.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-also-specify-a-database-file-to-open-or-create-a-new-database-file-by-running">You can also specify a database file to open or create a new database file by running:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-will-open-the-my-database-db-file-and-if-it-does-not-exist-it-will-create-a-new-database-file-with-that-name">This will open the <code class="docutils literal notranslate"><span class="pre">my_database.db</span></code> file, and if it does not exist, it will create a new database file with that name.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-then-start-executing-sql-commands-on-this-database">You can then start executing SQL commands on this database.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#to-exit-the-sqlite3-command-line-interface-you-can-type-exit-or-press-ctrl-d">To exit the SQLite3 command line interface, you can type <code class="docutils literal notranslate"><span class="pre">.exit</span></code> or press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code>.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-also-use-the-help-command-to-see-a-list-of-available-commands-and-options-in-the-sqlite3-cli">You can also use the <code class="docutils literal notranslate"><span class="pre">.help</span></code> command to see a list of available commands and options in the SQLite3 CLI.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sqlite3-command-line-interface-provides-a-powerful-and-flexible-way-to-interact-with-sqlite-databases">The SQLite3 command line interface provides a powerful and flexible way to interact with SQLite databases.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-command-line-interface">3.3.1 SQLite3 Command Line Interface</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

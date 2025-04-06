@@ -229,36 +229,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../c02/F-autoincrement.html">3.2 DDL: AUTOINCREMENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c02/G-views.html">3.2 DDL: AUTOINCREMENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c02/Z-practice.html">3.2 DDL: Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A-advanced-sql.html">3.3.A CLI + Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A-advanced-sql.html">3.3 CLI + Time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="B-CLI.html">3.3 CLI: Using SQLite3 Command Line Interface</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.3 CTE using WITH</a></li>
-
-
-
-
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="D-VACUUM.html">3.4 Optimization with VACUUM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.3 Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
@@ -515,20 +488,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.3 CTE using WITH</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.3.1 CTE using WITH</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cte-common-table-expression-is-a-temporary-result-set-that-you-can-reference-within-a-select-insert-update-or-delete-statement">CTE (Common Table Expression) is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#it-is-defined-using-the-with-clause-and-can-be-thought-of-as-a-named-temporary-result-set-that-you-can-use-within-your-sql-statement">It is defined using the WITH clause and can be thought of as a named temporary result set that you can use within your SQL statement.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-are-useful-for-breaking-down-complex-queries-into-simpler-parts-improving-readability-and-maintainability">CTEs are useful for breaking down complex queries into simpler parts, improving readability and maintainability.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-also-be-recursive-allowing-you-to-perform-hierarchical-queries">CTEs can also be recursive, allowing you to perform hierarchical queries.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-are-defined-using-the-with-clause-followed-by-the-cte-name-and-the-query-that-defines-the-cte">CTEs are defined using the WITH clause, followed by the CTE name and the query that defines the CTE.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-used-in-select-insert-update-and-delete-statements">CTEs can be used in SELECT, INSERT, UPDATE, and DELETE statements.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-referenced-multiple-times-within-the-same-query-and-they-can-also-reference-other-ctes">CTEs can be referenced multiple times within the same query, and they can also reference other CTEs.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-used-to-simplify-complex-queries-improve-readability-and-make-it-easier-to-maintain-and-understand-the-code">CTEs can be used to simplify complex queries, improve readability, and make it easier to maintain and understand the code.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-also-be-used-to-create-temporary-views-that-can-be-referenced-in-other-queries">CTEs can also be used to create temporary views that can be referenced in other queries.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-used-to-create-temporary-tables-that-can-be-referenced-in-other-queries">CTEs can be used to create temporary tables that can be referenced in other queries.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.3.1 CTE using WITH</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -541,39 +502,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cte-using-with">
 <h1>3.3 CTE using WITH<a class="headerlink" href="#cte-using-with" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>3.3.1 CTE using WITH<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>CTE (Common Table Expression) is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement.
+It is defined using the WITH clause and can be thought of as a named temporary result set that you can use within your SQL statement.
+CTEs are useful for breaking down complex queries into simpler parts, improving readability and maintainability.
+CTEs can also be recursive, allowing you to perform hierarchical queries.
+CTEs are defined using the WITH clause, followed by the CTE name and the query that defines the CTE.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>3.3.1 CTE using WITH<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="cte-common-table-expression-is-a-temporary-result-set-that-you-can-reference-within-a-select-insert-update-or-delete-statement">
-<h1>CTE (Common Table Expression) is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement.<a class="headerlink" href="#cte-common-table-expression-is-a-temporary-result-set-that-you-can-reference-within-a-select-insert-update-or-delete-statement" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="it-is-defined-using-the-with-clause-and-can-be-thought-of-as-a-named-temporary-result-set-that-you-can-use-within-your-sql-statement">
-<h1>It is defined using the WITH clause and can be thought of as a named temporary result set that you can use within your SQL statement.<a class="headerlink" href="#it-is-defined-using-the-with-clause-and-can-be-thought-of-as-a-named-temporary-result-set-that-you-can-use-within-your-sql-statement" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-are-useful-for-breaking-down-complex-queries-into-simpler-parts-improving-readability-and-maintainability">
-<h1>CTEs are useful for breaking down complex queries into simpler parts, improving readability and maintainability.<a class="headerlink" href="#ctes-are-useful-for-breaking-down-complex-queries-into-simpler-parts-improving-readability-and-maintainability" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-can-also-be-recursive-allowing-you-to-perform-hierarchical-queries">
-<h1>CTEs can also be recursive, allowing you to perform hierarchical queries.<a class="headerlink" href="#ctes-can-also-be-recursive-allowing-you-to-perform-hierarchical-queries" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-are-defined-using-the-with-clause-followed-by-the-cte-name-and-the-query-that-defines-the-cte">
-<h1>CTEs are defined using the WITH clause, followed by the CTE name and the query that defines the CTE.<a class="headerlink" href="#ctes-are-defined-using-the-with-clause-followed-by-the-cte-name-and-the-query-that-defines-the-cte" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-can-be-used-in-select-insert-update-and-delete-statements">
-<h1>CTEs can be used in SELECT, INSERT, UPDATE, and DELETE statements.<a class="headerlink" href="#ctes-can-be-used-in-select-insert-update-and-delete-statements" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-can-be-referenced-multiple-times-within-the-same-query-and-they-can-also-reference-other-ctes">
-<h1>CTEs can be referenced multiple times within the same query, and they can also reference other CTEs.<a class="headerlink" href="#ctes-can-be-referenced-multiple-times-within-the-same-query-and-they-can-also-reference-other-ctes" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-can-be-used-to-simplify-complex-queries-improve-readability-and-make-it-easier-to-maintain-and-understand-the-code">
-<h1>CTEs can be used to simplify complex queries, improve readability, and make it easier to maintain and understand the code.<a class="headerlink" href="#ctes-can-be-used-to-simplify-complex-queries-improve-readability-and-make-it-easier-to-maintain-and-understand-the-code" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-can-also-be-used-to-create-temporary-views-that-can-be-referenced-in-other-queries">
-<h1>CTEs can also be used to create temporary views that can be referenced in other queries.<a class="headerlink" href="#ctes-can-also-be-used-to-create-temporary-views-that-can-be-referenced-in-other-queries" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ctes-can-be-used-to-create-temporary-tables-that-can-be-referenced-in-other-queries">
-<h1>CTEs can be used to create temporary tables that can be referenced in other queries.<a class="headerlink" href="#ctes-can-be-used-to-create-temporary-tables-that-can-be-referenced-in-other-queries" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -640,20 +576,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.3 CTE using WITH</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.3.1 CTE using WITH</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cte-common-table-expression-is-a-temporary-result-set-that-you-can-reference-within-a-select-insert-update-or-delete-statement">CTE (Common Table Expression) is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#it-is-defined-using-the-with-clause-and-can-be-thought-of-as-a-named-temporary-result-set-that-you-can-use-within-your-sql-statement">It is defined using the WITH clause and can be thought of as a named temporary result set that you can use within your SQL statement.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-are-useful-for-breaking-down-complex-queries-into-simpler-parts-improving-readability-and-maintainability">CTEs are useful for breaking down complex queries into simpler parts, improving readability and maintainability.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-also-be-recursive-allowing-you-to-perform-hierarchical-queries">CTEs can also be recursive, allowing you to perform hierarchical queries.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-are-defined-using-the-with-clause-followed-by-the-cte-name-and-the-query-that-defines-the-cte">CTEs are defined using the WITH clause, followed by the CTE name and the query that defines the CTE.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-used-in-select-insert-update-and-delete-statements">CTEs can be used in SELECT, INSERT, UPDATE, and DELETE statements.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-referenced-multiple-times-within-the-same-query-and-they-can-also-reference-other-ctes">CTEs can be referenced multiple times within the same query, and they can also reference other CTEs.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-used-to-simplify-complex-queries-improve-readability-and-make-it-easier-to-maintain-and-understand-the-code">CTEs can be used to simplify complex queries, improve readability, and make it easier to maintain and understand the code.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-also-be-used-to-create-temporary-views-that-can-be-referenced-in-other-queries">CTEs can also be used to create temporary views that can be referenced in other queries.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-can-be-used-to-create-temporary-tables-that-can-be-referenced-in-other-queries">CTEs can be used to create temporary tables that can be referenced in other queries.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.3.1 CTE using WITH</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
