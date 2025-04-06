@@ -1,4 +1,4 @@
-# Week 01 - Relational Model, SQL and more
+# Class 01 - Initial Instructions
 
 ![Our roadmap for this course](imgs/sql-mindmap.png)
 
