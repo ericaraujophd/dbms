@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.2.F AUTOINCREMENT &#8212; Database Management Systems</title>
+    <title>3.2.D ALTER TABLE &#8212; Database Management Systems</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/F-autoincrement';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/E-alter-tables';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.2.C Practice" href="Z-practice.html" />
-    <link rel="prev" title="3.2.D ALTER TABLE" href="E-alter-tables.html" />
+    <link rel="next" title="3.2.F AUTOINCREMENT" href="F-autoincrement.html" />
+    <link rel="prev" title="3.2.D CREATE TABLE Many to Many" href="D-create-tables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -220,8 +220,8 @@
 <li class="toctree-l2"><a class="reference internal" href="B-create-tables.html">3.2.B CREATE TABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-alter-tables.html">3.2.D ALTER TABLE</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.F AUTOINCREMENT</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.D ALTER TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2.C Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
 </ul>
@@ -287,7 +287,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w03/c02/F-autoincrement.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w03/c02/E-alter-tables.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +353,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/F-autoincrement.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/E-alter-tables.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -383,7 +383,7 @@
       
       
       
-      <li><a href="../../_sources/w03/c02/F-autoincrement.ipynb" target="_blank"
+      <li><a href="../../_sources/w03/c02/E-alter-tables.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -467,7 +467,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.2.F AUTOINCREMENT</h1>
+    <h1>3.2.D ALTER TABLE</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -477,7 +477,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rowid-and-autoincrement">ROWID and AUTOINCREMENT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alter-table">ALTER TABLE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-alter-table-can-do-in-sqlite">✅ What ALTER TABLE Can Do in SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-alter-table-cannot-do-in-sqlite">❌ What ALTER TABLE Cannot Do in SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workaround-for-unsupported-operations">🛠️ Workaround for Unsupported Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-postgresql-and-mysql">🆚 Comparison with PostgreSQL and MySQL</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -489,8 +495,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="f-autoincrement">
-<h1>3.2.F AUTOINCREMENT<a class="headerlink" href="#f-autoincrement" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="d-alter-table">
+<h1>3.2.D ALTER TABLE<a class="headerlink" href="#d-alter-table" title="Link to this heading">#</a></h1>
 <p>Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, <strong>ALTER TABLE</strong>, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.</p>
 <p>Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.</p>
 <div class="cell docutils container">
@@ -503,269 +509,126 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="rowid-and-autoincrement">
-<h2>ROWID and AUTOINCREMENT<a class="headerlink" href="#rowid-and-autoincrement" title="Link to this heading">#</a></h2>
-<p>SQLite uses a 64-bit signed integer as the rowid for each row in a table. The rowid is a unique identifier for each row and is automatically assigned by SQLite when a new row is inserted into the table.</p>
-<p>Let’s see how it works by creating a table for users without a primary key:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-DROP TABLE IF EXISTS users;
+<section id="alter-table">
+<h2>ALTER TABLE<a class="headerlink" href="#alter-table" title="Link to this heading">#</a></h2>
+<p>The <strong>ALTER TABLE</strong> statement is used to add, delete, or modify columns in an existing table. It can also be used to add and drop various constraints on an existing table.</p>
+<p>SQLite’s ALTER TABLE command is more limited compared to other DBMSs like PostgreSQL or MySQL. Here’s a breakdown:</p>
+<section id="what-alter-table-can-do-in-sqlite">
+<h3>✅ What ALTER TABLE Can Do in SQLite<a class="headerlink" href="#what-alter-table-can-do-in-sqlite" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Operation</p></th>
+<th class="head"><p><br>Syntax Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Rename a table</p></td>
+<td><p><br>ALTER TABLE old_name RENAME TO new_name;</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Rename a column</p></td>
+<td><p><br>ALTER TABLE table_name RENAME COLUMN old TO new;</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Add a new column</p></td>
+<td><p><br>ALTER TABLE table_name ADD COLUMN column_def;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>ℹ️ Notes:</p>
+<ul class="simple">
+<li><p>When adding a column, you may use <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>, <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, or <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> (if a default is provided).</p></li>
+<li><p>Column and table renaming are supported in SQLite 3.25.0+ (released in 2018).</p></li>
+</ul>
+</section>
+<section id="what-alter-table-cannot-do-in-sqlite">
+<h3>❌ What ALTER TABLE Cannot Do in SQLite<a class="headerlink" href="#what-alter-table-cannot-do-in-sqlite" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Operation</p></th>
+<th class="head"><p><br>Status</p></th>
+<th class="head"><p><br>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Drop a column</p></td>
+<td><p><br>❌ Not supported</p></td>
+<td><p><br>Requires manual workaround</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Modify a column’s type or constraint</p></td>
+<td><p><br>❌ Not supported</p></td>
+<td><p><br>Must recreate the table</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Change default value of an existing column</p></td>
+<td><p><br>❌ Not supported</p></td>
+<td><p><br>Requires table reconstruction</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Reorder columns</p></td>
+<td><p><br>❌ Not supported</p></td>
+<td><p><br>SQLite stores columns in defined order permanently</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Add or drop constraints (e.g., FK, UNIQUE)</p></td>
+<td><p><br>❌ Not supported</p></td>
+<td><p><br>Must recreate table with new constraints</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Rename multiple columns at once</p></td>
+<td><p><br>❌ Not supported</p></td>
+<td><p><br>Rename one column at a time</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="workaround-for-unsupported-operations">
+<h3>🛠️ Workaround for Unsupported Operations<a class="headerlink" href="#workaround-for-unsupported-operations" title="Link to this heading">#</a></h3>
+<p>To drop a column, modify constraints, or change defaults, follow this pattern:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 1. Create new table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Person_new</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="p">);</span>
 
-CREATE TABLE users (
-    name TEXT NOT NULL,
-    age INTEGER NOT NULL,
-    email TEXT NOT NULL UNIQUE
-);
+<span class="c1">-- 2. Copy data from old table</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Person_new</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Person</span><span class="p">;</span>
 
-INSERT INTO users (name, age, email) VALUES
-    (&#39;John&#39;, 32, &#39;john@john.com&#39;),
-    (&#39;Mary&#39;, 19, &#39;mary@mary.com&#39;),
-    (&#39;Roe&#39;, 22, &#39;roe@roe.com&#39;),
-    (&#39;Sean&#39;, 62, &#39;sean@sean.com&#39;);
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
-Done.
-Done.
-4 rows affected.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, let’s query the data and see what happens:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-SELECT name, age, email
-FROM users;
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
-Done.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <thead>
-        <tr>
-            <th>name</th>
-            <th>age</th>
-            <th>email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>John</td>
-            <td>32</td>
-            <td>john@john.com</td>
-        </tr>
-        <tr>
-            <td>Mary</td>
-            <td>19</td>
-            <td>mary@mary.com</td>
-        </tr>
-        <tr>
-            <td>Roe</td>
-            <td>22</td>
-            <td>roe@roe.com</td>
-        </tr>
-        <tr>
-            <td>Sean</td>
-            <td>62</td>
-            <td>sean@sean.com</td>
-        </tr>
-    </tbody>
-</table></div></div>
-</div>
-<p>As you can see, there is no primary key. However, there is! The rowid is automatically created by SQLite and is used as the primary key for the table. To see the rowid, we can use the following query:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-SELECT rowid, name, age, email
-FROM users;
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
-Done.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <thead>
-        <tr>
-            <th>rowid</th>
-            <th>name</th>
-            <th>age</th>
-            <th>email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>John</td>
-            <td>32</td>
-            <td>john@john.com</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Mary</td>
-            <td>19</td>
-            <td>mary@mary.com</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Roe</td>
-            <td>22</td>
-            <td>roe@roe.com</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Sean</td>
-            <td>62</td>
-            <td>sean@sean.com</td>
-        </tr>
-    </tbody>
-</table></div></div>
-</div>
-<p>What if we have a primary key explicitly defined?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+<span class="c1">-- 3. Drop the old table</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Person</span><span class="p">;</span>
 
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE users (
-    user_id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
-    age INTEGER NOT NULL,
-    email TEXT NOT NULL UNIQUE
-);
-
-INSERT INTO users (user_id, name, age, email) VALUES
-    (1, &#39;John&#39;, 32, &#39;john@john.com&#39;),
-    (2, &#39;Mary&#39;, 19, &#39;mary@mary.com&#39;),
-    (3, &#39;Roe&#39;, 22, &#39;roe@roe.com&#39;),
-    (4, &#39;Sean&#39;, 62, &#39;sean@sean.com&#39;);
-    
-SELECT user_id, name, age, email
-FROM users;
+<span class="c1">-- 4. Rename the new table</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Person_new</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">Person</span><span class="p">;</span>
 </pre></div>
 </div>
+</section>
+<section id="comparison-with-postgresql-and-mysql">
+<h3>🆚 Comparison with PostgreSQL and MySQL<a class="headerlink" href="#comparison-with-postgresql-and-mysql" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Feature</p></th>
+<th class="head"><p><br>SQLite</p></th>
+<th class="head"><p><br>PostgreSQL / MySQL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Drop/modify column</p></td>
+<td><p><br>❌ No</p></td>
+<td><p><br>✅ Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Add/drop constraints</p></td>
+<td><p><br>❌ No</p></td>
+<td><p><br>✅ Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Reorder columns</p></td>
+<td><p><br>❌ No</p></td>
+<td><p><br>✅ (MySQL) / 🚫 (PostgreSQL)</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Rename columns</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>✅ Yes</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
-Done.
-Done.
-4 rows affected.
-Done.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <thead>
-        <tr>
-            <th>user_id</th>
-            <th>name</th>
-            <th>age</th>
-            <th>email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>John</td>
-            <td>32</td>
-            <td>john@john.com</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Mary</td>
-            <td>19</td>
-            <td>mary@mary.com</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Roe</td>
-            <td>22</td>
-            <td>roe@roe.com</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Sean</td>
-            <td>62</td>
-            <td>sean@sean.com</td>
-        </tr>
-    </tbody>
-</table></div></div>
-</div>
-<p>Interesting… now where is the rowid?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-
-SELECT rowid, user_id, name, age, email
-FROM users;
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
-Done.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <thead>
-        <tr>
-            <th>user_id</th>
-            <th>user_id_1</th>
-            <th>name</th>
-            <th>age</th>
-            <th>email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>John</td>
-            <td>32</td>
-            <td>john@john.com</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>Mary</td>
-            <td>19</td>
-            <td>mary@mary.com</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>3</td>
-            <td>Roe</td>
-            <td>22</td>
-            <td>roe@roe.com</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>4</td>
-            <td>Sean</td>
-            <td>62</td>
-            <td>sean@sean.com</td>
-        </tr>
-    </tbody>
-</table></div></div>
-</div>
-<p>So, in this case, <code class="docutils literal notranslate"><span class="pre">user_id</span></code>is the <code class="docutils literal notranslate"><span class="pre">row_id</span></code> column.</p>
-<p>Also interesting is the fact that if you don’t specify a value for the <code class="docutils literal notranslate"><span class="pre">user_id</span></code> column, SQLite will automatically assign a value to it. This is done by using the <code class="docutils literal notranslate"><span class="pre">AUTOINCREMENT</span></code> keyword, even when not include during the process of creating the table.</p>
-<p>The maximum value for <code class="docutils literal notranslate"><span class="pre">rowid</span></code> is 9223372036854775807, which is the maximum value for a 64-bit signed integer. If you try to insert a value greater than this, SQLite will return an error. Also, if you insert a new item, and the value of <code class="docutils literal notranslate"><span class="pre">rowid</span></code> has reached the maximum value, SQLite will try to find an unused number. If there is no free number, it will throw an error.</p>
-<p>SQLite recommends you don’t use AUTOINCREMENT attribute as it requires extra CPU, memory, disk space and disk I/O overhead.</p>
+</section>
 </section>
 </section>
 
@@ -800,20 +663,20 @@ Done.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="E-alter-tables.html"
+       href="D-create-tables.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.2.D ALTER TABLE</p>
+        <p class="prev-next-title">3.2.D CREATE TABLE Many to Many</p>
       </div>
     </a>
     <a class="right-next"
-       href="Z-practice.html"
+       href="F-autoincrement.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.2.C Practice</p>
+        <p class="prev-next-title">3.2.F AUTOINCREMENT</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -833,7 +696,13 @@ Done.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rowid-and-autoincrement">ROWID and AUTOINCREMENT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alter-table">ALTER TABLE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-alter-table-can-do-in-sqlite">✅ What ALTER TABLE Can Do in SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-alter-table-cannot-do-in-sqlite">❌ What ALTER TABLE Cannot Do in SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workaround-for-unsupported-operations">🛠️ Workaround for Unsupported Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-postgresql-and-mysql">🆚 Comparison with PostgreSQL and MySQL</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

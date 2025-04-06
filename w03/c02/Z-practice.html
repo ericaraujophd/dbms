@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.2.A DDL commands &#8212; Database Management Systems</title>
+    <title>3.2.C Practice &#8212; Database Management Systems</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/A-ddl';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/Z-practice';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.2.B CREATE TABLE" href="B-create-tables.html" />
-    <link rel="prev" title="Week 3" href="../../week3.html" />
+    <link rel="next" title="Project 3" href="../../projects/proj03.html" />
+    <link rel="prev" title="3.2.F AUTOINCREMENT" href="F-autoincrement.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,13 +216,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week3.html">Week 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.A DDL commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A-ddl.html">3.2.A DDL commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="B-create-tables.html">3.2.B CREATE TABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-alter-tables.html">3.2.D ALTER TABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2.C Practice</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.C Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
 </ul>
 </details></li>
@@ -279,6 +279,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w03/c02/Z-practice.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -304,7 +353,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/A-ddl.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/Z-practice.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +383,7 @@
       
       
       
-      <li><a href="../../_sources/w03/c02/A-ddl.md" target="_blank"
+      <li><a href="../../_sources/w03/c02/Z-practice.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +393,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -416,7 +465,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.2.A DDL commands</h1>
+    <h1>3.2.C Practice</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -430,26 +479,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="a-ddl-commands">
-<h1>3.2.A DDL commands<a class="headerlink" href="#a-ddl-commands" title="Link to this heading">#</a></h1>
-<p>DDL stands for Data Definition Language. It is a subset of SQL used to define and manage database structures, such as tables, indexes, and schemas. DDL commands are responsible for creating, altering, and deleting database objects.</p>
-<p>DDL commands include:</p>
-<ul class="simple">
-<li><p><strong>CREATE</strong>: Used to create new database objects, such as tables, indexes, and views.</p></li>
-<li><p><strong>ALTER</strong>: Used to modify existing database objects, such as adding or dropping columns in a table.</p></li>
-<li><p><strong>DROP</strong>: Used to delete existing database objects, such as tables, indexes, and views.</p></li>
-<li><p><strong>RENAME COLUMN</strong>: Used to rename existing database objects, such as tables or columns.</p></li>
-<li><p><strong>TRUNCATE</strong>: Used to remove all rows from a table without deleting the table itself.</p></li>
-</ul>
-<p>The DDL commands can have as targets the following objects:</p>
-<ul class="simple">
-<li><p><strong>TABLE</strong>: A collection of related data organized in rows and columns.</p></li>
-<li><p><strong>INDEX</strong>: A data structure that improves the speed of data retrieval operations on a database table.</p></li>
-<li><p><strong>VIEW</strong>: A virtual table that is based on the result of a query. It can be used to simplify complex queries or to provide a specific view of the data.</p></li>
-<li><p><strong>SCHEMA</strong>: A logical container for database objects, such as tables, indexes, and views. It helps organize and manage the database structure.</p></li>
-<li><p><strong>CONSTRAINT</strong>: A rule that restricts the values that can be stored in a table. Constraints can be used to enforce data integrity and ensure that the data meets specific requirements.</p></li>
-</ul>
-<p>In this class we will navigate on how to use the DDL commands efficiently.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="c-practice">
+<h1>3.2.C Practice<a class="headerlink" href="#c-practice" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -483,20 +514,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../week3.html"
+       href="F-autoincrement.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week 3</p>
+        <p class="prev-next-title">3.2.F AUTOINCREMENT</p>
       </div>
     </a>
     <a class="right-next"
-       href="B-create-tables.html"
+       href="../../projects/proj03.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.2.B CREATE TABLE</p>
+        <p class="prev-next-title">Project 3</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
