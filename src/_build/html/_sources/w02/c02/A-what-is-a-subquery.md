@@ -1,1 +1,1 @@
-# 2.2.A What is a Subquery?
+# Class 2. What is a Subquery?

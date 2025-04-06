@@ -7,84 +7,75 @@ parts:
   - caption: Week 1 - Introduction to SQL
     chapters:
       # Class 1 - CONCEPTS
-      - file: week1class1
+      - file: w01/c01/A-intro
         sections:
-        - file: w01/c01/A-intro
-        - file: w01/c01/B-intro-to-relational-databases
-        - file: w01/c01/C-history-relational-models
-        - file: w01/c01/D-relational-dbs-dissected
-        - file: w01/c01/E-sql-brief-history
+          - file: w01/c01/B-intro-to-relational-databases
+          - file: w01/c01/C-history-relational-models
+          - file: w01/c01/D-relational-dbs-dissected
+          - file: w01/c01/E-sql-brief-history
       # Class 2 - SELECT and ORDER BY
-      # - file: week1
+      - file: w01/c02/A-methods
         sections:
-        - file: w01/c02/A-methods
-        - file: w01/c02/B-first-query
-        - file: w01/c02/C-order-by
-        - file: w01/c02/D-distinct
-        - file: w01/c02/E-practice
+          - file: w01/c02/B-first-query
+          - file: w01/c02/C-order-by
+          - file: w01/c02/D-distinct
+          - file: w01/c02/E-practice
       # Class 3 - EXPRESSIONS, CASE, WHERE and DISTINCT
-      # - file: week1
+      - file: w01/c03/A-expressions
         sections:
-        - file: w01/c03/A-expressions
         - file: w01/c03/B-case
         - file: w01/c03/C-where
         - file: w01/c03/D-practice
-  # - caption: Week 2 - Intermediate SQL
-  #   chapters:
-  #     # Class 1 - SET OPERATIONS and JOINS
-  #     - file: week2
-  #       sections:
-  #       - file: w02/c01/A-what-is-a-set
-  #       - file: w02/c01/B-sql-set-operations
-  #       - file: w02/c01/C-joins
-  #       - file: w02/c01/D-practice
-  #     # Class 2 - SUBQUERIES
-  #     - file: week2
-  #       sections:
-  #       - file: w02/c02/A-what-is-a-subquery
-  #       - file: w02/c02/B-subqueries
-  #       - file: w02/c02/C-aggregate-functions
-  #       - file: w02/c02/D-aggregate-functions
-  #       - file: w02/c02/F-practice
-  #       - file: w02/c02/E-group-by
-  #     # Class 3 - AGGREGATED FUNCTIONS
-  #     - file: week2
-  #       sections:
-  #       - file: w02/c03/A-filtering
-  #       - file: w02/c03/B-where
-  #       - file: w02/c03/C-having
-  #       - file: w02/c03/D-practice
-  # - caption: Week 3 - Advanced SQL
-  #   chapters:
-  #     # Class 1 - DML
-  #     - file: week3
-  #       sections:
-  #       - file: w03/c01/A-dml
-  #       - file: w03/c01/B-insert
-  #       - file: w03/c01/C-update
-  #       - file: w03/c01/D-delete
-  #       - file: w03/c01/Z-practice
-  #     # Class 2 - DDL
-  #     - file: week3
-  #       sections:
-  #       - file: w03/c02/A-ddl
-  #       - file: w03/c02/B-create-tables
-  #       - file: w03/c02/C-create-tables
-  #       - file: w03/c02/D-create-tables
-  #       - file: w03/c02/E-alter-tables
-  #       - file: w03/c02/F-autoincrement
-  #       - file: w03/c02/G-views
-  #       - file: w03/c02/Z-practice
-  #     # Class 3 - Advanced SQL
-  #     - file: week3
-  #       sections:
-  #       - file: w03/c03/A-advanced-sql
-  #       - file: w03/c03/B-CLI
-  #       - file: w03/c03/C-WITH
-  #       - file: w03/c03/D-VACUUM
-  #       - file: w03/c03/Z-practice
-  #     # Project 03 - Animal Crossing
-  #     - file: projects/proj03
+  - caption: Week 2 - Intermediate SQL
+    chapters:
+      # Class 1 - SET OPERATIONS and JOINS
+      - file: w02/c01/A-what-is-a-set
+        sections:
+        - file: w02/c01/B-sql-set-operations
+        - file: w02/c01/C-joins
+        - file: w02/c01/D-practice
+      # Class 2 - SUBQUERIES
+      - file: w02/c02/A-what-is-a-subquery
+        sections:
+        - file: w02/c02/B-subqueries
+        - file: w02/c02/C-aggregate-functions
+        - file: w02/c02/D-aggregate-functions
+        - file: w02/c02/F-practice
+        - file: w02/c02/E-group-by
+      # Class 3 - AGGREGATED FUNCTIONS
+      - file: w02/c03/A-filtering
+        sections:
+        - file: w02/c03/B-where
+        - file: w02/c03/C-having
+        - file: w02/c03/D-practice
+  - caption: Week 3 - Advanced SQL
+    chapters:
+      # Class 1 - DML
+      - file: w03/c01/A-dml
+        sections:
+          - file: w03/c01/B-insert
+          - file: w03/c01/C-update
+          - file: w03/c01/D-delete
+          - file: w03/c01/Z-practice
+      # Class 2 - DDL
+      - file: w03/c02/A-ddl
+        sections:
+          - file: w03/c02/B-create-tables
+          - file: w03/c02/C-create-tables
+          - file: w03/c02/D-create-tables
+          - file: w03/c02/E-alter-tables
+          - file: w03/c02/F-autoincrement
+          - file: w03/c02/G-views
+          - file: w03/c02/Z-practice
+      # Class 3 - Advanced SQL
+      - file: w03/c03/A-advanced-sql
+        sections:
+          - file: w03/c03/B-CLI
+          - file: w03/c03/C-WITH
+          - file: w03/c03/D-VACUUM
+          - file: w03/c03/Z-practice
+      # Project 03 - Animal Crossing
+      - file: projects/proj03
   # - file: week04
   # - file: week05
   # - file: week06

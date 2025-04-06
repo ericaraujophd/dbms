@@ -1,1 +1,1 @@
-# 2.3.A Focusing
+# Class 3. Focusing
