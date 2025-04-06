@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.2.D CREATE TABLE Many to Many &#8212; Database Management Systems</title>
+    <title>3.2.D Many-to-Many Relationships &#8212; Database Management Systems</title>
   
   
   
@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.2.D ALTER TABLE" href="E-alter-tables.html" />
-    <link rel="prev" title="3.2.C CREATE TABLE with Foreign Keys" href="C-create-tables.html" />
+    <link rel="prev" title="3.2.C Foreign Keys" href="C-create-tables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,11 +218,11 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week3.html">Week 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="A-ddl.html">3.2.A DDL commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="B-create-tables.html">3.2.B CREATE TABLE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.D CREATE TABLE Many to Many</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-create-tables.html">3.2.C Foreign Keys</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.D Many-to-Many Relationships</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-alter-tables.html">3.2.D ALTER TABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2.C Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2 Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
 </ul>
 </details></li>
@@ -467,7 +467,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.2.D CREATE TABLE Many to Many</h1>
+    <h1>3.2.D Many-to-Many Relationships</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -489,8 +489,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="d-create-table-many-to-many">
-<h1>3.2.D CREATE TABLE Many to Many<a class="headerlink" href="#d-create-table-many-to-many" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="d-many-to-many-relationships">
+<h1>3.2.D Many-to-Many Relationships<a class="headerlink" href="#d-many-to-many-relationships" title="Link to this heading">#</a></h1>
 <p>Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, ALTER TABLE, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.</p>
 <p>Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.</p>
 <div class="cell docutils container">
@@ -506,6 +506,224 @@ document.write(`
 <section id="creating-many-to-many-relationships">
 <h2>Creating many-to-many relationships<a class="headerlink" href="#creating-many-to-many-relationships" title="Link to this heading">#</a></h2>
 <p>To create a many-to-many relationship, we need to create a junction table that contains foreign keys referencing the primary keys of the two tables we want to relate. This junction table will allow us to establish the many-to-many relationship between the two tables.</p>
+<p>As stated before, foreign keys will create a relation parent-child between the two tables. The parent table is the one that contains the primary key, while the child table is the one that contains the foreign key. In a many-to-many relationship, we will have two parent tables and one child table (the junction table).</p>
+<p>Let’s see how this is done in SQL. We will create an example where our tables refer to a library system. We will have two tables: <code class="docutils literal notranslate"><span class="pre">books</span></code> and <code class="docutils literal notranslate"><span class="pre">authors</span></code>. Each book can have multiple authors, and each author can write multiple books. To create this many-to-many relationship, we will create a junction table called <code class="docutils literal notranslate"><span class="pre">book_authors</span></code> that will contain the foreign keys referencing the primary keys of the <code class="docutils literal notranslate"><span class="pre">books</span></code> and <code class="docutils literal notranslate"><span class="pre">authors</span></code> tables.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">books</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">book_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">publication_year</span><span class="w"> </span><span class="nb">INTEGER</span>
+<span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">authors</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">author_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">book_authors</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">book_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">author_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">book_id</span><span class="p">,</span><span class="w"> </span><span class="n">author_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">books</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">,</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">author_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">authors</span><span class="p">(</span><span class="n">author_id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, we have created three tables: <code class="docutils literal notranslate"><span class="pre">books</span></code>, <code class="docutils literal notranslate"><span class="pre">authors</span></code>, and <code class="docutils literal notranslate"><span class="pre">book_authors</span></code>. The <code class="docutils literal notranslate"><span class="pre">book_authors</span></code> table contains two foreign keys: <code class="docutils literal notranslate"><span class="pre">book_id</span></code> and <code class="docutils literal notranslate"><span class="pre">author_id</span></code>, which reference the primary keys of the <code class="docutils literal notranslate"><span class="pre">books</span></code> and <code class="docutils literal notranslate"><span class="pre">authors</span></code> tables, respectively. The <code class="docutils literal notranslate"><span class="pre">ON</span> <span class="pre">DELETE</span> <span class="pre">CASCADE</span></code> option ensures that if a book or an author is deleted, all corresponding entries in the <code class="docutils literal notranslate"><span class="pre">book_authors</span></code> table will also be deleted automatically.</p>
+<p>This way, we maintain referential integrity in our database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+-- Let&#39;s create the tables to play with
+
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS authors;
+DROP TABLE IF EXISTS book_authors;
+
+CREATE TABLE books (
+    book_id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    publication_year INTEGER
+);
+
+CREATE TABLE authors (
+    author_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE book_authors (
+    book_id INTEGER,
+    author_id INTEGER,
+    PRIMARY KEY (book_id, author_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
+    FOREIGN KEY (author_id) REFERENCES authors(author_id) ON DELETE CASCADE
+);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+Done.
+Done.
+Done.
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+-- Let&#39;s insert some data into the tables
+INSERT INTO books (book_id, title, publication_year) VALUES
+(1, &#39;To Kill a Mockingbird&#39;, 1960),
+(2, &#39;1984&#39;, 1949),
+(3, &#39;The Great Gatsby&#39;, 1925),
+(4, &#39;Pride and Prejudice&#39;, 1813),
+(5, &#39;Emma&#39;, 1813);
+
+INSERT INTO authors (author_id, name) VALUES
+(1, &#39;Harper Lee&#39;),
+(2, &#39;George Orwell&#39;),
+(3, &#39;F. Scott Fitzgerald&#39;),
+(4, &#39;Jane Austen&#39;);
+
+INSERT INTO book_authors (book_id, author_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(1, 4), -- let&#39;s pretend Jane Austen wrote &#39;To Kill a Mockingbird&#39; too
+(5, 5);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+5 rows affected.
+4 rows affected.
+6 rows affected.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+-- Let&#39;s see the list of books and their authors
+SELECT b.title, a.name
+FROM books b
+JOIN book_authors ba ON b.book_id = ba.book_id
+JOIN authors a ON ba.author_id = a.author_id
+ORDER BY b.title;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1984</td>
+            <td>George Orwell</td>
+        </tr>
+        <tr>
+            <td>Pride and Prejudice</td>
+            <td>Jane Austen</td>
+        </tr>
+        <tr>
+            <td>The Great Gatsby</td>
+            <td>F. Scott Fitzgerald</td>
+        </tr>
+        <tr>
+            <td>To Kill a Mockingbird</td>
+            <td>Harper Lee</td>
+        </tr>
+        <tr>
+            <td>To Kill a Mockingbird</td>
+            <td>Jane Austen</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+-- Let&#39;s see what happens when we delete a book
+DELETE FROM books WHERE book_id = 1;
+-- Let&#39;s see the list of books and their authors again
+SELECT b.title, a.name
+FROM books b
+JOIN book_authors ba ON b.book_id = ba.book_id
+JOIN authors a ON ba.author_id = a.author_id
+ORDER BY b.title;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+1 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1984</td>
+            <td>George Orwell</td>
+        </tr>
+        <tr>
+            <td>Pride and Prejudice</td>
+            <td>Jane Austen</td>
+        </tr>
+        <tr>
+            <td>The Great Gatsby</td>
+            <td>F. Scott Fitzgerald</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+-- use this area to play with the database
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -545,7 +763,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.2.C CREATE TABLE with Foreign Keys</p>
+        <p class="prev-next-title">3.2.C Foreign Keys</p>
       </div>
     </a>
     <a class="right-next"
