@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2.C CREATE TABLE with Foreign Keys &#8212; Database Management Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/C-create-tables';</script>
+    <link rel="icon" href="../../_static/Calvin_College.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.D CREATE TABLE Many to Many" href="D-create-tables.html" />
+    <link rel="prev" title="3.2.B CREATE TABLE" href="B-create-tables.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Database Management Systems - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Database Management Systems - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    Welcome to DBMS and SQL course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week1.html">Week 01 - Relational Model, SQL and more</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/A-intro.html">1.1.A - In the Beginning…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/B-intro-to-relational-databases.html">1.1.B What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/C-history-relational-models.html">1.1.C History of Relational Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/D-relational-dbs-dissected.html">1.1.D Relational Database Dissected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/E-sql-brief-history.html">1.1.E A Brief History of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/A-methods.html">1.2.A SQLite, Jupyter etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/B-first-query.html">1.2.B Creating a First Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/C-order-by.html">1.2.C Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/D-distinct.html">1.2.C Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/E-practice.html">1.2.D Practicing What You Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/A-expressions.html">1.3.A What are Expressions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/B-case.html">1.3.B CASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/C-where.html">1.3.C WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/D-practice.html">1.3.D Hands-on!</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week2.html">Week 2 - Working with Multiple Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/A-what-is-a-set.html">2.1.A What is a Set?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/B-sql-set-operations.html">2.1.B SQL Set Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/C-joins.html">2.1.C Joins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/D-practice.html">2.1.D Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/B-subqueries.html">2.2.B Subqueries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/C-aggregate-functions.html">2.2.C Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/D-aggregate-functions.html">2.2.D Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/F-practice.html">2.2.F Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/E-group-by.html">2.2.E Group By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/A-filtering.html">2.3.A Focusing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/B-where.html">2.3.B WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/C-having.html">2.3.C HAVING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/D-practice.html">2.3.D Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week3.html">Week 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="A-ddl.html">3.2.A DDL commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B-create-tables.html">3.2.B CREATE TABLE</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.C CREATE TABLE with Foreign Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
+<li class="toctree-l2"><a class="reference internal" href="E-alter-tables.html">3.2.D ALTER TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2.C Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week04.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week05.html">Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week06.html">Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week07.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w03/c02/C-create-tables.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ericaraujophd/dbms" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/C-create-tables.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/w03/c02/C-create-tables.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.2.C CREATE TABLE with Foreign Keys</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreign-key-constraints">Foreign Key Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreign-key-syntax">Foreign Key Syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-foreign-key-violations">Handling Foreign Key Violations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cascade-example">CASCADE Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-null-example">SET NULL Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-default-example">SET DEFAULT Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restrict-and-no-action-example">RESTRICT and NO ACTION Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c-create-table-with-foreign-keys">
+<h1>3.2.C CREATE TABLE with Foreign Keys<a class="headerlink" href="#c-create-table-with-foreign-keys" title="Link to this heading">#</a></h1>
+<p>Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, ALTER TABLE, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.</p>
+<p>Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">sql</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">///</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;_DEPRECATED_DEFAULT&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="foreign-key-constraints">
+<h2>Foreign Key Constraints<a class="headerlink" href="#foreign-key-constraints" title="Link to this heading">#</a></h2>
+<p>A foreign key is a column or a set of columns in one table that refers to the primary key in another table. A foreign key establishes a relationship between two tables and ensures referential integrity. This means that the values in the foreign key column must match the values in the primary key column of the referenced table.</p>
+<p>SQLite only supported foreign key constraints starting from version 3.6.19 (2009-10-14). By default, foreign key constraints are disabled in SQLite. To verify if your current SQLite version supports foreign key constraints, you can use the following command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA foreign_keys;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>foreign_keys</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<hr class="docutils" />
+<p>The command returns an integer value:</p>
+<ul class="simple">
+<li><p>1: enable</p></li>
+<li><p>0: disabled.</p></li>
+</ul>
+<p>If the command returns nothing, it means that your SQLite version doesn’t support foreign key constraints.</p>
+<p>The foreign keys can be enabled or disabled using the following command:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="n">foreign_keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">;</span><span class="w"> </span><span class="c1">-- enable</span>
+<span class="n">PRAGMA</span><span class="w"> </span><span class="n">foreign_keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">;</span><span class="w"> </span><span class="c1">-- disable</span>
+</pre></div>
+</div>
+</section>
+<section id="foreign-key-syntax">
+<h2>Foreign Key Syntax<a class="headerlink" href="#foreign-key-syntax" title="Link to this heading">#</a></h2>
+<p>To create a foreign key constraint in SQLite, you can use the following syntax when creating a table:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column2</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">other_table</span><span class="w"> </span><span class="p">(</span><span class="n">other_column</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>The table that contains the foreign key is called the child table, and the table that contains the primary key is called the parent table. The foreign key constraint ensures that any value in the child table’s foreign key column must exist in the parent table’s primary key column.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Let’s create two tables: <code class="docutils literal notranslate"><span class="pre">students</span></code> and <code class="docutils literal notranslate"><span class="pre">courses</span></code>. The <code class="docutils literal notranslate"><span class="pre">students</span></code> table will have a foreign key that references the <code class="docutils literal notranslate"><span class="pre">courses</span></code> table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+CREATE TABLE courses (
+    course_id INTEGER PRIMARY KEY,
+    course_name TEXT NOT NULL
+);
+
+CREATE TABLE students (
+    student_id INTEGER PRIMARY KEY,
+    student_name TEXT NOT NULL,
+    course_id INTEGER,
+    FOREIGN KEY (course_id) REFERENCES courses (course_id)
+);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">students</span></code> table has a foreign key <code class="docutils literal notranslate"><span class="pre">course_id</span></code> that references the <code class="docutils literal notranslate"><span class="pre">course_id</span></code> in the <code class="docutils literal notranslate"><span class="pre">courses</span></code> table. This means that any value in the <code class="docutils literal notranslate"><span class="pre">course_id</span></code> column of the <code class="docutils literal notranslate"><span class="pre">students</span></code> table must exist in the <code class="docutils literal notranslate"><span class="pre">course_id</span></code> column of the <code class="docutils literal notranslate"><span class="pre">courses</span></code> table.</p>
+<p>If you try to insert a record into the <code class="docutils literal notranslate"><span class="pre">students</span></code> table with a <code class="docutils literal notranslate"><span class="pre">course_id</span></code> that does not exist in the <code class="docutils literal notranslate"><span class="pre">courses</span></code> table, SQLite will raise an error and prevent the insertion. This ensures referential integrity between the two tables.</p>
+<p>Let’s add some data to the <code class="docutils literal notranslate"><span class="pre">courses</span></code> table and then insert a record into the <code class="docutils literal notranslate"><span class="pre">students</span></code> table with a valid <code class="docutils literal notranslate"><span class="pre">course_id</span></code>. After that, we will try to insert a record with an invalid <code class="docutils literal notranslate"><span class="pre">course_id</span></code> to see how SQLite handles it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+-- Turning foreign key constraints on
+PRAGMA foreign_keys = ON;
+
+INSERT INTO courses (course_id, course_name) VALUES
+(1, &#39;Mathematics&#39;),
+(2, &#39;Science&#39;),
+(3, &#39;History&#39;);
+
+INSERT INTO students (student_id, student_name, course_id) VALUES
+(1, &#39;Alice&#39;, 1),
+(2, &#39;Bob&#39;, 2),
+(3, &#39;Charlie&#39;, 3),
+(4, &#39;David&#39;, 1),
+(5, &#39;Eve&#39;, 2);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+3 rows affected.
+5 rows affected.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+-- Error inserting a student with a non-existent course_id
+INSERT INTO students (student_id, student_name, course_id) VALUES
+(6, &#39;Frank&#39;, 4);  -- This will fail due to foreign key constraint
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+(sqlite3.IntegrityError) FOREIGN KEY constraint failed
+[SQL: -- Error inserting a student with a non-existent course_id
+INSERT INTO students (student_id, student_name, course_id) VALUES
+(6, &#39;Frank&#39;, 4);  -- This will fail due to foreign key constraint]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select * from students;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>student_id</th>
+            <th>student_name</th>
+            <th>course_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Alice</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bob</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Charlie</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>David</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Eve</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+</section>
+<section id="handling-foreign-key-violations">
+<h2>Handling Foreign Key Violations<a class="headerlink" href="#handling-foreign-key-violations" title="Link to this heading">#</a></h2>
+<p>When you try to insert a record into the child table with a foreign key that does not exist in the parent table, SQLite will raise an error. But the bigger problem is when you delete or update a record in the parent table that is referenced by the child table. In this case, you have several options to handle foreign key violations:</p>
+<ol class="arabic simple">
+<li><p><strong>CASCADE</strong>: If you delete or update a record in the parent table, all corresponding records in the child table will also be deleted or updated.</p></li>
+<li><p><strong>SET NULL</strong>: If you delete or update a record in the parent table, the corresponding foreign key values in the child table will be set to NULL.</p></li>
+<li><p><strong>SET DEFAULT</strong>: If you delete or update a record in the parent table, the corresponding foreign key values in the child table will be set to their default value.</p></li>
+<li><p><strong>NO ACTION</strong>: If you delete or update a record in the parent table, SQLite will raise an error and prevent the operation if there are corresponding records in the child table.</p></li>
+<li><p><strong>RESTRICT</strong>: Similar to NO ACTION, but it checks for foreign key violations immediately after the DELETE or UPDATE statement.</p></li>
+</ol>
+<section id="cascade-example">
+<h3>CASCADE Example<a class="headerlink" href="#cascade-example" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code> action is the most common way to handle foreign key violations. It allows you to delete or update records in the parent table without worrying about the child table. When you delete or update a record in the parent table, all corresponding records in the child table will also be deleted or updated.</p>
+<p>Let’s create the <code class="docutils literal notranslate"><span class="pre">team</span></code> table and the <code class="docutils literal notranslate"><span class="pre">player</span></code> table with a foreign key constraint. The <code class="docutils literal notranslate"><span class="pre">player</span></code> table has a foreign key <code class="docutils literal notranslate"><span class="pre">team_id</span></code> that references the <code class="docutils literal notranslate"><span class="pre">team_id</span></code> in the <code class="docutils literal notranslate"><span class="pre">team</span></code> table. If we delete a record from the <code class="docutils literal notranslate"><span class="pre">team</span></code> table, all corresponding records in the <code class="docutils literal notranslate"><span class="pre">player</span></code> table will also be deleted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+-- Create the team table
+DROP TABLE IF EXISTS teams;
+
+CREATE TABLE teams (
+    team_id INTEGER PRIMARY KEY,
+    team_name TEXT NOT NULL
+);
+
+-- Insert some teams
+INSERT INTO teams (team_id, team_name) VALUES
+(1, &#39;Team A&#39;),
+(2, &#39;Team B&#39;),
+(3, &#39;Team C&#39;),
+(4, &#39;Team D&#39;),
+(5, &#39;Team E&#39;);
+
+-- Create players table
+DROP TABLE IF EXISTS players;
+
+CREATE TABLE players (
+    player_id INTEGER PRIMARY KEY,
+    player_name TEXT NOT NULL,
+    team_id INTEGER,
+    FOREIGN KEY (team_id) REFERENCES teams (team_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+-- Insert some players
+INSERT INTO players (player_id, player_name, team_id) VALUES
+(1, &#39;Player 1&#39;, 1),
+(2, &#39;Player 2&#39;, 1),
+(3, &#39;Player 3&#39;, 2),
+(4, &#39;Player 4&#39;, 3),
+(5, &#39;Player 5&#39;, 4),
+(6, &#39;Player 6&#39;, 5);
+
+SELECT t.team_id, team_name, player_id, player_name
+FROM players p
+    JOIN teams t
+    ON p.team_id = t.team_id;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+5 rows affected.
+Done.
+Done.
+6 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>team_id</th>
+            <th>team_name</th>
+            <th>player_id</th>
+            <th>player_name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Team A</td>
+            <td>1</td>
+            <td>Player 1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Team A</td>
+            <td>2</td>
+            <td>Player 2</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Team B</td>
+            <td>3</td>
+            <td>Player 3</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Team C</td>
+            <td>4</td>
+            <td>Player 4</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Team D</td>
+            <td>5</td>
+            <td>Player 5</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Team E</td>
+            <td>6</td>
+            <td>Player 6</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Now let’s delete a record from the <code class="docutils literal notranslate"><span class="pre">team</span></code> table and see how it affects the <code class="docutils literal notranslate"><span class="pre">player</span></code> table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+DELETE FROM teams WHERE team_id = 1;
+
+SELECT * FROM players;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+1 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>player_id</th>
+            <th>player_name</th>
+            <th>team_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>3</td>
+            <td>Player 3</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Player 4</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Player 5</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Player 6</td>
+            <td>5</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>As you can see, players 1 and 2 are deleted from the <code class="docutils literal notranslate"><span class="pre">player</span></code> table when we delete the <code class="docutils literal notranslate"><span class="pre">team</span></code> with <code class="docutils literal notranslate"><span class="pre">team_id</span></code> 1. This is because of the <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code> action we specified in the foreign key constraint.</p>
+</section>
+<section id="set-null-example">
+<h3>SET NULL Example<a class="headerlink" href="#set-null-example" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">NULL</span></code> action allows you to delete or update records in the parent table without deleting or updating the corresponding records in the child table. Instead, the foreign key values in the child table will be set to NULL.</p>
+<p>Let’s create the <code class="docutils literal notranslate"><span class="pre">team</span></code> table and the <code class="docutils literal notranslate"><span class="pre">player</span></code> table with a foreign key constraint. The <code class="docutils literal notranslate"><span class="pre">player</span></code> table has a foreign key <code class="docutils literal notranslate"><span class="pre">team_id</span></code> that references the <code class="docutils literal notranslate"><span class="pre">team_id</span></code> in the <code class="docutils literal notranslate"><span class="pre">team</span></code> table. If we delete a record from the <code class="docutils literal notranslate"><span class="pre">team</span></code> table, the corresponding foreign key values in the <code class="docutils literal notranslate"><span class="pre">player</span></code> table will be set to NULL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+DROP TABLE IF EXISTS team;
+DROP TABLE IF EXISTS player;
+
+CREATE TABLE team (
+    team_id INTEGER PRIMARY KEY,
+    team_name TEXT
+);
+CREATE TABLE player (
+    player_id INTEGER PRIMARY KEY,
+    player_name TEXT,
+    team_id INTEGER,
+    FOREIGN KEY (team_id) REFERENCES team (team_id)   
+        ON DELETE SET NULL
+);
+
+INSERT INTO team (team_id, team_name) VALUES (1, &#39;Team A&#39;), (2, &#39;Team B&#39;);
+INSERT INTO player (player_id, player_name, team_id) VALUES (1, &#39;Player 1&#39;, 1), (2, &#39;Player 2&#39;, 1), (3, &#39;Player 3&#39;, 2);
+
+SELECT * FROM player;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+Done.
+Done.
+2 rows affected.
+3 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>player_id</th>
+            <th>player_name</th>
+            <th>team_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Player 1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Player 2</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Player 3</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+DELETE FROM team WHERE team_id = 1;
+SELECT * FROM player;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+1 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>player_id</th>
+            <th>player_name</th>
+            <th>team_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Player 1</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Player 2</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Player 3</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="set-default-example">
+<h3>SET DEFAULT Example<a class="headerlink" href="#set-default-example" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">DEFAULT</span></code> action allows you to delete or update records in the parent table without deleting or updating the corresponding records in the child table. Instead, the foreign key values in the child table will be set to their default value.</p>
+<p>Let’s create the <code class="docutils literal notranslate"><span class="pre">team</span></code> table and the <code class="docutils literal notranslate"><span class="pre">player</span></code> table with a foreign key constraint. The <code class="docutils literal notranslate"><span class="pre">player</span></code> table has a foreign key <code class="docutils literal notranslate"><span class="pre">team_id</span></code> that references the <code class="docutils literal notranslate"><span class="pre">team_id</span></code> in the <code class="docutils literal notranslate"><span class="pre">team</span></code> table. If we delete a record from the <code class="docutils literal notranslate"><span class="pre">team</span></code> table, the corresponding foreign key values in the <code class="docutils literal notranslate"><span class="pre">player</span></code> table will be set to their default value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+PRAGMA foreign_keys = OFF;
+DROP TABLE IF EXISTS team;
+DROP TABLE IF EXISTS player;
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE team (
+    team_id INTEGER PRIMARY KEY,
+    team_name TEXT
+);
+CREATE TABLE player (
+    player_id INTEGER PRIMARY KEY,
+    player_name TEXT,
+    team_id INTEGER DEFAULT 2,
+    FOREIGN KEY (team_id) REFERENCES team (team_id)
+        ON DELETE SET DEFAULT
+);
+
+INSERT INTO team (team_id, team_name) VALUES (1, &#39;Team A&#39;), (2, &#39;Team B&#39;);
+INSERT INTO player (player_id, player_name, team_id) VALUES (1, &#39;Player 1&#39;, 1), (2, &#39;Player 2&#39;, 1), (3, &#39;Player 3&#39;, 2);
+SELECT * FROM player;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+Done.
+Done.
+Done.
+Done.
+2 rows affected.
+3 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>player_id</th>
+            <th>player_name</th>
+            <th>team_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Player 1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Player 2</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Player 3</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+DELETE FROM team WHERE team_id = 1;
+
+SELECT * FROM player;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+1 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>player_id</th>
+            <th>player_name</th>
+            <th>team_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Player 1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Player 2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Player 3</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="restrict-and-no-action-example">
+<h3>RESTRICT and NO ACTION Example<a class="headerlink" href="#restrict-and-no-action-example" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">RESTRICT</span></code> action is similar to the <code class="docutils literal notranslate"><span class="pre">NO</span> <span class="pre">ACTION</span></code> action. It prevents you from deleting or updating a record in the parent table if there are corresponding records in the child table. This means that if you try to delete or update a record in the parent table that is referenced by the child table, SQLite will raise an error and prevent the operation.</p>
+<p>Let’s create the <code class="docutils literal notranslate"><span class="pre">team</span></code> table and the <code class="docutils literal notranslate"><span class="pre">player</span></code> table with a foreign key constraint. The <code class="docutils literal notranslate"><span class="pre">player</span></code> table has a foreign key <code class="docutils literal notranslate"><span class="pre">team_id</span></code> that references the <code class="docutils literal notranslate"><span class="pre">team_id</span></code> in the <code class="docutils literal notranslate"><span class="pre">team</span></code> table. If we try to delete a record from the <code class="docutils literal notranslate"><span class="pre">team</span></code> table that is referenced by the <code class="docutils literal notranslate"><span class="pre">player</span></code> table, SQLite will raise an error and prevent the operation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+PRAGMA foreign_keys = OFF;
+DROP TABLE IF EXISTS team;
+DROP TABLE IF EXISTS player;
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE team (
+    team_id INTEGER PRIMARY KEY,
+    team_name TEXT NOT NULL
+);
+CREATE TABLE player (
+    player_id INTEGER PRIMARY KEY,
+    player_name TEXT NOT NULL,
+    team_id INTEGER,
+    FOREIGN KEY (team_id) REFERENCES team (team_id) 
+        ON DELETE RESTRICT
+);
+INSERT INTO team (team_id, team_name) VALUES (1, &#39;Team A&#39;);
+INSERT INTO player (player_id, player_name, team_id) VALUES (1, &#39;Player 1&#39;, 1);
+INSERT INTO player (player_id, player_name, team_id) VALUES (2, &#39;Player 2&#39;, 1);
+DELETE FROM team WHERE team_id = 1; -- This will raise an error
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+Done.
+Done.
+Done.
+Done.
+1 rows affected.
+1 rows affected.
+1 rows affected.
+(sqlite3.IntegrityError) FOREIGN KEY constraint failed
+[SQL: DELETE FROM team WHERE team_id = 1; -- This will raise an error]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this lesson, we learned about foreign key constraints in SQLite. We learned how to create foreign key constraints using the <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> statement and how to handle foreign key violations using different actions such as <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code>, <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">DEFAULT</span></code>, <code class="docutils literal notranslate"><span class="pre">NO</span> <span class="pre">ACTION</span></code>, and <code class="docutils literal notranslate"><span class="pre">RESTRICT</span></code>. We also learned how to enable and disable foreign key constraints in SQLite.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">departments</span></code> table with the following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">department_id</span></code> (INTEGER, PRIMARY KEY)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">department_name</span></code> (TEXT, NOT NULL)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">location</span></code> (TEXT, NOT NULL)</p></li>
+</ul>
+</li>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">employees</span></code> table with the following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">employee_id</span></code> (INTEGER, PRIMARY KEY)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code> (TEXT, NOT NULL)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code> (TEXT, NOT NULL)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">department_id</span></code> (INTEGER, FOREIGN KEY REFERENCES departments(department_id) ON DELETE CASCADE)</p></li>
+</ul>
+</li>
+<li><p>Insert some sample data into the <code class="docutils literal notranslate"><span class="pre">departments</span></code> and <code class="docutils literal notranslate"><span class="pre">employees</span></code> tables.</p></li>
+<li><p>Delete a department from the <code class="docutils literal notranslate"><span class="pre">departments</span></code> table and observe how it affects the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table.</p></li>
+<li><p>Change the foreign key constraint in the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table to use <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">NULL</span></code> instead of <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code>. Delete a department from the <code class="docutils literal notranslate"><span class="pre">departments</span></code> table and observe how it affects the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table.</p></li>
+<li><p>Change the foreign key constraint in the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table to use <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">DEFAULT</span></code> instead of <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code>. Delete a department from the <code class="docutils literal notranslate"><span class="pre">departments</span></code> table and observe how it affects the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table.</p></li>
+<li><p>Change the foreign key constraint in the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table to use <code class="docutils literal notranslate"><span class="pre">RESTRICT</span></code> instead of <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code>. Try to delete a department from the <code class="docutils literal notranslate"><span class="pre">departments</span></code> table that is referenced by the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table and observe how it affects the operation.</p></li>
+<li><p>Change the foreign key constraint in the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table to use <code class="docutils literal notranslate"><span class="pre">NO</span> <span class="pre">ACTION</span></code> instead of <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code>. Try to delete a department from the <code class="docutils literal notranslate"><span class="pre">departments</span></code> table that is referenced by the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table and observe how it affects the operation.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+-- Your code in here
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+-- More play area for you to test your SQL skills
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ericaraujophd/dbms",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./w03/c02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="B-create-tables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.2.B CREATE TABLE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="D-create-tables.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.2.D CREATE TABLE Many to Many</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreign-key-constraints">Foreign Key Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreign-key-syntax">Foreign Key Syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-foreign-key-violations">Handling Foreign Key Violations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cascade-example">CASCADE Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-null-example">SET NULL Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-default-example">SET DEFAULT Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restrict-and-no-action-example">RESTRICT and NO ACTION Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Eric Araujo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

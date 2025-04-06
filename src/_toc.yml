@@ -44,6 +44,14 @@ chapters:
       - file: w02/c03/D-practice
   - file: week3
     sections:
+      # Class 2 - DDL
+      - file: w03/c02/A-ddl
+      - file: w03/c02/B-create-tables
+      - file: w03/c02/C-create-tables
+      - file: w03/c02/D-create-tables
+      - file: w03/c02/E-alter-tables
+      - file: w03/c02/F-autoincrement
+      - file: w03/c02/Z-practice
       # Project 03 - Animal Crossing
       - file: projects/proj03
   - file: week04

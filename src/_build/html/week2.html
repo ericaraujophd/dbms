@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -216,6 +216,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week3.html">Week 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/A-ddl.html">3.2.A DDL commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/B-create-tables.html">3.2.B CREATE TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/E-alter-tables.html">3.2.D ALTER TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/Z-practice.html">3.2.C Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="projects/proj03.html">Project 3</a></li>
 </ul>
 </details></li>
@@ -422,7 +429,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-instructions">Initial Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignments">Week 1 Assignments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-slos">Week 2 SLOs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-assignments">Week 2 Assignments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-overview">Week 2 Overview</a></li>
 </ul>
             </nav>
@@ -442,8 +450,21 @@ document.write(`
 <p>Welcome to the second week of the course! This week, we will focus on working with multiple tables in SQL. We will learn how to join tables, use subqueries, and perform advanced data retrieval operations.</p>
 <p>This week is crucial for understanding how to work with relational databases, as most real-world applications involve multiple tables that need to be queried together. By the end of this week, you should be comfortable writing complex SQL queries that involve multiple tables and understand how to design your database schema to support these operations.</p>
 </section>
-<section id="week-1-assignments">
-<h2>Week 1 Assignments<a class="headerlink" href="#week-1-assignments" title="Link to this heading">#</a></h2>
+<section id="week-2-slos">
+<h2>Week 2 SLOs<a class="headerlink" href="#week-2-slos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand set operations and how to use them in SQL.</p></li>
+<li><p>Learn how to use <code class="docutils literal notranslate"><span class="pre">UNION</span></code>, <code class="docutils literal notranslate"><span class="pre">INTERSECT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> to combine results from multiple queries.</p></li>
+<li><p>Learn and use <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> operations to retrieve data from multiple tables.</p></li>
+<li><p>Understand the differences between <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">JOIN</span></code>, <code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code> and <code class="docutils literal notranslate"><span class="pre">CROSS</span> <span class="pre">JOIN</span></code>.</p></li>
+<li><p>Use subqueries to create more complex queries.</p></li>
+<li><p>Learn and use aggregate functions to summarize data such as <code class="docutils literal notranslate"><span class="pre">SUM()</span></code>, <code class="docutils literal notranslate"><span class="pre">AVG()</span></code>, <code class="docutils literal notranslate"><span class="pre">COUNT()</span></code>, <code class="docutils literal notranslate"><span class="pre">MIN()</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX()</span></code>, etc.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> and <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clauses to filter aggregated data.</p></li>
+<li><p>Understand the difference between <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> and <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clauses.</p></li>
+</ul>
+</section>
+<section id="week-2-assignments">
+<h2>Week 2 Assignments<a class="headerlink" href="#week-2-assignments" title="Link to this heading">#</a></h2>
 <p>This week requires you to complete the following tasks:</p>
 <ol class="arabic simple">
 <li><p><strong>Read</strong> the following material available in the Hekman Library system: <em>Mark Simon. (2023). Getting Started with SQL and Databases : Managing and Manipulating Data with SQL. Apress. - Chapters 4, 5 and 6</em></p></li>
@@ -541,7 +562,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-instructions">Initial Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignments">Week 1 Assignments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-slos">Week 2 SLOs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-assignments">Week 2 Assignments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-overview">Week 2 Overview</a></li>
 </ul>
   </nav></div>
