@@ -1,1 +1,1 @@
-# 1.2.A SQLite, Jupyter etc.
+# Class 2. SQLite, Jupyter etc.
