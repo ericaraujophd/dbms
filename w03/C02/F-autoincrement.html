@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.2.A DDL commands &#8212; Database Management Systems</title>
+    <title>3.2.F AUTOINCREMENT &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/A-ddl';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/F-autoincrement';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.2.B CREATE TABLE" href="B-create-tables.html" />
-    <link rel="prev" title="Week 3" href="../../week3.html" />
+    <link rel="next" title="3.2.C Practice" href="Z-practice.html" />
+    <link rel="prev" title="3.2.D ALTER TABLE" href="E-alter-tables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,12 +216,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week3.html">Week 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.A DDL commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A-ddl.html">3.2.A DDL commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="B-create-tables.html">3.2.B CREATE TABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-alter-tables.html">3.2.D ALTER TABLE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.F AUTOINCREMENT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2.C Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
 </ul>
@@ -279,6 +279,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w03/c02/F-autoincrement.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -304,7 +353,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/A-ddl.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/F-autoincrement.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +383,7 @@
       
       
       
-      <li><a href="../../_sources/w03/c02/A-ddl.md" target="_blank"
+      <li><a href="../../_sources/w03/c02/F-autoincrement.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +393,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -405,7 +454,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -416,11 +467,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3.2.A DDL commands</h1>
+    <h1>3.2.F AUTOINCREMENT</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rowid-and-autoincrement">ROWID and AUTOINCREMENT</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -430,26 +489,284 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="a-ddl-commands">
-<h1>3.2.A DDL commands<a class="headerlink" href="#a-ddl-commands" title="Link to this heading">#</a></h1>
-<p>DDL stands for Data Definition Language. It is a subset of SQL used to define and manage database structures, such as tables, indexes, and schemas. DDL commands are responsible for creating, altering, and deleting database objects.</p>
-<p>DDL commands include:</p>
-<ul class="simple">
-<li><p><strong>CREATE</strong>: Used to create new database objects, such as tables, indexes, and views.</p></li>
-<li><p><strong>ALTER</strong>: Used to modify existing database objects, such as adding or dropping columns in a table.</p></li>
-<li><p><strong>DROP</strong>: Used to delete existing database objects, such as tables, indexes, and views.</p></li>
-<li><p><strong>RENAME COLUMN</strong>: Used to rename existing database objects, such as tables or columns.</p></li>
-<li><p><strong>TRUNCATE</strong>: Used to remove all rows from a table without deleting the table itself.</p></li>
-</ul>
-<p>The DDL commands can have as targets the following objects:</p>
-<ul class="simple">
-<li><p><strong>TABLE</strong>: A collection of related data organized in rows and columns.</p></li>
-<li><p><strong>INDEX</strong>: A data structure that improves the speed of data retrieval operations on a database table.</p></li>
-<li><p><strong>VIEW</strong>: A virtual table that is based on the result of a query. It can be used to simplify complex queries or to provide a specific view of the data.</p></li>
-<li><p><strong>SCHEMA</strong>: A logical container for database objects, such as tables, indexes, and views. It helps organize and manage the database structure.</p></li>
-<li><p><strong>CONSTRAINT</strong>: A rule that restricts the values that can be stored in a table. Constraints can be used to enforce data integrity and ensure that the data meets specific requirements.</p></li>
-</ul>
-<p>In this class we will navigate on how to use the DDL commands efficiently.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="f-autoincrement">
+<h1>3.2.F AUTOINCREMENT<a class="headerlink" href="#f-autoincrement" title="Link to this heading">#</a></h1>
+<p>Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, <strong>ALTER TABLE</strong>, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.</p>
+<p>Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">sql</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">///</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;_DEPRECATED_DEFAULT&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="rowid-and-autoincrement">
+<h2>ROWID and AUTOINCREMENT<a class="headerlink" href="#rowid-and-autoincrement" title="Link to this heading">#</a></h2>
+<p>SQLite uses a 64-bit signed integer as the rowid for each row in a table. The rowid is a unique identifier for each row and is automatically assigned by SQLite when a new row is inserted into the table.</p>
+<p>Let’s see how it works by creating a table for users without a primary key:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    name TEXT NOT NULL,
+    age INTEGER NOT NULL,
+    email TEXT NOT NULL UNIQUE
+);
+
+INSERT INTO users (name, age, email) VALUES
+    (&#39;John&#39;, 32, &#39;john@john.com&#39;),
+    (&#39;Mary&#39;, 19, &#39;mary@mary.com&#39;),
+    (&#39;Roe&#39;, 22, &#39;roe@roe.com&#39;),
+    (&#39;Sean&#39;, 62, &#39;sean@sean.com&#39;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+4 rows affected.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s query the data and see what happens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, age, email
+FROM users;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>32</td>
+            <td>john@john.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>19</td>
+            <td>mary@mary.com</td>
+        </tr>
+        <tr>
+            <td>Roe</td>
+            <td>22</td>
+            <td>roe@roe.com</td>
+        </tr>
+        <tr>
+            <td>Sean</td>
+            <td>62</td>
+            <td>sean@sean.com</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>As you can see, there is no primary key. However, there is! The rowid is automatically created by SQLite and is used as the primary key for the table. To see the rowid, we can use the following query:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT rowid, name, age, email
+FROM users;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>rowid</th>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>32</td>
+            <td>john@john.com</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Mary</td>
+            <td>19</td>
+            <td>mary@mary.com</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Roe</td>
+            <td>22</td>
+            <td>roe@roe.com</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sean</td>
+            <td>62</td>
+            <td>sean@sean.com</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>What if we have a primary key explicitly defined?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    age INTEGER NOT NULL,
+    email TEXT NOT NULL UNIQUE
+);
+
+INSERT INTO users (user_id, name, age, email) VALUES
+    (1, &#39;John&#39;, 32, &#39;john@john.com&#39;),
+    (2, &#39;Mary&#39;, 19, &#39;mary@mary.com&#39;),
+    (3, &#39;Roe&#39;, 22, &#39;roe@roe.com&#39;),
+    (4, &#39;Sean&#39;, 62, &#39;sean@sean.com&#39;);
+    
+SELECT user_id, name, age, email
+FROM users;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+Done.
+4 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>user_id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>32</td>
+            <td>john@john.com</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Mary</td>
+            <td>19</td>
+            <td>mary@mary.com</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Roe</td>
+            <td>22</td>
+            <td>roe@roe.com</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sean</td>
+            <td>62</td>
+            <td>sean@sean.com</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Interesting… now where is the rowid?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT rowid, user_id, name, age, email
+FROM users;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>user_id</th>
+            <th>user_id_1</th>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>John</td>
+            <td>32</td>
+            <td>john@john.com</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2</td>
+            <td>Mary</td>
+            <td>19</td>
+            <td>mary@mary.com</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3</td>
+            <td>Roe</td>
+            <td>22</td>
+            <td>roe@roe.com</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>4</td>
+            <td>Sean</td>
+            <td>62</td>
+            <td>sean@sean.com</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>So, in this case, <code class="docutils literal notranslate"><span class="pre">user_id</span></code>is the <code class="docutils literal notranslate"><span class="pre">row_id</span></code> column.</p>
+<p>Also interesting is the fact that if you don’t specify a value for the <code class="docutils literal notranslate"><span class="pre">user_id</span></code> column, SQLite will automatically assign a value to it. This is done by using the <code class="docutils literal notranslate"><span class="pre">AUTOINCREMENT</span></code> keyword, even when not include during the process of creating the table.</p>
+<p>The maximum value for <code class="docutils literal notranslate"><span class="pre">rowid</span></code> is 9223372036854775807, which is the maximum value for a 64-bit signed integer. If you try to insert a value greater than this, SQLite will return an error. Also, if you insert a new item, and the value of <code class="docutils literal notranslate"><span class="pre">rowid</span></code> has reached the maximum value, SQLite will try to find an unused number. If there is no free number, it will throw an error.</p>
+<p>SQLite recommends you don’t use AUTOINCREMENT attribute as it requires extra CPU, memory, disk space and disk I/O overhead.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -483,20 +800,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../week3.html"
+       href="E-alter-tables.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week 3</p>
+        <p class="prev-next-title">3.2.D ALTER TABLE</p>
       </div>
     </a>
     <a class="right-next"
-       href="B-create-tables.html"
+       href="Z-practice.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.2.B CREATE TABLE</p>
+        <p class="prev-next-title">3.2.C Practice</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -506,6 +823,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rowid-and-autoincrement">ROWID and AUTOINCREMENT</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

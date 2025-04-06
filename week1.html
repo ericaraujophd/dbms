@@ -216,6 +216,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week3.html">Week 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/A-ddl.html">3.2.A DDL commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/B-create-tables.html">3.2.B CREATE TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/E-alter-tables.html">3.2.D ALTER TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w03/c02/Z-practice.html">3.2.C Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="projects/proj03.html">Project 3</a></li>
 </ul>
 </details></li>
@@ -423,6 +430,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-instructions">Initial Instructions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-methodology">Tools and methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-slos">Week 1 SLOs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignments">Week 1 Assignments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-overview">Week 1 Overview</a></li>
 </ul>
@@ -448,6 +456,25 @@ document.write(`
 <h2>Tools and methodology<a class="headerlink" href="#tools-and-methodology" title="Link to this heading">#</a></h2>
 <p>This course will be given using SQLite and Jupyter Notebooks. SQLite is a lightweight, serverless database engine that is easy to set up and use. Jupyter Notebooks provide an interactive environment for writing and executing SQL queries, making it an ideal tool for learning and practicing SQL.</p>
 <p>In a first moment we will work writing SQL queries to retrieve data and perform basic operations on the database. As the course progresses, we will migrate to Python as the main programming language for database interaction. Python is a powerful and versatile language that is widely used in data science and web development, making it an excellent choice for working with databases.</p>
+</section>
+<section id="week-1-slos">
+<h2>Week 1 SLOs<a class="headerlink" href="#week-1-slos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Explain the purpose and importance of relational databases.</p></li>
+<li><p>Differentiate between relational databases and other types of data storage.</p></li>
+<li><p>Query data from a single table using <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.</p></li>
+<li><p>Sort the result set in ascending and descending order using <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code>.</p></li>
+<li><p>Understand the concept of collation and how it affects sorting.</p></li>
+<li><p>How to use logical operators and functions with <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">CASE</span></code> to create conditional expressions in SQL queries.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">LIMIT</span></code> to restrict the number of rows returned by a query.</p></li>
+<li><p>Comprehend the different data types in SQLite, including <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>, <code class="docutils literal notranslate"><span class="pre">REAL</span></code>, <code class="docutils literal notranslate"><span class="pre">TEXT</span></code>, <code class="docutils literal notranslate"><span class="pre">BLOB</span></code>, and <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p></li>
+<li><p>Work with data types, including dates and strings, using <code class="docutils literal notranslate"><span class="pre">LIKE</span></code>, <code class="docutils literal notranslate"><span class="pre">GLOB</span></code>, <code class="docutils literal notranslate"><span class="pre">DATE</span></code>, <code class="docutils literal notranslate"><span class="pre">TIME</span></code>, <code class="docutils literal notranslate"><span class="pre">DATETIME</span></code>, <code class="docutils literal notranslate"><span class="pre">JULIANDAY</span></code> and <code class="docutils literal notranslate"><span class="pre">STRFTIME</span></code>.</p></li>
+</ul>
+<!-- - Filter data according to various conditions using DISTINCT, WHERE, AND, OR, LIMIT/OFFSET, BETWEEN, IN, LIKE and ILIKE, GLOB and IS NULL. -->
+<ul class="simple">
+<li><p>Analyze a dataset using simple queries.</p></li>
+</ul>
 </section>
 <section id="week-1-assignments">
 <h2>Week 1 Assignments<a class="headerlink" href="#week-1-assignments" title="Link to this heading">#</a></h2>
@@ -551,6 +578,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-instructions">Initial Instructions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-methodology">Tools and methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-slos">Week 1 SLOs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignments">Week 1 Assignments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-overview">Week 1 Overview</a></li>
 </ul>

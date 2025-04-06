@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2.B CREATE TABLE &#8212; Database Management Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w03/c02/B-create-tables';</script>
+    <link rel="icon" href="../../_static/Calvin_College.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.C CREATE TABLE with Foreign Keys" href="C-create-tables.html" />
+    <link rel="prev" title="3.2.A DDL commands" href="A-ddl.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Database Management Systems - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Database Management Systems - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../home.html">
+                    Welcome to DBMS and SQL course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week1.html">Week 01 - Relational Model, SQL and more</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/A-intro.html">1.1.A - In the Beginning…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/B-intro-to-relational-databases.html">1.1.B What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/C-history-relational-models.html">1.1.C History of Relational Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/D-relational-dbs-dissected.html">1.1.D Relational Database Dissected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/E-sql-brief-history.html">1.1.E A Brief History of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/A-methods.html">1.2.A SQLite, Jupyter etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/B-first-query.html">1.2.B Creating a First Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/C-order-by.html">1.2.C Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/D-distinct.html">1.2.C Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/E-practice.html">1.2.D Practicing What You Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/A-expressions.html">1.3.A What are Expressions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/B-case.html">1.3.B CASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/C-where.html">1.3.C WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/D-practice.html">1.3.D Hands-on!</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../week2.html">Week 2 - Working with Multiple Tables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/A-what-is-a-set.html">2.1.A What is a Set?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/B-sql-set-operations.html">2.1.B SQL Set Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/C-joins.html">2.1.C Joins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c01/D-practice.html">2.1.D Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/A-what-is-a-subquery.html">2.2.A What is a Subquery?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/B-subqueries.html">2.2.B Subqueries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/C-aggregate-functions.html">2.2.C Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/D-aggregate-functions.html">2.2.D Aggregate Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/F-practice.html">2.2.F Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c02/E-group-by.html">2.2.E Group By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/A-filtering.html">2.3.A Focusing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/B-where.html">2.3.B WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/C-having.html">2.3.C HAVING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w02/c03/D-practice.html">2.3.D Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../week3.html">Week 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="A-ddl.html">3.2.A DDL commands</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2.B CREATE TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-create-tables.html">3.2.C CREATE TABLE with Foreign Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-create-tables.html">3.2.D CREATE TABLE Many to Many</a></li>
+<li class="toctree-l2"><a class="reference internal" href="E-alter-tables.html">3.2.D ALTER TABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="F-autoincrement.html">3.2.F AUTOINCREMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Z-practice.html">3.2.C Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week04.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week05.html">Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week06.html">Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week07.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w03/c02/B-create-tables.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ericaraujophd/dbms" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw03/c02/B-create-tables.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/w03/c02/B-create-tables.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.2.B CREATE TABLE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-table">CREATE TABLE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-classes-sqlite-data-types">Storage Classes (SQLite Data Types)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">Constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-key">Primary Key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-null">NOT NULL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unique">UNIQUE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default">DEFAULT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check">CHECK</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b-create-table">
+<h1>3.2.B CREATE TABLE<a class="headerlink" href="#b-create-table" title="Link to this heading">#</a></h1>
+<p>Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, ALTER TABLE, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.</p>
+<p>Control columns values using constraints: primary keys, foreign keys, delete with CHECK, UNIQUE, NOT NULL, AUTOINCREMENT, CASCADE.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">sql</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">///</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;_DEPRECATED_DEFAULT&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="create-table">
+<h2>CREATE TABLE<a class="headerlink" href="#create-table" title="Link to this heading">#</a></h2>
+<p>In order to create a table, we need to define the table name and the columns it will contain. Each column must have a name and a data type. We can also specify constraints for each column.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">schema_name</span><span class="p">].</span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">	</span><span class="n">column_1</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">   	</span><span class="n">column_2</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="n">column_3</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">	</span><span class="n">table_constraints</span>
+<span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">WITHOUT</span><span class="w"> </span><span class="n">ROWID</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>In this syntax:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></code>: Optional. If specified, the table will only be created if it does not already exist.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">schema_name</span></code>: Optional. The name of the schema to which the table belongs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table_name</span></code>: The name of the table to be created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">column_1</span></code>, <code class="docutils literal notranslate"><span class="pre">column_2</span></code>, <code class="docutils literal notranslate"><span class="pre">column_3</span></code>: The names of the columns in the table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_type</span></code>: The data type of the column (e.g., INTEGER, TEXT, REAL, BLOB).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRIMARY</span> <span class="pre">KEY</span></code>: Specifies that the column is a primary key.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>: Specifies that the column cannot contain NULL values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>: Specifies a default value for the column if no value is provided during insertion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table_constraints</span></code>: Optional. Additional constraints for the table, such as foreign keys or unique constraints.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WITHOUT</span> <span class="pre">ROWID</span></code>: Optional. Specifies that the table should not use a ROWID for each row. This is useful for tables that do not require a unique identifier for each row.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WITHOUT</span> <span class="pre">ROWID</span></code> option is specific to SQLite and is not part of the SQL standard. It is used to create a table that does not use a ROWID for each row, which can improve performance in certain cases. By default, SQLite creates a ROWID for each row in a table, which can be used as a unique identifier. However, if you do not need a ROWID, you can use the <code class="docutils literal notranslate"><span class="pre">WITHOUT</span> <span class="pre">ROWID</span></code> option to create a table without it. The <code class="docutils literal notranslate"><span class="pre">rowid</span></code> column stores a 64-bit signed integer that uniquely identifies a row in a table.</p>
+</div>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+CREATE TABLE employees (
+    employee_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    hire_date DATE NOT NULL,
+    salary REAL CHECK (salary &gt; 0)
+);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This table <code class="docutils literal notranslate"><span class="pre">employees</span></code> has five columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">employee_id</span></code>: an integer that is the primary key and will auto-increment with each new record.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code>: a text field that cannot be null.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code>: a text field that cannot be null.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hire_date</span></code>: a date field that cannot be null.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salary</span></code>: a real number that must be greater than 0, enforced by a CHECK constraint.</p></li>
+</ul>
+</section>
+</section>
+<section id="storage-classes-sqlite-data-types">
+<h2>Storage Classes (SQLite Data Types)<a class="headerlink" href="#storage-classes-sqlite-data-types" title="Link to this heading">#</a></h2>
+<p>SQLite uses the following storage classes:</p>
+<ul class="simple">
+<li><p>NULL: The value is a NULL value.</p></li>
+<li><p>INTEGER: The value is a signed integer, stored in 1, 2, 3, 4, or 8 bytes.</p></li>
+<li><p>REAL: The value is a floating point value, stored as an 8-byte IEEE floating point number.</p></li>
+<li><p>TEXT: The value is a text string, stored using the database encoding (UTF-8, UTF-16BE, or UTF-16LE).</p></li>
+<li><p>BLOB: The value is a blob of data, stored exactly as it was input. BLOB stands for “Binary Large Object”. Its size is unlimited, and it can store any kind of data, including images, audio, and video files.</p></li>
+</ul>
+<p>SQLite determines the data type of a value based on the value itself, not the column definition. This means that you can store any type of data in any column, regardless of its declared type. However, it is a good practice to use the correct data type for each column to ensure data integrity and improve performance. For defining the data type of a column, SQLite uses the following rules:</p>
+<ul class="simple">
+<li><p>If a value has no enclosing quotes and decimal point or exponent, it is stored as an REAL.</p></li>
+<li><p>If a value has enclosing single or double quotes, it is stored as TEXT.</p></li>
+<li><p>If a value has no enclosing quotes and no decimal point or exponent, it is stored as INTEGER.</p></li>
+<li><p>If a value is NULL without enclosing quotes, it is stored as NULL.</p></li>
+<li><p>If a value has a prefix of X, it is stored as BLOB.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SQLite does not have date and time classes built-in. However, it is possible to store date and time values as TEXT, REAL, or INTEGER. Check the material on date and time functions for more information.</p>
+</div>
+<p>You can always check the data type of a column using the <code class="docutils literal notranslate"><span class="pre">PRAGMA</span> <span class="pre">table_info(table_name)</span></code> command. This command returns a list of all columns in the specified table, along with their data types and constraints.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="n">table_info</span><span class="p">(</span><span class="n">employees</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+PRAGMA table_info(&#39;employees&#39;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>employee_id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>first_name</td>
+            <td>TEXT</td>
+            <td>1</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>last_name</td>
+            <td>TEXT</td>
+            <td>1</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>hire_date</td>
+            <td>DATE</td>
+            <td>1</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>salary</td>
+            <td>REAL</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">typeof()</span></code> function to check the data type of a value. This function returns the storage class of the value, which can be one of the following: NULL, INTEGER, REAL, TEXT, or BLOB.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT  typeof(100),
+        typeof(10.0),
+        typeof(&#39;100&#39;),
+        typeof(x&#39;1000&#39;),
+        typeof(NULL);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>typeof(100)</th>
+            <th>typeof(10.0)</th>
+            <th>typeof(&#x27;100&#x27;)</th>
+            <th>typeof(x&#x27;1000&#x27;)</th>
+            <th>typeof(NULL)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>integer</td>
+            <td>real</td>
+            <td>text</td>
+            <td>blob</td>
+            <td>null</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">#</a></h2>
+<section id="primary-key">
+<h3>Primary Key<a class="headerlink" href="#primary-key" title="Link to this heading">#</a></h3>
+<p>A primary key is a column or a set of columns that uniquely identifies each row in a table. A primary key must contain unique values and cannot contain NULL values. A table can have only one primary key, which can consist of one or more columns.</p>
+<p>SQLite offers two ways to define a primary key: for one column or for multiple columns. The syntax for defining a primary key is as follows:</p>
+<p>For only one column:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>For multiple columns:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column2_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">column1_name</span><span class="p">,</span><span class="w"> </span><span class="n">column2_name</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice that for multiple columns, the primary key constraint is defined at the end of the table definition. This is because it applies to the combination of the two columns, not to each column individually.</p>
+<p>When creating a table without specifying <code class="docutils literal notranslate"><span class="pre">WITHOUT</span> <span class="pre">ROWID</span></code>, SQLite automatically creates a hidden column called <code class="docutils literal notranslate"><span class="pre">rowid</span></code> that serves as the primary key for the table. This column is an integer that uniquely identifies each row in the table. If you define a primary key for the table of type <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>, SQLite will use that primary key instead of the <code class="docutils literal notranslate"><span class="pre">rowid</span></code> column as an alias.</p>
+<p>Unlike other databases, SQLite does not allow to add a primary key constraint to an existing table using the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> command. Instead, you need to create a new table with the primary key constraint and copy the data from the old table to the new one. After that, you can drop the old table and rename the new one. To see more of how this works, check the material on this <a class="reference external" href="https://www.sqlitetutorial.net/sqlite-primary-key/">SQLite tutorial website</a>.</p>
+</section>
+<section id="not-null">
+<h3>NOT NULL<a class="headerlink" href="#not-null" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> constraint is used to ensure that a column cannot contain NULL values. This means that every row in the table must have a value for this column. If you try to insert a row without a value for a NOT NULL column, SQLite will raise an error.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column2_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="unique">
+<h3>UNIQUE<a class="headerlink" href="#unique" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code> constraint is used to ensure that all values in a column are unique. This means that no two rows in the table can have the same value for this column. If you try to insert a row with a duplicate value for a UNIQUE column, SQLite will raise an error.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column2_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="default">
+<h3>DEFAULT<a class="headerlink" href="#default" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> constraint is used to specify a default value for a column. This means that if you do not provide a value for this column when inserting a row, SQLite will use the default value instead. The default value can be any valid expression, including a constant, a function call, or a subquery.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column2_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="check">
+<h3>CHECK<a class="headerlink" href="#check" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CHECK</span></code> constraint is used to specify a condition that must be true for each row in the table. This means that if you try to insert a row that does not satisfy the condition, SQLite will raise an error. The condition can be any valid expression, including comparisons, logical operators, and functions.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1_name</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">column1_name</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">column2_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">column2_name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ericaraujophd/dbms",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./w03/c02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="A-ddl.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.2.A DDL commands</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="C-create-tables.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.2.C CREATE TABLE with Foreign Keys</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-table">CREATE TABLE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-classes-sqlite-data-types">Storage Classes (SQLite Data Types)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints">Constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-key">Primary Key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-null">NOT NULL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unique">UNIQUE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default">DEFAULT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check">CHECK</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Eric Araujo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

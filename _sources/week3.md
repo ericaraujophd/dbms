@@ -12,7 +12,7 @@ python code for sql
 
 class 2
 
-Work with data types, including dates and strings, using LIKE, GLOB,DATE, TIME, DATETIME, JULIANDAY and STRFTIME. 📔 Notebook 3.2
+ 📔 Notebook 3.2
 
 Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, ALTER TABLE, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.
 
