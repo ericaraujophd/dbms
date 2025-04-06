@@ -44,6 +44,12 @@ chapters:
       - file: w02/c03/D-practice
   - file: week3
     sections:
+      # Class 1 - DML
+      - file: w03/c01/A-dml
+      - file: w03/c01/B-insert
+      - file: w03/c01/C-update
+      - file: w03/c01/D-delete
+      - file: w03/c01/Z-practice
       # Class 2 - DDL
       - file: w03/c02/A-ddl
       - file: w03/c02/B-create-tables
@@ -51,7 +57,14 @@ chapters:
       - file: w03/c02/D-create-tables
       - file: w03/c02/E-alter-tables
       - file: w03/c02/F-autoincrement
+      - file: w03/c02/G-views
       - file: w03/c02/Z-practice
+      # Class 3 - Advanced SQL
+      - file: w03/c03/A-advanced-sql
+      - file: w03/c03/B-CLI
+      - file: w03/c03/C-WITH
+      - file: w03/c03/D-VACUUM
+      - file: w03/c03/Z-practice
       # Project 03 - Animal Crossing
       - file: projects/proj03
   - file: week04
