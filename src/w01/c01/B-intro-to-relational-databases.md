@@ -1,4 +1,4 @@
-# 1.1.B What is Relational?
+# What is Relational?
 
 Types of Databases
 

@@ -1,4 +1,4 @@
-# 3.3.A CLI + Time
+# Class 3. CLI + Time
 
 CLI SQL: .mode, .import, .headers, .output, .schema
 

@@ -1,4 +1,4 @@
-# 1.1.D Relational Database Dissected
+# Relational Database Dissected
 
 Tables
 

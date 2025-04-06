@@ -1,1 +1,1 @@
-# 1.1.C History of Relational Model
+# History of Relational Model

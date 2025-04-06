@@ -1,4 +1,4 @@
-# 3.1.A DML commands
+# Class 1. DML commands
 
 class 1
 
