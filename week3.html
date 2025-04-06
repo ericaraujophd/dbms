@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 3 &#8212; Database Management Systems</title>
+    <title>Week 3 - DML, DDL and CLI commands &#8212; Database Management Systems</title>
   
   
   
@@ -215,7 +215,7 @@
 <li class="toctree-l2"><a class="reference internal" href="w02/c03/D-practice.html">2.3.D Practice</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 3 - DML, DDL and CLI commands</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="w03/c02/A-ddl.html">3.2 DDL: introduction and commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="w03/c02/B-create-tables.html">3.2 DDL: CREATE TABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="w03/c02/C-create-tables.html">3.2 DDL: Foreign Keys</a></li>
@@ -405,7 +405,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -416,11 +418,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 3</h1>
+    <h1>Week 3 - DML, DDL and CLI commands</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-slos">Week 3 SLOs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-assignments">Week 3 Assignments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-week">Overview of the Week</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -430,23 +442,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-3">
-<h1>Week 3<a class="headerlink" href="#week-3" title="Link to this heading">#</a></h1>
-<p>class 1</p>
-<p>updating sets of data
-inserting sets of data
-deleting sets of data
-views</p>
-<p>python code for sql</p>
-<p>class 2</p>
-<p>📔 Notebook 3.2</p>
-<p>Table design principles using DDL commands, such as CREATE TABLE, DROP TABLE, ALTER TABLE, CREATE INDEX, DROP INDEX, CREATE VIEW, DROP VIEW.</p>
-<p>Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.</p>
-<p>CLI SQL: .mode, .import, .headers, .output, .schema</p>
-<p>class 3</p>
-<p>test</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-3-dml-ddl-and-cli-commands">
+<h1>Week 3 - DML, DDL and CLI commands<a class="headerlink" href="#week-3-dml-ddl-and-cli-commands" title="Link to this heading">#</a></h1>
+<p><img alt="Our roadmap for this course" src="_images/sql-mindmap.png" /></p>
+<section id="week-3-slos">
+<h2>Week 3 SLOs<a class="headerlink" href="#week-3-slos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand and use DML commands to manipulate data in SQL.</p></li>
+<li><p>Understand and use DDL commands to define and manage database structures.</p></li>
+<li><p>Learn how to use CLI commands to interact with the SQLite database.</p></li>
+<li><p>Understand the differences between DML and DDL commands.</p></li>
+<li><p>Learn how to use CTEs to make queries more readable.</p></li>
+<li><p>Understand the importance of database design principles and how to apply them in practice.</p></li>
+<li><p>Learn how to optimize database performance using indexes and other techniques.</p></li>
+<li><p>Optimizing database files with VACUUM.</p></li>
+</ul>
+</section>
+<section id="week-3-assignments">
+<h2>Week 3 Assignments<a class="headerlink" href="#week-3-assignments" title="Link to this heading">#</a></h2>
+<p>This week requires you to complete the following tasks:</p>
+<ol class="arabic simple">
+<li><p><strong>Read</strong> the following material available in the Hekman Library system: <em>Mark Simon. (2023). Getting Started with SQL and Databases : Managing and Manipulating Data with SQL. Apress. - Chapters 7, 8 and 9</em></p></li>
+<li><p>Complete <strong>Homework 3</strong>: <em>SQL Advanced</em>.</p></li>
+<li><p>Complete <strong>Project 3</strong>: <em>Import CSV and Database Design</em>.</p></li>
+<li><p>Show up for <strong>classes</strong> on MWF from 2.45 PM to 3.50 PM.</p></li>
+</ol>
+</section>
+<section id="overview-of-the-week">
+<h2>Overview of the Week<a class="headerlink" href="#overview-of-the-week" title="Link to this heading">#</a></h2>
+<p>This week, we will focus on the following topics:</p>
+<ul class="simple">
+<li><p>Updating sets of data</p></li>
+<li><p>Inserting sets of data</p></li>
+<li><p>Deleting sets of data</p></li>
+<li><p>Views</p></li>
+<li><p>Table design principles using DDL commands, such as <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">TABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">INDEX</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">INDEX</span></code>, <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">VIEW</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">VIEW</span></code>.</p></li>
+<li><p>Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.</p></li>
+<li><p>CLI SQL: <code class="docutils literal notranslate"><span class="pre">.mode</span></code>, <code class="docutils literal notranslate"><span class="pre">.import</span></code>, <code class="docutils literal notranslate"><span class="pre">.headers</span></code>, <code class="docutils literal notranslate"><span class="pre">.output</span></code>, <code class="docutils literal notranslate"><span class="pre">.schema</span></code></p></li>
+<li><p>Using CTEs to make queries more readable using <code class="docutils literal notranslate"><span class="pre">WITH</span></code>.</p></li>
+<li><p>Optimizing database files with <code class="docutils literal notranslate"><span class="pre">VACUUM</span></code>.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/A-ddl.html">3.2 DDL: introduction and commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/B-create-tables.html">3.2 DDL: CREATE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/C-create-tables.html">3.2 DDL: Foreign Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/D-create-tables.html">3.2 DDL: Many-to-Many Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/E-alter-tables.html">3.2 DDL: ALTER TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/F-autoincrement.html">3.2 DDL: AUTOINCREMENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w03/c02/Z-practice.html">3.2 DDL: Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/proj03.html">Project 3</a></li>
+</ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -503,6 +551,23 @@ views</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-slos">Week 3 SLOs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-assignments">Week 3 Assignments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-week">Overview of the Week</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
