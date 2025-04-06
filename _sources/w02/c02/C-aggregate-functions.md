@@ -1,1 +1,1 @@
-# 2.2.C Aggregate Functions
+# Aggregate Functions
