@@ -1,4 +1,4 @@
-# 3.2.A DDL commands
+# 3.2 DDL: introduction and commands
 
 DDL stands for Data Definition Language. It is a subset of SQL used to define and manage database structures, such as tables, indexes, and schemas. DDL commands are responsible for creating, altering, and deleting database objects.
 
