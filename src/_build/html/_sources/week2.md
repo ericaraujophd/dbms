@@ -1,5 +1,7 @@
 # Week 2 - Working with Multiple Tables
 
+![Our roadmap for this course](imgs/sql-mindmap.png)
+
 ## Initial Instructions
 
 Welcome to the second week of the course! This week, we will focus on working with multiple tables in SQL. We will learn how to join tables, use subqueries, and perform advanced data retrieval operations.
