@@ -425,7 +425,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -441,6 +443,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-for-sqlite">1. CLI for SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-using-with">CTEs using WITH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-database-files-with-vacuum">Optimizing database files with VACUUM</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -452,9 +467,97 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="class-3-cli-time">
 <h1>Class 3. CLI + Time<a class="headerlink" href="#class-3-cli-time" title="Link to this heading">#</a></h1>
-<p>CLI SQL: .mode, .import, .headers, .output, .schema</p>
-<p>Using CTEs to make queries more readable using WITH.</p>
-<p>Optimizing database files with VACUUM.</p>
+<p>In this class we will learn:</p>
+<ol class="arabic simple">
+<li><p>How to use CLI for SQLite, and how to use the commands .mode, .import, .headers, .output, .schema</p></li>
+<li><p>How to use CTEs to make queries more readable using WITH.</p></li>
+<li><p>How to optimize our database files with VACUUM.</p></li>
+</ol>
+<p>A summary of this class follows.</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<section id="cli-for-sqlite">
+<h3>1. CLI for SQLite<a class="headerlink" href="#cli-for-sqlite" title="Link to this heading">#</a></h3>
+<p>SQLite is a command-line interface (CLI) for SQLite databases. It allows you to interact with SQLite databases using SQL commands. The CLI provides several commands that can be used to manage and manipulate SQLite databases.</p>
+<p>The following are some of the most commonly used commands in the SQLite CLI:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.mode</span></code>: This command is used to set the output mode of the SQLite CLI. The output mode can be set to various formats, such as CSV, HTML, or tab-separated values (TSV). For example, to set the output mode to CSV, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="k">mode</span><span class="w"> </span><span class="n">csv</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.import</span></code>: This command is used to import data from a file into a SQLite database. The file can be in various formats, such as CSV or TSV. For example, to import data from a CSV file called <code class="docutils literal notranslate"><span class="pre">data.csv</span></code> into a table called <code class="docutils literal notranslate"><span class="pre">my_table</span></code>, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">import</span><span class="w"> </span><span class="k">data</span><span class="p">.</span><span class="n">csv</span><span class="w"> </span><span class="n">my_table</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.headers</span></code>: This command is used to set the headers for the output of the SQLite CLI. The headers can be set to on or off. For example, to set the headers to on, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">headers</span><span class="w"> </span><span class="k">on</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.output</span></code>: This command is used to set the output file for the SQLite CLI. The output file can be in various formats, such as CSV or TSV. For example, to set the output file to <code class="docutils literal notranslate"><span class="pre">output.csv</span></code>, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="k">output</span><span class="w"> </span><span class="k">output</span><span class="p">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.schema</span></code>: This command is used to display the schema of a SQLite database. The schema includes information about the tables, columns, and data types in the database. For example, to display the schema of a table called <code class="docutils literal notranslate"><span class="pre">my_table</span></code>, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="k">schema</span><span class="w"> </span><span class="n">my_table</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.tables</span></code>: This command is used to display a list of tables in the SQLite database. For example, to display a list of tables, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">tables</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.exit</span></code>: This command is used to exit the SQLite CLI. For example, to exit the SQLite CLI, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">exit</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.help</span></code>: This command is used to display a list of available commands in the SQLite CLI. For example, to display a list of available commands, you can use the following command:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">help</span>
+</pre></div>
+</div>
+</section>
+<section id="ctes-using-with">
+<h3>CTEs using WITH<a class="headerlink" href="#ctes-using-with" title="Link to this heading">#</a></h3>
+<p>CTEs (Common Table Expressions) are a powerful feature in SQL that allows you to create temporary result sets that can be referenced within a SELECT, INSERT, UPDATE, or DELETE statement. CTEs are defined using the WITH clause and can be used to simplify complex queries by breaking them down into smaller, more manageable parts.</p>
+<p>CTEs can be used to create recursive queries, which are queries that reference themselves. This is useful for querying hierarchical data, such as organizational charts or file systems.</p>
+<p>CTEs can also be used to create temporary views that can be referenced in other queries. This is useful for creating reusable query components that can be used in multiple places within a query.</p>
+<p>Here is one example of how to use a CTE in SQL:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">WITH</span><span class="w"> </span><span class="n">cte_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition1</span>
+<span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">cte_name</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">condition2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this example, the CTE is defined using the WITH clause and is given the name <code class="docutils literal notranslate"><span class="pre">cte_name</span></code>. The CTE selects <code class="docutils literal notranslate"><span class="pre">column1</span></code> and <code class="docutils literal notranslate"><span class="pre">column2</span></code> from <code class="docutils literal notranslate"><span class="pre">table_name</span></code> where a certain condition is met. The main query then selects all columns from the CTE where another <code class="docutils literal notranslate"><span class="pre">condition2</span></code> is met.</p>
+</section>
+<section id="optimizing-database-files-with-vacuum">
+<h3>Optimizing database files with VACUUM<a class="headerlink" href="#optimizing-database-files-with-vacuum" title="Link to this heading">#</a></h3>
+<p>The VACUUM command is used to optimize SQLite database files by reclaiming unused space and defragmenting the database. This can help improve performance and reduce the size of the database file.</p>
+<p>The VACUUM command creates a new database file and copies the contents of the original database file into the new file. This process removes any unused space and defragments the database, resulting in a smaller and more efficient database file. The original database file will be deleted, and the new file will replace it.</p>
+<p>The VACUUM command can be run using the following SQL command:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">VACUUM</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The VACUUM command can take some time to complete, depending on the size of the database file. It is recommended to run the VACUUM command during periods of low database activity to minimize the impact on performance.</p>
+</section>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -513,6 +616,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-for-sqlite">1. CLI for SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctes-using-with">CTEs using WITH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-database-files-with-vacuum">Optimizing database files with VACUUM</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
