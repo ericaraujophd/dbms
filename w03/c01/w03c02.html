@@ -229,7 +229,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 - Advanced SQL</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../w3-intro.html">Week 3 Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="A-dml.html">Class 1. DML commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A-dml.html">Class 1. Data Manipulation Commands (DML)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="B-insert.html">INSERT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-update.html">UPDATE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-delete.html">DELETE</a></li>
@@ -498,7 +498,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-data-manipulation-commands-20-min">🔹 Part 1: Data Manipulation Commands (20 min)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-table-design-and-ddl-25-min">🔹 Part 2: Table Design and DDL (25 min)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-ddl-commands">🧱 Core DDL Commands</a></li>
 </ul>
@@ -530,72 +529,6 @@ document.write(`
 <li><p>Data Manipulation (DML)</p></li>
 <li><p>Table Design (DDL)</p></li>
 </ol>
-<hr class="docutils" />
-<section id="part-1-data-manipulation-commands-20-min">
-<h2>🔹 Part 1: Data Manipulation Commands (20 min)<a class="headerlink" href="#part-1-data-manipulation-commands-20-min" title="Link to this heading">#</a></h2>
-<p>💡 Key SQL Syntax Examples (also used from Python):</p>
-<p><strong>1.	INSERT:</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">);</span>
-</pre></div>
-</div>
-<p><strong>2.	UPDATE:</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">95</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
-</pre></div>
-</div>
-<p><strong>3.	DELETE:</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
-</pre></div>
-</div>
-<p><strong>4. REPLACE (SQLite-specific):</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">REPLACE</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">88</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>If row with id=1 exists, it’s deleted and replaced.</p>
-<p><strong>5.	UPSERT with ON CONFLICT:</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span>
-<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p">)</span>
-<span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">grade</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>This command tries to insert a new student. If a student with the same <code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">1</span></code> already exists, instead of raising an error, it updates the existing row by setting its grade to 91.</p>
-<p><strong>excluded</strong> is a special keyword that refers to the values you tried to insert.</p>
-<p>Only the column(s) explicitly listed in the UPDATE SET … clause will be modified.</p>
-<div class="tip admonition">
-<p class="admonition-title">Talk to Your Neighbor</p>
-<p>It the name changed? How would we update the name as well as the grade?</p>
-</div>
-<p><strong>6.	RETURNING:</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="n">RETURNING</span><span class="w"> </span><span class="o">*</span><span class="p">;</span>
-</pre></div>
-</div>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Feature</p></th>
-<th class="head"><p>SQLite</p></th>
-<th class="head"><p>PostgreSQL</p></th>
-<th class="head"><p>MySQL</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>REPLACE</p></td>
-<td><p>✅ Yes</p></td>
-<td><p>❌ No</p></td>
-<td><p>✅ Yes</p></td>
-</tr>
-<tr class="row-odd"><td><p>UPSERT</p></td>
-<td><p>✅ ON CONFLICT</p></td>
-<td><p>✅ ON CONFLICT</p></td>
-<td><p>✅ ON DUPLICATE KEY</p></td>
-</tr>
-<tr class="row-even"><td><p>RETURNING</p></td>
-<td><p>✅ (3.35+)</p></td>
-<td><p>✅</p></td>
-<td><p>✅ (8.0.19+)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <hr class="docutils" />
 <section id="part-2-table-design-and-ddl-25-min">
 <h2>🔹 Part 2: Table Design and DDL (25 min)<a class="headerlink" href="#part-2-table-design-and-ddl-25-min" title="Link to this heading">#</a></h2>
@@ -675,7 +608,7 @@ document.write(`
 <span class="c1"># and a cursor object to execute SQL commands</span>
 <span class="c1"># You can use &quot;:memory:&quot; to create a temporary database instead of a file, like this: </span>
 <span class="c1"># conn = sqlite3.connect(&quot;:memory:&quot;)</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;school.db&quot;</span><span class="p">)</span>  <span class="c1"># creates a file if it doesn’t exist</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;file:cachedb?mode=memory&amp;cache=shared&#39;</span><span class="p">)</span>  <span class="c1"># creates a file in memory</span>
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -885,7 +818,6 @@ It doesn’t store data itself — it just runs the underlying query whenever yo
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-data-manipulation-commands-20-min">🔹 Part 1: Data Manipulation Commands (20 min)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-table-design-and-ddl-25-min">🔹 Part 2: Table Design and DDL (25 min)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-ddl-commands">🧱 Core DDL Commands</a></li>
 </ul>

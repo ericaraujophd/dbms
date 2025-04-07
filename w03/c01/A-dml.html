@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 1. DML commands &#8212; Database Management Systems</title>
+    <title>Class 1. Data Manipulation Commands (DML) &#8212; Database Management Systems</title>
   
   
   
@@ -229,7 +229,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 - Advanced SQL</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../w3-intro.html">Week 3 Introduction</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 1. DML commands</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 1. Data Manipulation Commands (DML)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="B-insert.html">INSERT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-update.html">UPDATE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-delete.html">DELETE</a></li>
@@ -426,7 +426,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -437,11 +439,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 1. DML commands</h1>
+    <h1>Class 1. Data Manipulation Commands (DML)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insert">1. INSERT:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">2. UPDATE:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">3. DELETE:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-sqlite-specific">4. REPLACE (SQLite-specific):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upsert-with-on-conflict">5. UPSERT with ON CONFLICT:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returning">6. RETURNING:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -451,13 +466,87 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-1-dml-commands">
-<h1>Class 1. DML commands<a class="headerlink" href="#class-1-dml-commands" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-1-data-manipulation-commands-dml">
+<h1>Class 1. Data Manipulation Commands (DML)<a class="headerlink" href="#class-1-data-manipulation-commands-dml" title="Link to this heading">#</a></h1>
+<p>💡 Key SQL Syntax Examples (also used from Python):</p>
+<section id="insert">
+<h2>1. INSERT:<a class="headerlink" href="#insert" title="Link to this heading">#</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="update">
+<h2>2. UPDATE:<a class="headerlink" href="#update" title="Link to this heading">#</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">95</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="delete">
+<h2>3. DELETE:<a class="headerlink" href="#delete" title="Link to this heading">#</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="replace-sqlite-specific">
+<h2>4. REPLACE (SQLite-specific):<a class="headerlink" href="#replace-sqlite-specific" title="Link to this heading">#</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">REPLACE</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">88</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If row with id=1 exists, it’s deleted and replaced.</p>
+</section>
+<section id="upsert-with-on-conflict">
+<h2>5. UPSERT with ON CONFLICT:<a class="headerlink" href="#upsert-with-on-conflict" title="Link to this heading">#</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">grade</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p">)</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">grade</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This command tries to insert a new student. If a student with the same <code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">1</span></code> already exists, instead of raising an error, it updates the existing row by setting its grade to 91.</p>
+<p><strong>excluded</strong> is a special keyword that refers to the values you tried to insert.</p>
+<p>Only the column(s) explicitly listed in the UPDATE SET … clause will be modified.</p>
+<div class="tip admonition">
+<p class="admonition-title">Talk to Your Neighbor</p>
+<p>It the name changed? How would we update the name as well as the grade?</p>
+</div>
+</section>
+<section id="returning">
+<h2>6. RETURNING:<a class="headerlink" href="#returning" title="Link to this heading">#</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="n">RETURNING</span><span class="w"> </span><span class="o">*</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>SQLite</p></th>
+<th class="head"><p>PostgreSQL</p></th>
+<th class="head"><p>MySQL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>REPLACE</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>❌ No</p></td>
+<td><p>✅ Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>UPSERT</p></td>
+<td><p>✅ ON CONFLICT</p></td>
+<td><p>✅ ON CONFLICT</p></td>
+<td><p>✅ ON DUPLICATE KEY</p></td>
+</tr>
+<tr class="row-even"><td><p>RETURNING</p></td>
+<td><p>✅ (3.35+)</p></td>
+<td><p>✅</p></td>
+<td><p>✅ (8.0.19+)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>class 1</p>
 <p>updating sets of data
 inserting sets of data
 deleting sets of data
 views</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -514,6 +603,26 @@ views</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insert">1. INSERT:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">2. UPDATE:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">3. DELETE:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-sqlite-specific">4. REPLACE (SQLite-specific):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upsert-with-on-conflict">5. UPSERT with ON CONFLICT:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returning">6. RETURNING:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
