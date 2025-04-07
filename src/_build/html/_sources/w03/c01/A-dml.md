@@ -1,43 +1,63 @@
-# Class 1. DML commands
+# Class 1. Data Manipulation Commands (DML)
 
-## Week 3 SLOs
+💡 Key SQL Syntax Examples (also used from Python):
 
-- Understand and use DML commands to manipulate data in SQL.
-- Understand and use DDL commands to define and manage database structures.
-- Learn how to use CLI commands to interact with the SQLite database.
-- Understand the differences between DML and DDL commands.
-- Learn how to use CTEs to make queries more readable.
-- Understand the importance of database design principles and how to apply them in practice.
-- Learn how to optimize database performance using indexes and other techniques.
-- Optimizing database files with VACUUM.
+## 1. INSERT:
 
-
-## Week 3 Assignments
-
-This week requires you to complete the following tasks:
-
-1. **Read** the following material available in the Hekman Library system: *Mark Simon. (2023). Getting Started with SQL and Databases : Managing and Manipulating Data with SQL. Apress. - Chapters 7, 8 and 9*
-2. Complete **Homework 3**: *SQL Advanced*.
-3. Complete **Project 3**: *Import CSV and Database Design*.
-4. Show up for **classes** on MWF from 2.45 PM to 3.50 PM.
-
-## Overview of the Week
-
-This week, we will focus on the following topics:
-
-- Updating sets of data
-- Inserting sets of data
-- Deleting sets of data
-- Views
-- Table design principles using DDL commands, such as `CREATE TABLE`, `DROP TABLE`, `ALTER TABLE`, `CREATE INDEX`, `DROP INDEX`, `CREATE VIEW`, `DROP VIEW`.
-- Control columns values using constraints: primary keys, foreign keys, delete with CASCADE, CHECK, UNIQUE, NOT NULL, AUTOINCREMENT.
-- CLI SQL: `.mode`, `.import`, `.headers`, `.output`, `.schema`
-- Using CTEs to make queries more readable using `WITH`.
-- Optimizing database files with `VACUUM`.
-
-
-```{tableofcontents}
+```sql
+INSERT INTO students (name, grade) VALUES ('Bob', 90);
 ```
+
+## 2. UPDATE:
+
+```sql
+UPDATE students SET grade = 95 WHERE name = 'Bob';
+```
+
+## 3. DELETE:
+
+```sql
+DELETE FROM students WHERE name = 'Bob';
+```
+
+## 4. REPLACE (SQLite-specific):
+
+```sql
+REPLACE INTO students (id, name, grade) VALUES (1, 'Alice', 88);
+```
+
+If row with id=1 exists, it’s deleted and replaced.
+
+## 5. UPSERT with ON CONFLICT:
+
+```sql
+INSERT INTO students (id, name, grade)
+VALUES (1, 'Alice', 91)
+ON CONFLICT(id) DO UPDATE SET grade = excluded.grade;
+```
+
+This command tries to insert a new student. If a student with the same `id = 1` already exists, instead of raising an error, it updates the existing row by setting its grade to 91.
+
+**excluded** is a special keyword that refers to the values you tried to insert.
+
+Only the column(s) explicitly listed in the UPDATE SET ... clause will be modified.
+
+```{admonition} Talk to Your Neighbor
+:class: tip
+It the name changed? How would we update the name as well as the grade?
+```
+
+## 6. RETURNING:
+
+```sql
+DELETE FROM students WHERE grade < 60 RETURNING *;
+```
+
+| Feature   | SQLite        | PostgreSQL     | MySQL                 |
+|-----------|---------------|----------------|------------------------|
+| REPLACE   | ✅ Yes        | ❌ No          | ✅ Yes                |
+| UPSERT    | ✅ ON CONFLICT| ✅ ON CONFLICT | ✅ ON DUPLICATE KEY   |
+| RETURNING | ✅ (3.35+)    | ✅             | ✅ (8.0.19+)          |
 
 class 1
 

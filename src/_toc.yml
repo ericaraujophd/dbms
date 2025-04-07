@@ -51,8 +51,9 @@ parts:
   - caption: Week 3 - Advanced SQL
     chapters:
       # Class 1 - DML
-      - file: w03/c01/A-dml
+      - file: w03/w3-intro
         sections:
+          - file: w03/c01/A-dml
           - file: w03/c01/B-insert
           - file: w03/c01/C-update
           - file: w03/c01/D-delete

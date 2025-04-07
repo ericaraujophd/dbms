@@ -4,6 +4,7 @@
 title: Database Management Systems
 subtitle: A Comprehensive Guide
 author: Eric Araujo
+copyright: "2025"
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
