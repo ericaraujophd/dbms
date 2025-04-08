@@ -34,5 +34,5 @@ This week requires you to complete the following tasks:
 
 This week, we will focus on the following topics:
 
-```{contents}
+```{tableofcontents}
 ```
