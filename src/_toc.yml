@@ -6,6 +6,7 @@ root: home
 parts:
   - caption: Week 1 - Introduction to SQL
     chapters:
+      - file: w01/w1-overview
       # Class 1 - CONCEPTS
       - file: w01/c01/A-intro
         sections:
@@ -79,6 +80,10 @@ parts:
           - file: w03/c03/Z-practice
       # Project 03 - Animal Crossing
       - file: projects/proj03
+  - caption: Week 4 - Databases Design
+    chapters:
+      - file: w04/w4-overview
+      - file: homeworks/hw04
   # - file: week04
   # - file: week05
   # - file: week06
