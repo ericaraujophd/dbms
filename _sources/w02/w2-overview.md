@@ -28,11 +28,3 @@ This week requires you to complete the following tasks:
 2. Complete **Homework 2**.
 3. Complete **Project 2**.
 4. Show up for **classes** on MWF from 2.45 PM to 3.50 PM.
-
-
-## Overview of the Week
-
-This week, we will focus on the following topics:
-
-```{tableofcontents}
-```
