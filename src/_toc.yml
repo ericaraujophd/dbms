@@ -28,6 +28,8 @@ parts:
         - file: w01/c03/D-practice
   - caption: Week 2 - Intermediate SQL
     chapters:
+      # Week 2 Overview
+      - file: w02/w2-overview
       # Class 1 - SET OPERATIONS and JOINS
       - file: w02/c01/A-what-is-a-set
         sections:
@@ -50,10 +52,10 @@ parts:
         - file: w02/c03/D-practice
   - caption: Week 3 - Advanced SQL
     chapters:
+      - file: w03/w3-overview
       # Class 1 - DML
-      - file: w03/w3-intro
+      - file: w03/c01/A-dml
         sections:
-          - file: w03/c01/A-dml
           - file: w03/c01/B-insert
           - file: w03/c01/C-update
           - file: w03/c01/D-delete

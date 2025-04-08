@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="SQL Set Operations" href="B-sql-set-operations.html" />
-    <link rel="prev" title="Class 3: Hands-on!" href="../../w01/c03/D-practice.html" />
+    <link rel="prev" title="Week 2 Overview" href="../w2-overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,6 +205,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 - Intermediate SQL</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../w2-overview.html">Week 2 Overview</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 1. What is a Set?</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="B-sql-set-operations.html">SQL Set Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-joins.html">Joins</a></li>
@@ -228,8 +229,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3 - Advanced SQL</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../w03/w3-intro.html">Week 3 Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../w03/c01/A-dml.html">Class 1. Data Manipulation Commands (DML)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../w03/w3-overview.html">Week 3 Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../w03/c01/A-dml.html">Class 1. Data Manipulation Commands (DML)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../w03/c01/B-insert.html">INSERT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w03/c01/C-update.html">UPDATE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w03/c01/D-delete.html">DELETE</a></li>
@@ -253,7 +254,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../w03/c03/Z-practice.html">Class 3. Practice</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../../projects/proj03.html">Project 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/proj03.html">🐸 Week 3 Project</a></li>
 </ul>
 
     </div>
@@ -426,9 +427,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -444,17 +443,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-instructions">Initial Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-slos">Week 2 SLOs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-assignments">Week 2 Assignments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-overview">Week 2 Overview</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -466,45 +454,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="class-1-what-is-a-set">
 <h1>Class 1. What is a Set?<a class="headerlink" href="#class-1-what-is-a-set" title="Link to this heading">#</a></h1>
-<section id="initial-instructions">
-<h2>Initial Instructions<a class="headerlink" href="#initial-instructions" title="Link to this heading">#</a></h2>
-<p>Welcome to the second week of the course! This week, we will focus on working with multiple tables in SQL. We will learn how to join tables, use subqueries, and perform advanced data retrieval operations.</p>
-<p>This week is crucial for understanding how to work with relational databases, as most real-world applications involve multiple tables that need to be queried together. By the end of this week, you should be comfortable writing complex SQL queries that involve multiple tables and understand how to design your database schema to support these operations.</p>
-</section>
-<section id="week-2-slos">
-<h2>Week 2 SLOs<a class="headerlink" href="#week-2-slos" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Understand set operations and how to use them in SQL.</p></li>
-<li><p>Learn how to use <code class="docutils literal notranslate"><span class="pre">UNION</span></code>, <code class="docutils literal notranslate"><span class="pre">INTERSECT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> to combine results from multiple queries.</p></li>
-<li><p>Learn and use <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> operations to retrieve data from multiple tables.</p></li>
-<li><p>Understand the differences between <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">JOIN</span></code>, <code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code> and <code class="docutils literal notranslate"><span class="pre">CROSS</span> <span class="pre">JOIN</span></code>.</p></li>
-<li><p>Use subqueries to create more complex queries.</p></li>
-<li><p>Learn and use aggregate functions to summarize data such as <code class="docutils literal notranslate"><span class="pre">SUM()</span></code>, <code class="docutils literal notranslate"><span class="pre">AVG()</span></code>, <code class="docutils literal notranslate"><span class="pre">COUNT()</span></code>, <code class="docutils literal notranslate"><span class="pre">MIN()</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX()</span></code>, etc.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> and <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clauses to filter aggregated data.</p></li>
-<li><p>Understand the difference between <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> and <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clauses.</p></li>
-</ul>
-</section>
-<section id="week-2-assignments">
-<h2>Week 2 Assignments<a class="headerlink" href="#week-2-assignments" title="Link to this heading">#</a></h2>
-<p>This week requires you to complete the following tasks:</p>
-<ol class="arabic simple">
-<li><p><strong>Read</strong> the following material available in the Hekman Library system: <em>Mark Simon. (2023). Getting Started with SQL and Databases : Managing and Manipulating Data with SQL. Apress. - Chapters 4, 5 and 6</em></p></li>
-<li><p>Complete <strong>Homework 2</strong>.</p></li>
-<li><p>Complete <strong>Project 2</strong>.</p></li>
-<li><p>Show up for <strong>classes</strong> on MWF from 2.45 PM to 3.50 PM.</p></li>
-</ol>
-</section>
-<section id="week-2-overview">
-<h2>Week 2 Overview<a class="headerlink" href="#week-2-overview" title="Link to this heading">#</a></h2>
-<p>This week, we will cover the topics shown below. This is a shortcut in case you want to go back to a specific topic.</p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="B-sql-set-operations.html">SQL Set Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C-joins.html">Joins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="D-practice.html">Class 1. Exercises</a></li>
-</ul>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -538,12 +489,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../w01/c03/D-practice.html"
+       href="../w2-overview.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 3: Hands-on!</p>
+        <p class="prev-next-title">Week 2 Overview</p>
       </div>
     </a>
     <a class="right-next"
@@ -561,24 +512,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-instructions">Initial Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-slos">Week 2 SLOs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-assignments">Week 2 Assignments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-overview">Week 2 Overview</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
