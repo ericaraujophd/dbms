@@ -1,4 +1,4 @@
-# Week 2 Overview
+# 🔎 Week 2 Overview
 
 ## Initial Instructions
 
