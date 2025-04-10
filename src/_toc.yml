@@ -84,6 +84,7 @@ parts:
     chapters:
       - file: w04/w4-overview
       - file: homeworks/hw04
+      - file: projects/proj04
   # - file: week04
   # - file: week05
   # - file: week06
