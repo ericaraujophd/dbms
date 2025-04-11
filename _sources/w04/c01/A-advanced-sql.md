@@ -1,4 +1,4 @@
-# Class 1. Advanced SQL: Indexes and Performance
+# Class 1. Indexes and Performance
 
 This class will cover the topic of **indexes** and performance in SQL. Indexes are data structures that improve the speed of data retrieval operations on a database table. They can significantly enhance query performance, especially for large datasets.
 

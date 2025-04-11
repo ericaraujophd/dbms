@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite &#8212; Database Management Systems</title>
+    <title>EXPLAIN and EXPLAIN QUERY PLAN in SQLite &#8212; Database Management Systems</title>
   
   
   
@@ -61,8 +61,8 @@
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="📗 In-Class Activity: Timing and Analyzing SQLite Query Performance" href="E-Activity.html" />
-    <link rel="prev" title="📊 SQLite Query Optimization with ANALYZE" href="C-ANALIZE.html" />
+    <link rel="next" title="📗 In-Class Activity" href="E-Activity.html" />
+    <link rel="prev" title="SQLite Query Optimization with ANALYZE" href="C-ANALIZE.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -259,12 +259,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 - Databases Design</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">Week 4</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-advanced-sql.html">Class 1. Advanced SQL: Indexes and Performance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">🔎 Week 4 Overview</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-advanced-sql.html">Class 1. Indexes and Performance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-ANALIZE.html">📊 SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-Activity.html">📗 In-Class Activity: Timing and Analyzing SQLite Query Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
@@ -503,7 +503,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite</h1>
+    <h1>EXPLAIN and EXPLAIN QUERY PLAN in SQLite</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -534,7 +534,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="explain-and-explain-query-plan-in-sqlite">
-<h1>📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite<a class="headerlink" href="#explain-and-explain-query-plan-in-sqlite" title="Link to this heading">#</a></h1>
+<h1>EXPLAIN and EXPLAIN QUERY PLAN in SQLite<a class="headerlink" href="#explain-and-explain-query-plan-in-sqlite" title="Link to this heading">#</a></h1>
 <section id="what-is-explain">
 <h2>🧠 What is EXPLAIN?<a class="headerlink" href="#what-is-explain" title="Link to this heading">#</a></h2>
 <p>SQLite provides two commands to understand how your queries will be executed:</p>
@@ -601,110 +601,117 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-22&#39;, 59.41),
- (3, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-01&#39;, 22.04),
- (4, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-08&#39;, 28.8),
- (7, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-26&#39;, 23.82),
- (22, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-22&#39;, 57.03),
- (24, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-03&#39;, 74.86),
- (34, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-25&#39;, 15.72),
- (48, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-10&#39;, 23.39),
- (52, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-26&#39;, 30.82),
- (61, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-02&#39;, 79.71),
- (65, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-20&#39;, 42.73),
- (74, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-29&#39;, 24.96),
- (76, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-20&#39;, 15.77),
- (77, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-22&#39;, 51.55),
- (80, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-27&#39;, 11.99),
- (86, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-02&#39;, 67.17),
- (87, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-05&#39;, 76.81),
- (97, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-20&#39;, 29.35),
- (101, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-18&#39;, 72.1),
- (106, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-07&#39;, 64.64),
- (107, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-26&#39;, 27.64),
- (121, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-17&#39;, 50.73),
- (124, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-06&#39;, 30.81),
- (135, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-01&#39;, 77.25),
- (136, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-27&#39;, 69.46),
- (137, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-03&#39;, 70.37),
- (141, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-09&#39;, 67.87),
- (142, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-30&#39;, 66.38),
- (147, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-27&#39;, 45.38),
- (148, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-19&#39;, 49.38),
- (149, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-08&#39;, 74.27),
- (152, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-01&#39;, 16.83),
- (155, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-31&#39;, 47.26),
- (157, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-23&#39;, 75.86),
- (158, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-10&#39;, 17.09),
- (165, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-08&#39;, 66.51),
- (166, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-06&#39;, 63.67),
- (168, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-30&#39;, 22.51),
- (170, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-18&#39;, 37.35),
- (174, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-15&#39;, 10.31),
- (175, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-12&#39;, 55.63),
- (178, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-15&#39;, 52.22),
- (184, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-06&#39;, 43.41),
- (185, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-04&#39;, 60.38),
- (193, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-02&#39;, 63.98),
- (206, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-29&#39;, 58.8),
- (211, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-01&#39;, 46.5),
- (215, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-30&#39;, 35.97),
- (217, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-06&#39;, 30.17),
- (218, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-02&#39;, 15.94),
- (230, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-04&#39;, 45.9),
- (232, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-05&#39;, 55.81),
- (234, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-16&#39;, 58.7),
- (235, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-28&#39;, 67.45),
- (236, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-10&#39;, 51.12),
- (240, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-07&#39;, 71.86),
- (243, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-30&#39;, 73.65),
- (254, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-28&#39;, 43.88),
- (256, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-19&#39;, 77.03),
- (262, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-15&#39;, 43.07),
- (274, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-24&#39;, 66.38),
- (275, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-03&#39;, 29.93),
- (277, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-06&#39;, 47.99),
- (279, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-11&#39;, 64.51),
- (280, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-15&#39;, 17.55),
- (286, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-01&#39;, 12.21),
- (294, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-18&#39;, 75.62),
- (297, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-28&#39;, 45.03),
- (300, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-09&#39;, 38.02),
- (304, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-26&#39;, 76.62),
- (312, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-22&#39;, 62.9),
- (317, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2024-12-31&#39;, 77.07),
- (321, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-03&#39;, 64.33),
- (323, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-20&#39;, 61.89),
- (324, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-27&#39;, 67.46),
- (328, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-26&#39;, 58.41),
- (329, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-01&#39;, 74.25),
- (335, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-03&#39;, 78.91),
- (341, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-27&#39;, 76.06),
- (342, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-25&#39;, 64.14),
- (351, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-01&#39;, 40.58),
- (354, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-04&#39;, 18.2),
- (355, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-06&#39;, 69.55),
- (357, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-25&#39;, 37.72),
- (359, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-14&#39;, 33.61),
- (369, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-06&#39;, 42.09),
- (370, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-03&#39;, 30.28),
- (387, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-23&#39;, 20.37),
- (391, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-09&#39;, 48.75),
- (393, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-20&#39;, 64.14),
- (395, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-18&#39;, 41.38),
- (400, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-18&#39;, 18.99),
- (411, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-17&#39;, 37.78),
- (416, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-13&#39;, 33.36),
- (435, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-03&#39;, 63.12),
- (440, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-27&#39;, 12.48),
- (449, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-07&#39;, 56.98),
- (452, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-24&#39;, 67.55),
- (454, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-16&#39;, 44.37),
- (462, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-15&#39;, 79.95),
- (472, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-06&#39;, 73.36),
- (480, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-08&#39;, 16.03),
- (481, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-23&#39;, 51.83),
- (486, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-15&#39;, 70.75)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-28&#39;, 35.13),
+ (17, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-09&#39;, 25.68),
+ (20, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-04&#39;, 47.36),
+ (31, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-23&#39;, 14.55),
+ (32, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-22&#39;, 58.17),
+ (34, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-27&#39;, 65.24),
+ (35, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-21&#39;, 17.66),
+ (38, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-18&#39;, 70.51),
+ (40, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-19&#39;, 35.07),
+ (41, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-25&#39;, 62.53),
+ (45, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-08&#39;, 28.19),
+ (46, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-01&#39;, 77.88),
+ (47, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-11&#39;, 10.74),
+ (48, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-17&#39;, 61.3),
+ (58, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-05&#39;, 72.83),
+ (70, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-12&#39;, 16.1),
+ (73, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-31&#39;, 51.91),
+ (74, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-23&#39;, 66.55),
+ (76, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-16&#39;, 71.89),
+ (78, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-09&#39;, 29.14),
+ (79, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-18&#39;, 66.3),
+ (80, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-20&#39;, 14.38),
+ (88, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-28&#39;, 72.7),
+ (97, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-22&#39;, 58.85),
+ (102, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-25&#39;, 20.73),
+ (107, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-16&#39;, 61.79),
+ (108, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-15&#39;, 78.86),
+ (121, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-14&#39;, 66.11),
+ (128, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-21&#39;, 50.22),
+ (130, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-22&#39;, 48.73),
+ (133, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-01&#39;, 12.43),
+ (138, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-06&#39;, 48.24),
+ (139, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-30&#39;, 70.23),
+ (142, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-15&#39;, 56.28),
+ (146, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-10&#39;, 67.07),
+ (149, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-21&#39;, 33.98),
+ (157, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-27&#39;, 26.88),
+ (162, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-13&#39;, 62.55),
+ (174, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-13&#39;, 47.34),
+ (182, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-04-02&#39;, 20.16),
+ (183, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-09&#39;, 39.06),
+ (184, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-15&#39;, 12.6),
+ (186, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-28&#39;, 61.08),
+ (189, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-06&#39;, 12.4),
+ (204, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-22&#39;, 49.88),
+ (209, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-01&#39;, 22.1),
+ (210, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-10&#39;, 56.78),
+ (213, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-04&#39;, 25.24),
+ (220, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-02&#39;, 71.11),
+ (223, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-12&#39;, 29.54),
+ (232, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-04&#39;, 35.92),
+ (235, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-20&#39;, 40.26),
+ (236, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-10&#39;, 74.3),
+ (241, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-12&#39;, 19.46),
+ (242, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-26&#39;, 50.99),
+ (247, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-31&#39;, 24.92),
+ (254, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-28&#39;, 53.53),
+ (255, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-03&#39;, 16.18),
+ (257, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-12&#39;, 34.16),
+ (259, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-10&#39;, 18.68),
+ (260, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-24&#39;, 42.97),
+ (261, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-05&#39;, 54.38),
+ (262, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-17&#39;, 40.78),
+ (283, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-07&#39;, 42.61),
+ (286, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-03&#39;, 54.1),
+ (293, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-08&#39;, 12.16),
+ (294, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-27&#39;, 43.12),
+ (296, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-09&#39;, 50.49),
+ (314, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-03&#39;, 12.1),
+ (317, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-10&#39;, 61.21),
+ (327, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-04&#39;, 61.7),
+ (328, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-14&#39;, 49.96),
+ (331, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-03&#39;, 44.72),
+ (334, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-08&#39;, 27.43),
+ (336, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-04&#39;, 51.24),
+ (339, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-22&#39;, 14.0),
+ (342, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-11&#39;, 70.19),
+ (343, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-08&#39;, 56.28),
+ (344, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-14&#39;, 69.72),
+ (349, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-13&#39;, 26.03),
+ (350, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-24&#39;, 48.1),
+ (361, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-19&#39;, 63.51),
+ (365, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-13&#39;, 62.35),
+ (371, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-24&#39;, 32.07),
+ (372, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-13&#39;, 10.14),
+ (377, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-12&#39;, 16.26),
+ (380, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-18&#39;, 19.49),
+ (381, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-17&#39;, 61.61),
+ (382, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-17&#39;, 37.2),
+ (384, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-07&#39;, 31.98),
+ (386, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-11&#39;, 14.43),
+ (391, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-25&#39;, 62.63),
+ (392, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-10&#39;, 42.59),
+ (395, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-11&#39;, 64.85),
+ (407, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-15&#39;, 59.16),
+ (411, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-01-20&#39;, 56.62),
+ (420, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-01-06&#39;, 13.17),
+ (432, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-02-20&#39;, 57.3),
+ (442, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-15&#39;, 72.41),
+ (454, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-13&#39;, 10.77),
+ (463, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-27&#39;, 70.93),
+ (466, &#39;Bob&#39;, &#39;Board Game&#39;, &#39;2025-03-01&#39;, 24.18),
+ (468, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-08&#39;, 68.26),
+ (469, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-02-24&#39;, 27.14),
+ (475, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-04-01&#39;, 75.67),
+ (480, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-03-20&#39;, 41.69),
+ (482, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-04-10&#39;, 63.42),
+ (485, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-18&#39;, 18.26),
+ (490, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-03-29&#39;, 31.22),
+ (494, &#39;Bob&#39;, &#39;Card Sleeves&#39;, &#39;2025-02-14&#39;, 39.99),
+ (496, &#39;Bob&#39;, &#39;Dice Set&#39;, &#39;2025-01-03&#39;, 17.56)]
 </pre></div>
 </div>
 </div>
@@ -876,7 +883,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">📊 SQLite Query Optimization with ANALYZE</p>
+        <p class="prev-next-title">SQLite Query Optimization with ANALYZE</p>
       </div>
     </a>
     <a class="right-next"
@@ -884,7 +891,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">📗 In-Class Activity: Timing and Analyzing SQLite Query Performance</p>
+        <p class="prev-next-title">📗 In-Class Activity</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

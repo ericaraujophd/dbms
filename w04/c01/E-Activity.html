@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📗 In-Class Activity: Timing and Analyzing SQLite Query Performance &#8212; Database Management Systems</title>
+    <title>📗 In-Class Activity &#8212; Database Management Systems</title>
   
   
   
@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="🎓 Week 4 Homework: University Clubs Database" href="../../homeworks/hw04.html" />
-    <link rel="prev" title="📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite" href="D-EXPLAIN.html" />
+    <link rel="prev" title="EXPLAIN and EXPLAIN QUERY PLAN in SQLite" href="D-EXPLAIN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -259,12 +259,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 - Databases Design</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">Week 4</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-advanced-sql.html">Class 1. Advanced SQL: Indexes and Performance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">🔎 Week 4 Overview</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-advanced-sql.html">Class 1. Indexes and Performance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-ANALIZE.html">📊 SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="D-EXPLAIN.html">📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">📗 In-Class Activity: Timing and Analyzing SQLite Query Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
@@ -503,7 +503,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>📗 In-Class Activity: Timing and Analyzing SQLite Query Performance</h1>
+    <h1>📗 In-Class Activity</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -542,8 +542,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="in-class-activity-timing-and-analyzing-sqlite-query-performance">
-<h1>📗 In-Class Activity: Timing and Analyzing SQLite Query Performance<a class="headerlink" href="#in-class-activity-timing-and-analyzing-sqlite-query-performance" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="in-class-activity">
+<h1>📗 In-Class Activity<a class="headerlink" href="#in-class-activity" title="Link to this heading">#</a></h1>
 <section id="learning-goals">
 <h2>👩‍🏫 Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -620,8 +620,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITHOUT index or analyze: 0.000765 seconds
-Rows returned: 226
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITHOUT index or analyze: 0.000773 seconds
+Rows returned: 187
 </pre></div>
 </div>
 </div>
@@ -675,8 +675,8 @@ Rows returned: 226
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index: 0.000500 seconds
-Rows returned: 226
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index: 0.000433 seconds
+Rows returned: 187
 </pre></div>
 </div>
 </div>
@@ -728,8 +728,8 @@ Rows returned: 226
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index AND analyze: 0.000502 seconds
-Rows returned: 226
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index AND analyze: 0.000428 seconds
+Rows returned: 187
 </pre></div>
 </div>
 </div>
@@ -743,7 +743,7 @@ Rows returned: 226
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 0, 102, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 0, 99, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)
 </pre></div>
 </div>
 </div>
@@ -830,7 +830,7 @@ Rows returned: 226
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">📘 EXPLAIN and EXPLAIN QUERY PLAN in SQLite</p>
+        <p class="prev-next-title">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</p>
       </div>
     </a>
     <a class="right-next"
