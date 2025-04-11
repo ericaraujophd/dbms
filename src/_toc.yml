@@ -83,6 +83,13 @@ parts:
   - caption: Week 4 - Databases Design
     chapters:
       - file: w04/w4-overview
+      # Class 1 - Advanced SQL
+      - file: w04/c01/A-advanced-sql
+        sections:
+          - file: w04/c01/B-INDEX
+          - file: w04/c01/C-ANALIZE
+          - file: w04/c01/D-EXPLAIN
+          - file: w04/c01/E-Activity
       - file: homeworks/hw04
       - file: projects/proj04
   # - file: week04
