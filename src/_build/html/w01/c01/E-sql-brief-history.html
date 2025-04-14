@@ -184,7 +184,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../w1-overview.html">🔎 Week 1 Overview</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A-intro.html">Class 1. In the Beginning…</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">Introduction to Database Management Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-history-relational-models.html">History of Relational Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-relational-dbs-dissected.html">Relational Database Dissected</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">A Brief History of SQL</a></li>
@@ -262,8 +262,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../w04/w4-overview.html">🔎 Week 4 Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
@@ -310,6 +310,55 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w01/c01/E-sql-brief-history.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -370,7 +419,7 @@
       
       
       
-      <li><a href="../../_sources/w01/c01/E-sql-brief-history.md" target="_blank"
+      <li><a href="../../_sources/w01/c01/E-sql-brief-history.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,7 +429,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -441,7 +490,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -457,6 +508,23 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#origins-of-sql">Origins of SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-of-donald-d-chamberlin-and-raymond-f-boyce">Image of Donald D. Chamberlin and Raymond F. Boyce</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization">Standardization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#early-adoption-and-impact">Early Adoption and Impact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-model-foundation">Relational Model Foundation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolution-of-sql">Evolution of SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-and-community-growth">Open Source and Community Growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-today">SQL Today</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -468,6 +536,46 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-brief-history-of-sql">
 <h1>A Brief History of SQL<a class="headerlink" href="#a-brief-history-of-sql" title="Link to this heading">#</a></h1>
+<p>Structured Query Language (SQL) is a standard programming language specifically designed for managing and manipulating relational databases. This notebook explores the history and evolution of SQL.</p>
+<section id="origins-of-sql">
+<h2>Origins of SQL<a class="headerlink" href="#origins-of-sql" title="Link to this heading">#</a></h2>
+<p>SQL was developed in the early 1970s at IBM by Donald D. Chamberlin and Raymond F. Boyce. It was initially called SEQUEL (Structured English Query Language) and was designed to manipulate and retrieve data stored in IBM’s System R, a prototype relational database.</p>
+<section id="image-of-donald-d-chamberlin-and-raymond-f-boyce">
+<h3>Image of Donald D. Chamberlin and Raymond F. Boyce<a class="headerlink" href="#image-of-donald-d-chamberlin-and-raymond-f-boyce" title="Link to this heading">#</a></h3>
+<p><img alt="Donald D. Chamberlin and Raymond F. Boyce" src="../../_images/Donald_Chamberlin_Raymond_Boyce.png" /></p>
+</section>
+</section>
+<section id="standardization">
+<h2>Standardization<a class="headerlink" href="#standardization" title="Link to this heading">#</a></h2>
+<p>In 1986, the American National Standards Institute (ANSI) adopted SQL as the standard language for relational database management systems (RDBMS). This was followed by the International Organization for Standardization (ISO) in 1987.</p>
+</section>
+<section id="early-adoption-and-impact">
+<h2>Early Adoption and Impact<a class="headerlink" href="#early-adoption-and-impact" title="Link to this heading">#</a></h2>
+<p>During the 1980s and 1990s, SQL was adopted by major database vendors such as Oracle, IBM, and Microsoft. This widespread adoption solidified SQL as the industry standard for relational database management.</p>
+</section>
+<section id="relational-model-foundation">
+<h2>Relational Model Foundation<a class="headerlink" href="#relational-model-foundation" title="Link to this heading">#</a></h2>
+<p>SQL is based on the relational model proposed by Edgar F. Codd in 1970. This model introduced the concept of organizing data into tables (relations) with rows and columns, which became the foundation for modern relational databases.</p>
+</section>
+<section id="evolution-of-sql">
+<h2>Evolution of SQL<a class="headerlink" href="#evolution-of-sql" title="Link to this heading">#</a></h2>
+<p>Over the years, SQL has undergone several revisions to include new features and capabilities. Some of the major milestones include:</p>
+<ul class="simple">
+<li><p><strong>SQL-92</strong>: Introduced support for integrity constraints, date and time data types, and enhanced join operations.</p></li>
+<li><p><strong>SQL:1999</strong>: Added support for object-oriented features, recursive queries, and triggers.</p></li>
+<li><p><strong>SQL:2003</strong>: Introduced XML-related features and window functions.</p></li>
+<li><p><strong>SQL:2011</strong>: Added support for temporal databases.</p></li>
+<li><p><strong>SQL:2016</strong>: Enhanced JSON support and introduced row pattern recognition.</p></li>
+</ul>
+</section>
+<section id="open-source-and-community-growth">
+<h2>Open Source and Community Growth<a class="headerlink" href="#open-source-and-community-growth" title="Link to this heading">#</a></h2>
+<p>The rise of open-source relational database management systems (RDBMS) like MySQL and PostgreSQL in the 1990s and 2000s played a significant role in SQL’s widespread adoption. These platforms made SQL accessible to a broader audience, fostering innovation and community-driven development.</p>
+</section>
+<section id="sql-today">
+<h2>SQL Today<a class="headerlink" href="#sql-today" title="Link to this heading">#</a></h2>
+<p>SQL remains the most widely used language for interacting with relational databases. It is supported by all major RDBMS platforms, including MySQL, PostgreSQL, Oracle Database, and Microsoft SQL Server.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -524,6 +632,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#origins-of-sql">Origins of SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-of-donald-d-chamberlin-and-raymond-f-boyce">Image of Donald D. Chamberlin and Raymond F. Boyce</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization">Standardization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#early-adoption-and-impact">Early Adoption and Impact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-model-foundation">Relational Model Foundation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolution-of-sql">Evolution of SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-and-community-growth">Open Source and Community Growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-today">SQL Today</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

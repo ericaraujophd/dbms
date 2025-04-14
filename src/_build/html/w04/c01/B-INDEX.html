@@ -61,7 +61,7 @@
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SQLite Query Optimization with ANALYZE" href="C-ANALIZE.html" />
+    <link rel="next" title="ANALYZE" href="C-ANALIZE.html" />
     <link rel="prev" title="Class 1. Indexes and Performance" href="A-advanced-sql.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,7 +184,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../w01/w1-overview.html">🔎 Week 1 Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../w01/c01/A-intro.html">Class 1. In the Beginning…</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/B-intro-to-relational-databases.html">What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/B-intro-to-relational-databases.html">Introduction to Database Management Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w01/c01/C-history-relational-models.html">History of Relational Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w01/c01/D-relational-dbs-dissected.html">Relational Database Dissected</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w01/c01/E-sql-brief-history.html">A Brief History of SQL</a></li>
@@ -262,8 +262,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">🔎 Week 4 Overview</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A-advanced-sql.html">Class 1. Indexes and Performance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
@@ -587,7 +587,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x108401a40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x108515840&gt;
 </pre></div>
 </div>
 </div>
@@ -649,7 +649,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 188 results in 0.000668 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 199 results in 0.000599 seconds
 </pre></div>
 </div>
 </div>
@@ -695,7 +695,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 188 results in 0.000562 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 199 results in 0.000646 seconds
 </pre></div>
 </div>
 </div>
@@ -742,7 +742,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>132 results found for &#39;Catan&#39; sales since September 2024
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>121 results found for &#39;Catan&#39; sales since September 2024
 </pre></div>
 </div>
 </div>
@@ -818,7 +818,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SQLite Query Optimization with ANALYZE</p>
+        <p class="prev-next-title">ANALYZE</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

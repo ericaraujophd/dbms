@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Relational Database Dissected" href="D-relational-dbs-dissected.html" />
-    <link rel="prev" title="What is Relational?" href="B-intro-to-relational-databases.html" />
+    <link rel="prev" title="Introduction to Database Management Systems" href="B-intro-to-relational-databases.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,7 +184,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../w1-overview.html">🔎 Week 1 Overview</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A-intro.html">Class 1. In the Beginning…</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">Introduction to Database Management Systems</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">History of Relational Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-relational-dbs-dissected.html">Relational Database Dissected</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-sql-brief-history.html">A Brief History of SQL</a></li>
@@ -262,8 +262,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../w04/w4-overview.html">🔎 Week 4 Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
@@ -441,7 +441,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -457,6 +459,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-milestones-in-the-history-of-relational-models">Key Milestones in the History of Relational Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-the-relational-model">Impact of the Relational Model</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -468,6 +479,22 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="history-of-relational-model">
 <h1>History of Relational Model<a class="headerlink" href="#history-of-relational-model" title="Link to this heading">#</a></h1>
+<p>The relational model was first proposed by Edgar F. Codd, a computer scientist working for IBM, in 1970. His groundbreaking paper, “A Relational Model of Data for Large Shared Data Banks,” introduced the concept of organizing data into relations, which are essentially tables with rows and columns.</p>
+<section id="key-milestones-in-the-history-of-relational-models">
+<h2>Key Milestones in the History of Relational Models<a class="headerlink" href="#key-milestones-in-the-history-of-relational-models" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>1970</strong>: Edgar F. Codd publishes his seminal paper, laying the foundation for relational databases. The model emphasized data independence, logical structure, and the use of a high-level query language.</p></li>
+<li><p><strong>1974</strong>: IBM begins developing System R, one of the first implementations of a relational database. This project also led to the creation of SQL (Structured Query Language).</p></li>
+<li><p><strong>1978</strong>: Oracle Corporation releases the first commercially available relational database, Oracle V2, which was based on Codd’s relational model.</p></li>
+<li><p><strong>1980s</strong>: Relational databases gain widespread adoption in industries due to their ability to handle large amounts of structured data efficiently. SQL becomes the standard query language for relational databases.</p></li>
+<li><p><strong>1990s</strong>: Advances in relational database technology include support for distributed databases, improved performance, and the introduction of object-relational databases.</p></li>
+<li><p><strong>2000s and Beyond</strong>: Relational databases continue to evolve, integrating with cloud computing, big data technologies, and AI. Modern relational databases offer enhanced scalability, security, and support for hybrid data models.</p></li>
+</ul>
+</section>
+<section id="impact-of-the-relational-model">
+<h2>Impact of the Relational Model<a class="headerlink" href="#impact-of-the-relational-model" title="Link to this heading">#</a></h2>
+<p>The relational model revolutionized the way data is stored, managed, and accessed. It introduced a level of abstraction that allowed users to interact with data without needing to understand its physical storage. This innovation paved the way for the development of modern database management systems and remains a cornerstone of data management today.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -506,7 +533,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">What is Relational?</p>
+        <p class="prev-next-title">Introduction to Database Management Systems</p>
       </div>
     </a>
     <a class="right-next"
@@ -524,6 +551,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-milestones-in-the-history-of-relational-models">Key Milestones in the History of Relational Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-the-relational-model">Impact of the Relational Model</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
