@@ -1,6 +1,6 @@
 # Class 1. In the Beginning...
 
-![Class 1 Overview](imgs/w01c01.png)
+![Class 1 Overview](../../imgs/w01c01.png)
 
 Welcome to the first class of this  journey into the world of databases! In this session, we will lay the foundation for understanding how data is stored, organized, and retrieved in modern systems. Databases are at the heart of countless applications, from social media platforms to financial systems, and mastering them is a crucial skill for any aspiring developer or data professional.
 
