@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>What is Relational? &#8212; Database Management Systems</title>
+    <title>Introduction to Database Management Systems &#8212; Database Management Systems</title>
   
   
   
@@ -184,7 +184,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../w1-overview.html">🔎 Week 1 Overview</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A-intro.html">Class 1. In the Beginning…</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">What is Relational?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to Database Management Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-history-relational-models.html">History of Relational Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-relational-dbs-dissected.html">Relational Database Dissected</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-sql-brief-history.html">A Brief History of SQL</a></li>
@@ -262,8 +262,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../w04/w4-overview.html">🔎 Week 4 Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
@@ -310,6 +310,55 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w01/c01/B-intro-to-relational-databases.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -370,7 +419,7 @@
       
       
       
-      <li><a href="../../_sources/w01/c01/B-intro-to-relational-databases.md" target="_blank"
+      <li><a href="../../_sources/w01/c01/B-intro-to-relational-databases.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,7 +429,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -441,7 +490,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -452,11 +503,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>What is Relational?</h1>
+    <h1>Introduction to Database Management Systems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-dbms">Purpose of DBMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-dbms">Key Components of DBMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-popular-dbms-software">Examples of Popular DBMS Software</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -466,9 +527,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="what-is-relational">
-<h1>What is Relational?<a class="headerlink" href="#what-is-relational" title="Link to this heading">#</a></h1>
-<p>Types of Databases</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-database-management-systems">
+<h1>Introduction to Database Management Systems<a class="headerlink" href="#introduction-to-database-management-systems" title="Link to this heading">#</a></h1>
+<p>Database Management Systems (DBMS) are software systems designed to store, manage, and retrieve data efficiently. They provide a systematic way to create, retrieve, update, and manage data in databases.</p>
+<section id="purpose-of-dbms">
+<h2>Purpose of DBMS<a class="headerlink" href="#purpose-of-dbms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To provide a way to store and retrieve database information that is both convenient and efficient.</p></li>
+<li><p>To ensure data integrity, security, and consistency.</p></li>
+</ul>
+</section>
+<section id="key-components-of-dbms">
+<h2>Key Components of DBMS<a class="headerlink" href="#key-components-of-dbms" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Database Engine</strong>: Handles data storage, retrieval, and updates.</p></li>
+<li><p><strong>Database Schema</strong>: Defines the structure of the data.</p></li>
+<li><p><strong>Query Processor</strong>: Interprets and executes database queries.</p></li>
+<li><p><strong>Transaction Manager</strong>: Ensures ACID properties for transactions.</p></li>
+</ol>
+</section>
+<section id="examples-of-popular-dbms-software">
+<h2>Examples of Popular DBMS Software<a class="headerlink" href="#examples-of-popular-dbms-software" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Relational DBMS</strong>: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server.</p></li>
+<li><p><strong>NoSQL DBMS</strong>: MongoDB, Cassandra, Redis.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -525,6 +609,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-dbms">Purpose of DBMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-dbms">Key Components of DBMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-popular-dbms-software">Examples of Popular DBMS Software</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

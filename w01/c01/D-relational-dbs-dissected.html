@@ -184,7 +184,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../w1-overview.html">🔎 Week 1 Overview</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A-intro.html">Class 1. In the Beginning…</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">What is Relational?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">Introduction to Database Management Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-history-relational-models.html">History of Relational Model</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Relational Database Dissected</a></li>
 <li class="toctree-l2"><a class="reference internal" href="E-sql-brief-history.html">A Brief History of SQL</a></li>
@@ -262,8 +262,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../w04/w4-overview.html">🔎 Week 4 Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">SQLite Query Optimization with ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../w04/c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
@@ -310,6 +310,55 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w01/c01/D-relational-dbs-dissected.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -370,7 +419,7 @@
       
       
       
-      <li><a href="../../_sources/w01/c01/D-relational-dbs-dissected.md" target="_blank"
+      <li><a href="../../_sources/w01/c01/D-relational-dbs-dissected.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,7 +429,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -441,7 +490,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -457,6 +508,37 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">Fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#records">Records</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keys">Keys</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#views">Views</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationships">Relationships</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -468,13 +550,118 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="relational-database-dissected">
 <h1>Relational Database Dissected<a class="headerlink" href="#relational-database-dissected" title="Link to this heading">#</a></h1>
-<p>Tables</p>
-<p>Fields</p>
-<p>Records</p>
-<p>Keys</p>
-<p>Views</p>
-<p>Relationships</p>
-<p>Maybe break these in sections</p>
+<p>In this notebook, we will explore the fundamental components of relational databases, including tables, fields, records, keys, views, and relationships. Examples will be provided to illustrate each concept.</p>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Link to this heading">#</a></h2>
+<p>Tables are the primary structure in a relational database. They organize data into rows and columns, where each row represents a record and each column represents a field.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Consider a “Students” table:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Age</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Alice</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Bob</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Charlie</p></td>
+<td><p>35</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link to this heading">#</a></h2>
+<p>Fields are the individual columns in a table. Each field represents a specific attribute or property of the data stored in the table.</p>
+<section id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>In the “Students” table, “ID”, “Name”, and “Age” are fields.</p>
+</section>
+</section>
+<section id="records">
+<h2>Records<a class="headerlink" href="#records" title="Link to this heading">#</a></h2>
+<p>Records are the individual rows in a table. Each record represents a single, unique entry in the table.</p>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>In the “Students” table, the row “1, Alice, 25” is a record.</p>
+</section>
+</section>
+<section id="keys">
+<h2>Keys<a class="headerlink" href="#keys" title="Link to this heading">#</a></h2>
+<p>Keys are used to uniquely identify records in a table and establish relationships between tables. Common types of keys include primary keys and foreign keys.</p>
+<section id="id3">
+<h3>Example<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>In the “Students” table, “ID” is the primary key because it uniquely identifies each student.</p>
+</section>
+</section>
+<section id="views">
+<h2>Views<a class="headerlink" href="#views" title="Link to this heading">#</a></h2>
+<p>Views are virtual tables that are created by querying data from one or more tables. They do not store data themselves but provide a way to simplify complex queries.</p>
+<section id="id4">
+<h3>Example<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>A view “AdultStudents” could be created to show only students aged 18 and above:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">AdultStudents</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="relationships">
+<h2>Relationships<a class="headerlink" href="#relationships" title="Link to this heading">#</a></h2>
+<p>Relationships define how data in one table is related to data in another table. They are established using keys and can be one-to-one, one-to-many, or many-to-many.</p>
+<section id="id5">
+<h3>Example<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Consider a “Courses” table:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>CourseID</p></th>
+<th class="head"><p>CourseName</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>Math</p></td>
+</tr>
+<tr class="row-odd"><td><p>102</p></td>
+<td><p>Science</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A “StudentCourses” table can establish a many-to-many relationship between “Students” and “Courses”:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>StudentID</p></th>
+<th class="head"><p>CourseID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>101</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>102</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>101</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -531,6 +718,44 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">Fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#records">Records</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keys">Keys</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#views">Views</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationships">Relationships</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
