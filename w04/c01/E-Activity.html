@@ -270,7 +270,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj04.html">🚘 Week 4 Project</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Final Project</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../homeworks/data-modeling-consistency.html">📘 CS354 Homework: Data Modeling &amp; Consistency</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../projects/final.html">Final Project</a></li>
 </ul>
@@ -624,8 +628,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITHOUT index or analyze: 0.000809 seconds
-Rows returned: 189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITHOUT index or analyze: 0.000825 seconds
+Rows returned: 192
 </pre></div>
 </div>
 </div>
@@ -679,8 +683,8 @@ Rows returned: 189
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index: 0.000547 seconds
-Rows returned: 189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index: 0.000532 seconds
+Rows returned: 192
 </pre></div>
 </div>
 </div>
@@ -732,8 +736,8 @@ Rows returned: 189
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index AND analyze: 0.000525 seconds
-Rows returned: 189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index AND analyze: 0.000555 seconds
+Rows returned: 192
 </pre></div>
 </div>
 </div>
@@ -747,7 +751,7 @@ Rows returned: 189
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 0, 99, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 0, 100, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)
 </pre></div>
 </div>
 </div>
