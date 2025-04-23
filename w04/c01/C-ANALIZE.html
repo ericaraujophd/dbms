@@ -269,7 +269,12 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj04.html">🚘 Week 4 Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c02/A-normalization.html">Database Normalization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c02/B-1NF.html">First Normal Form (1NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/C-2NF.html">Second Normal Form (2NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/D-3NF.html">Third Normal Form (3NF)</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
 <ul class="nav bd-sidenav">
@@ -640,7 +645,7 @@ By default, SQLite uses <strong>basic heuristics</strong>, but it doesn’t know
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before ANALYZE: 61 rows in 0.000388 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before ANALYZE: 48 rows in 0.000571 seconds
 </pre></div>
 </div>
 </div>
@@ -690,7 +695,7 @@ By default, SQLite uses <strong>basic heuristics</strong>, but it doesn’t know
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 0, 100, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 0, 100, &#39;SEARCH sales USING INDEX idx_product (product=?)&#39;)]
 </pre></div>
 </div>
 </div>
@@ -711,7 +716,7 @@ By default, SQLite uses <strong>basic heuristics</strong>, but it doesn’t know
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 61 rows in 0.000355 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 48 rows in 0.000392 seconds
 </pre></div>
 </div>
 </div>
