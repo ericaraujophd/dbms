@@ -529,8 +529,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-1nf">Table Violating 1NF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-1nf">Converting to 1NF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-1nf">🧠 What is 1NF?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-students-with-multiple-phone-numbers">🚫 Example 1: Students with Multiple Phone Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-orders-and-lists-of-products">🚫 Example 2: Orders and Lists of Products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-courses-with-multiple-instructors">🚫 Example 3: Courses with Multiple Instructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note-for-sqlite-and-other-dbmss">⚠️ Practical Note for SQLite and Other DBMSs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">✅ Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">🤖 Coding Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-1nf">Table Violating 1NF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-1nf">Converting to 1NF</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -544,13 +553,274 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="first-normal-form-1nf">
 <h1>First Normal Form (1NF)<a class="headerlink" href="#first-normal-form-1nf" title="Link to this heading">#</a></h1>
-<p>A table is in 1NF if it contains:</p>
+<section id="what-is-1nf">
+<h2>🧠 What is 1NF?<a class="headerlink" href="#what-is-1nf" title="Link to this heading">#</a></h2>
+<p>In relational database theory, a table is in <strong>First Normal Form (1NF)</strong> if it meets the following key criteria:</p>
+<blockquote>
+<div><p>“The domain of each attribute must include only atomic (simple, indivisible) values, and the value of any attribute in a tuple must be a single value from that domain.”</p>
+<p>— Elmasri &amp; Navathe, Fundamentals of Database Systems</p>
+</div></blockquote>
+<blockquote>
+<div><p>“We assume that all relations are in 1NF. That is, each field contains only atomic values, and there are no sets or lists of values.”</p>
+<p>— Ramakrishnan &amp; Gehrke, Database Management Systems</p>
+</div></blockquote>
+<blockquote>
+<div><p>“A relation is in first normal form if the domain of each attribute contains only atomic values and the value of each attribute contains only a single value from that domain.”</p>
+<p>— Silberschatz, Korth &amp; Sudarshan, Database System Concepts</p>
+</div></blockquote>
+<p>✅ In Simple Terms:</p>
 <ul class="simple">
-<li><p>A primary key that uniquely identifies each row.</p></li>
-<li><p>No multivalued columns (i.e., each column contains atomic values).</p></li>
+<li><p>Each column contains <strong>atomic</strong> (indivisible) values.</p></li>
+<li><p>No lists, arrays, or repeating groups in any column.</p></li>
+<li><p>Each row is <strong>uniquely identifiable</strong> (usually by a primary key).</p></li>
 </ul>
+</section>
+<section id="example-1-students-with-multiple-phone-numbers">
+<h2>🚫 Example 1: Students with Multiple Phone Numbers<a class="headerlink" href="#example-1-students-with-multiple-phone-numbers" title="Link to this heading">#</a></h2>
+<p>❌ Not in 1NF</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
+<th class="head"><p><br>Name</p></th>
+<th class="head"><p><br>PhoneNumbers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>1001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>555-1234, 555-5678</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1002</p></td>
+<td><p><br>Bob</p></td>
+<td><p><br>555-8765</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1003</p></td>
+<td><p><br>Clara</p></td>
+<td><p><br>555-1111, 555-2222</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Why it violates 1NF:</strong></p>
+<ul class="simple">
+<li><p>The column <code class="docutils literal notranslate"><span class="pre">PhoneNumbers</span></code> contains multiple values (comma-separated).</p></li>
+<li><p>These are not <strong>atomic</strong>: each field should contain a single phone number.</p></li>
+</ul>
+<p>This violates the fundamental principle of 1NF as discussed by all major DBMS textbooks: no sets or lists in a column.</p>
+<p>✅ Rewritten in 1NF</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
+<th class="head"><p><br>Name</p></th>
+<th class="head"><p><br>PhoneNumber</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>1001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>555-1234</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>555-5678</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1002</p></td>
+<td><p><br>Bob</p></td>
+<td><p><br>555-8765</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1003</p></td>
+<td><p><br>Clara</p></td>
+<td><p><br>555-1111</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1003</p></td>
+<td><p><br>Clara</p></td>
+<td><p><br>555-2222</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Now</strong> each attribute value is <strong>atomic</strong>. The relation satisfies 1NF.</p>
+</section>
+<section id="example-2-orders-and-lists-of-products">
+<h2>🚫 Example 2: Orders and Lists of Products<a class="headerlink" href="#example-2-orders-and-lists-of-products" title="Link to this heading">#</a></h2>
+<p>❌ Not in 1NF</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
+<th class="head"><p><br>Customer</p></th>
+<th class="head"><p><br>Products Ordered</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>2001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>Pen, Notebook, Eraser</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>2002</p></td>
+<td><p><br>Bob</p></td>
+<td><p><br>Notebook</p></td>
+</tr>
+<tr class="row-even"><td><p><br>2003</p></td>
+<td><p><br>Charlie</p></td>
+<td><p><br>Pencil, Marker</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Violation:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Products</span> <span class="pre">Ordered</span></code> is a <strong>repeating group</strong>—a single attribute storing <strong>multiple values</strong>.</p></li>
+<li><p>Querying individual products becomes harder; violates <strong>atomicity</strong>.</p></li>
+</ul>
+<p>✅ 1NF-Compliant Version</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
+<th class="head"><p><br>Customer</p></th>
+<th class="head"><p><br>Product</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>2001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>Pen</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>2001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>Notebook</p></td>
+</tr>
+<tr class="row-even"><td><p><br>2001</p></td>
+<td><p><br>Alice</p></td>
+<td><p><br>Eraser</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>2002</p></td>
+<td><p><br>Bob</p></td>
+<td><p><br>Notebook</p></td>
+</tr>
+<tr class="row-even"><td><p><br>2003</p></td>
+<td><p><br>Charlie</p></td>
+<td><p><br>Pencil</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>2003</p></td>
+<td><p><br>Charlie</p></td>
+<td><p><br>Marker</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Following <em>Silberschatz et al.</em>, we’ve eliminated the repeating group by <strong>creating a separate row for each product</strong>.</p>
+</section>
+<section id="example-3-courses-with-multiple-instructors">
+<h2>🚫 Example 3: Courses with Multiple Instructors<a class="headerlink" href="#example-3-courses-with-multiple-instructors" title="Link to this heading">#</a></h2>
+<p>❌ Not in 1NF</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>CourseID</p></th>
+<th class="head"><p><br>CourseName</p></th>
+<th class="head"><p><br>Instructors</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>CS101</p></td>
+<td><p><br>Intro to CS</p></td>
+<td><p><br>Smith, Johnson</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>MATH201</p></td>
+<td><p><br>Calculus I</p></td>
+<td><p><br>Lee</p></td>
+</tr>
+<tr class="row-even"><td><p><br>HIST202</p></td>
+<td><p><br>World History</p></td>
+<td><p><br>Nguyen, Clark, Adams</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Why it’s invalid:</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Instructors</span></code> field contains sets of values, stored as comma-separated lists.</p></li>
+<li><p>This violates 1NF — each field must store a single instructor.</p></li>
+</ul>
+<p>✅ Converted to 1NF</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>CourseID</p></th>
+<th class="head"><p><br>CourseName</p></th>
+<th class="head"><p><br>Instructor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>CS101</p></td>
+<td><p><br>Intro to CS</p></td>
+<td><p><br>Smith</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>CS101</p></td>
+<td><p><br>Intro to CS</p></td>
+<td><p><br>Johnson</p></td>
+</tr>
+<tr class="row-even"><td><p><br>MATH201</p></td>
+<td><p><br>Calculus I</p></td>
+<td><p><br>Lee</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>HIST202</p></td>
+<td><p><br>World History</p></td>
+<td><p><br>Nguyen</p></td>
+</tr>
+<tr class="row-even"><td><p><br>HIST202</p></td>
+<td><p><br>World History</p></td>
+<td><p><br>Clark</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>HIST202</p></td>
+<td><p><br>World History</p></td>
+<td><p><br>Adams</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now each tuple represents <strong>one course–instructor pair</strong>, and every attribute is <strong>atomic</strong>.</p>
+</section>
+<section id="practical-note-for-sqlite-and-other-dbmss">
+<h2>⚠️ Practical Note for SQLite and Other DBMSs<a class="headerlink" href="#practical-note-for-sqlite-and-other-dbmss" title="Link to this heading">#</a></h2>
+<p>SQLite doesn’t support ARRAY types — which helps reinforce 1NF. However, students may use TEXT fields to store JSON or comma-separated values, like:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">courses</span><span class="w"> </span><span class="p">(</span><span class="n">Instructors</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;[&quot;Smith&quot;, &quot;Johnson&quot;]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>While technically valid in SQLite, this violates the <strong>relational model</strong> and <strong>1NF</strong>, as the value is not atomic in a relational sense.</p>
+</section>
+<section id="summary-table">
+<h2>✅ Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Criterion</p></th>
+<th class="head"><p><br>Violates 1NF</p></th>
+<th class="head"><p><br>Reason</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Multi-valued attributes (lists)</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>Not atomic</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Single value per field</p></td>
+<td><p><br>❌ No</p></td>
+<td><p><br>1NF-compliant</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Repeating groups</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>Breaks the structure of relational tuples</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Flattened rows per item</p></td>
+<td><p><br>❌ No</p></td>
+<td><p><br>Conforms to relational model and 1NF</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="coding-example">
+<h2>🤖 Coding Example<a class="headerlink" href="#coding-example" title="Link to this heading">#</a></h2>
 <section id="table-violating-1nf">
-<h2>Table Violating 1NF<a class="headerlink" href="#table-violating-1nf" title="Link to this heading">#</a></h2>
+<h3>Table Violating 1NF<a class="headerlink" href="#table-violating-1nf" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>StudentID</p></th>
@@ -615,7 +885,7 @@ document.write(`
 </div>
 </section>
 <section id="converting-to-1nf">
-<h2>Converting to 1NF<a class="headerlink" href="#converting-to-1nf" title="Link to this heading">#</a></h2>
+<h3>Converting to 1NF<a class="headerlink" href="#converting-to-1nf" title="Link to this heading">#</a></h3>
 <p>To achieve 1NF, we split the Subjects column into separate rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,6 +922,7 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -719,8 +990,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-1nf">Table Violating 1NF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-1nf">Converting to 1NF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-1nf">🧠 What is 1NF?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-students-with-multiple-phone-numbers">🚫 Example 1: Students with Multiple Phone Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-orders-and-lists-of-products">🚫 Example 2: Orders and Lists of Products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-courses-with-multiple-instructors">🚫 Example 3: Courses with Multiple Instructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note-for-sqlite-and-other-dbmss">⚠️ Practical Note for SQLite and Other DBMSs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">✅ Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">🤖 Coding Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-1nf">Table Violating 1NF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-1nf">Converting to 1NF</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
