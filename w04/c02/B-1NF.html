@@ -568,7 +568,7 @@ document.write(`
 <div><p>“A relation is in first normal form if the domain of each attribute contains only atomic values and the value of each attribute contains only a single value from that domain.”</p>
 <p>— Silberschatz, Korth &amp; Sudarshan, Database System Concepts</p>
 </div></blockquote>
-<p>✅ In Simple Terms:</p>
+<p>✅ <strong>In Simple Terms:</strong></p>
 <ul class="simple">
 <li><p>Each column contains <strong>atomic</strong> (indivisible) values.</p></li>
 <li><p>No lists, arrays, or repeating groups in any column.</p></li>
@@ -577,7 +577,7 @@ document.write(`
 </section>
 <section id="example-1-students-with-multiple-phone-numbers">
 <h2>🚫 Example 1: Students with Multiple Phone Numbers<a class="headerlink" href="#example-1-students-with-multiple-phone-numbers" title="Link to this heading">#</a></h2>
-<p>❌ Not in 1NF</p>
+<p>❌ <strong>Not in 1NF</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
@@ -607,7 +607,7 @@ document.write(`
 <li><p>These are not <strong>atomic</strong>: each field should contain a single phone number.</p></li>
 </ul>
 <p>This violates the fundamental principle of 1NF as discussed by all major DBMS textbooks: no sets or lists in a column.</p>
-<p>✅ Rewritten in 1NF</p>
+<p>✅ <strong>Rewritten in 1NF</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
@@ -643,7 +643,7 @@ document.write(`
 </section>
 <section id="example-2-orders-and-lists-of-products">
 <h2>🚫 Example 2: Orders and Lists of Products<a class="headerlink" href="#example-2-orders-and-lists-of-products" title="Link to this heading">#</a></h2>
-<p>❌ Not in 1NF</p>
+<p>❌ <strong>Not in 1NF</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
@@ -672,7 +672,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">Products</span> <span class="pre">Ordered</span></code> is a <strong>repeating group</strong>—a single attribute storing <strong>multiple values</strong>.</p></li>
 <li><p>Querying individual products becomes harder; violates <strong>atomicity</strong>.</p></li>
 </ul>
-<p>✅ 1NF-Compliant Version</p>
+<p>✅ <strong>1NF-Compliant Version</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
@@ -712,7 +712,7 @@ document.write(`
 </section>
 <section id="example-3-courses-with-multiple-instructors">
 <h2>🚫 Example 3: Courses with Multiple Instructors<a class="headerlink" href="#example-3-courses-with-multiple-instructors" title="Link to this heading">#</a></h2>
-<p>❌ Not in 1NF</p>
+<p>❌ <strong>Not in 1NF</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><br>CourseID</p></th>
@@ -741,7 +741,7 @@ document.write(`
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Instructors</span></code> field contains sets of values, stored as comma-separated lists.</p></li>
 <li><p>This violates 1NF — each field must store a single instructor.</p></li>
 </ul>
-<p>✅ Converted to 1NF</p>
+<p>✅ <strong>Converted to 1NF</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><br>CourseID</p></th>
