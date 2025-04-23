@@ -20,12 +20,12 @@ The SLOs (Student Learning Objectives), labs, and projects for each week are giv
 | Week | Topics | Laboratories | Projects | Tests, Video Links, etc. |
 |---------------|---------------|---------------|---------------|---------------|
 | 1 <br> --- <br> 3/17 | Introduction to Databases & SQL Basics | Homework 1 | Proj 1 |  |
-| 2 <br> --- <br> 3/24 | SQL – Intermediate Concepts <br> Advising days – no class 26-27 | [Homework 2]() | [Proj 2]() |  |
-| 3 <br> --- <br> 3/31 | SQL – Data Modification & Advanced Queries | [Homework 3]() | [Proj 3]() |  |
-| 4 <br> --- <br> 4/7 | Database Design – ER Modeling & Schema Refinement | [Homework 4]() | [Proj 4]() | **Test 1:** Weeks 1 - 3, Friday |
+| 2 <br> --- <br> 3/24 | SQL – Intermediate Concepts <br> Advising days – no class 26-27 | Homework 2 | Proj 2 |  |
+| 3 <br> --- <br> 3/31 | SQL – Data Modification & Advanced Queries | Homework 3 | Proj 3 |  |
+| 4 <br> --- <br> 4/7 | Database Design – ER Modeling & Schema Refinement | Homework 4 | Proj 4 | **Test 1:** Weeks 1 - 3, Friday |
 | 5 <br> --- <br> 4/14 | Advanced SQL & Integrity Constraints <br> Good Friday & Easter Monday – no class 18-21 | No lab | No project |  |
-| 6 <br> --- <br> 4/22 | Database Management & Optimization | [Homework 6]() | No project |  |
-| 7 <br> --- <br> 4/28 | Final Project and Course Wrap-Up | [Homework 7]() | [Final Project]() |  |
+| 6 <br> --- <br> 4/22 | Database Management & Optimization | Homework 6 | No project |  |
+| 7 <br> --- <br> 4/28 | Final Project and Course Wrap-Up | Homework 7 | Final Project |  |
 | Final <br> --- <br> May 3-8 | Search calvin.edu for "Exam Schedule" to find the time of the exam (and all exams you have, this semester, and all future semesters). |  |  | Final Test Cumulative, during exam time (You may take it in either class's exam time. Classes met at 2.45pm MWF.) |
 
 ## Get to know your instructor
