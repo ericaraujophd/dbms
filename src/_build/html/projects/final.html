@@ -61,6 +61,7 @@
     <link rel="icon" href="../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="📘 CS354 Homework: Data Modeling &amp; Consistency" href="../homeworks/data-modeling-consistency.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -269,6 +268,21 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="proj04.html">🚘 Week 4 Project</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../w04/c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../w04/c02/B-1NF.html">First Normal Form (1NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../w04/c02/C-2NF.html">Second Normal Form (2NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../w04/c02/D-3NF.html">Third Normal Form (3NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../w04/c02/E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../homeworks/data-modeling-consistency.html">📘 CS354 Homework: Data Modeling &amp; Consistency</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Final Project</a></li>
 </ul>
 
     </div>
@@ -583,6 +597,8 @@ document.write(`
 <h2>🧱 Project Phases<a class="headerlink" href="#project-phases" title="Link to this heading">#</a></h2>
 <section id="phase-0-find-out-your-theme-and-accept-the-assignment-on-github">
 <h3>Phase 0: Find out your theme and accept the assignment on GitHub<a class="headerlink" href="#phase-0-find-out-your-theme-and-accept-the-assignment-on-github" title="Link to this heading">#</a></h3>
+<p>Your theme will be distributed by the instructor.</p>
+<p>You and your partner will have to accept the <a class="reference external" href="https://classroom.github.com/a/4GZeD3Hd">invitation to the repository</a>. The first to create the repository needs to decide the name of the Team, so the other partner can join it.</p>
 </section>
 <hr class="docutils" />
 <section id="phase-1-schema-design-er-ddl">
@@ -710,10 +726,10 @@ document.write(`
 <h2>📦 Final Submission Package<a class="headerlink" href="#final-submission-package" title="Link to this heading">#</a></h2>
 <p>Your submission must include:</p>
 <ul class="simple">
-<li><p><strong>schema.sql</strong>: Your database schema.</p></li>
-<li><p><strong>data/</strong>: Any scripts, CSVs, or tools used for generating the data.</p></li>
-<li><p><strong>queries.sql</strong>: A list of your final SQL queries.</p></li>
-<li><p><strong><a class="reference external" href="http://report.md">report.md</a></strong>: A brief report (1–2 pages) describing:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">schema.sql</span></code>: Your database schema.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data/</span></code>: Any scripts, CSVs, or tools used for generating the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">queries.sql</span></code>: A list of your final SQL queries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">report.md</span></code>: A brief report describing:</p>
 <ul>
 <li><p>The theme and its main entities.</p></li>
 <li><p>Design decisions (e.g., constraints, normalization).</p></li>
@@ -742,10 +758,12 @@ document.write(`
 <li><p>Extra credits (5) for a good reflection on how you connect this project with your life decisions, such as how do you connect your faith with the task of building databases, or how do you connect your faith with the task of building a career in data science. This is a free space for you to express your thoughts and feelings. You can write about your struggles, your dreams, your fears, your hopes, or anything else that comes to your mind.</p></li>
 </ul>
 <p>Organize your repository well, so it is easy to find your files and to test them. Be hospitable!</p>
-<p>🧭 Notes
-•	Even though the schema is in MySQL syntax, you can develop and test your queries using SQLite or MySQL-compatible environments.
-•	Ask early if you’re unsure how to model a part of your domain.
-•	You may use ChatGPT, Stack Overflow, or documentation, but all work must be your own.</p>
+<p>🧭 Notes</p>
+<ul class="simple">
+<li><p>Even though the schema is in MySQL syntax, you can develop and test your queries using SQLite or MySQL-compatible environments.</p></li>
+<li><p>Ask early if you’re unsure how to model a part of your domain.</p></li>
+<li><p>You may use ChatGPT, Stack Overflow, or documentation, but all work must be your own.</p></li>
+</ul>
 </section>
 </section>
 
@@ -779,6 +797,15 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../homeworks/data-modeling-consistency.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">📘 CS354 Homework: Data Modeling &amp; Consistency</p>
+      </div>
+    </a>
 </div>
                 </footer>
               

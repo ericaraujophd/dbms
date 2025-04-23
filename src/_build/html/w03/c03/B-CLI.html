@@ -269,6 +269,21 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj04.html">🚘 Week 4 Project</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/B-1NF.html">First Normal Form (1NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/C-2NF.html">Second Normal Form (2NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/D-3NF.html">Third Normal Form (3NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../homeworks/data-modeling-consistency.html">📘 CS354 Homework: Data Modeling &amp; Consistency</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../projects/final.html">Final Project</a></li>
 </ul>
 
     </div>
@@ -513,7 +528,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-command-line-interface">3.3.1 SQLite3 Command Line Interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-sqlite-cli">1. Introduction to SQLite CLI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help-command"><code class="docutils literal notranslate"><span class="pre">.help</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tables-command"><code class="docutils literal notranslate"><span class="pre">.tables</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-command"><code class="docutils literal notranslate"><span class="pre">.schema</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-command"><code class="docutils literal notranslate"><span class="pre">.mode</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#headers-command"><code class="docutils literal notranslate"><span class="pre">.headers</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-command"><code class="docutils literal notranslate"><span class="pre">.import</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-command"><code class="docutils literal notranslate"><span class="pre">.output</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exit-command"><code class="docutils literal notranslate"><span class="pre">.exit</span></code> Command</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -527,38 +552,73 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cli-using-sqlite3-command-line-interface">
 <h1>CLI: Using SQLite3 Command Line Interface<a class="headerlink" href="#cli-using-sqlite3-command-line-interface" title="Link to this heading">#</a></h1>
-<section id="sqlite3-command-line-interface">
-<h2>3.3.1 SQLite3 Command Line Interface<a class="headerlink" href="#sqlite3-command-line-interface" title="Link to this heading">#</a></h2>
-<p>SQLite3 is a command line tool that allows you to interact with SQLite databases.
-It is a powerful tool for executing SQL commands, managing databases, and performing various operations.
-To use SQLite3, you need to have it installed on your system. You can check if it is installed by running the following command in your terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>--version
-</pre></div>
-</div>
-<p>If SQLite3 is installed, you will see the version number. If not, you can install it using your package manager.
-For example, on Ubuntu, you can install it using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>sqlite3
-</pre></div>
-</div>
-<p>On macOS, you can use Homebrew:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>sqlite3
-</pre></div>
-</div>
-<p>On Windows, you can download the SQLite3 executable from the official SQLite website and add it to your PATH.
-Once you have SQLite3 installed, you can start using it by running the following command:</p>
+<section id="introduction-to-sqlite-cli">
+<h2>1. Introduction to SQLite CLI<a class="headerlink" href="#introduction-to-sqlite-cli" title="Link to this heading">#</a></h2>
+<p>SQLite is a command-line interface (CLI) for SQLite databases. It allows you to interact with SQLite databases using SQL commands. The CLI provides several commands that can be used to manage and manipulate SQLite databases.</p>
+<section id="help-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.help</span></code> Command<a class="headerlink" href="#help-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.help</span></code> command is used to display a list of available commands in the SQLite CLI. This is a great starting point to explore the CLI.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3
+.help
 </pre></div>
 </div>
-<p>This will open the SQLite3 command line interface, where you can start executing SQL commands.
-You can also specify a database file to open or create a new database file by running:</p>
+</section>
+<section id="tables-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.tables</span></code> Command<a class="headerlink" href="#tables-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.tables</span></code> command is used to display a list of tables in the SQLite database. This is useful to get an overview of the database structure.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
+.tables
 </pre></div>
 </div>
-<p>This will open the <code class="docutils literal notranslate"><span class="pre">my_database.db</span></code> file, and if it does not exist, it will create a new database file with that name.
-You can then start executing SQL commands on this database.
-To exit the SQLite3 command line interface, you can type <code class="docutils literal notranslate"><span class="pre">.exit</span></code> or press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code>.
-You can also use the <code class="docutils literal notranslate"><span class="pre">.help</span></code> command to see a list of available commands and options in the SQLite3 CLI.
-The SQLite3 command line interface provides a powerful and flexible way to interact with SQLite databases.</p>
+</section>
+<section id="schema-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.schema</span></code> Command<a class="headerlink" href="#schema-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.schema</span></code> command is used to display the schema of a SQLite database. The schema includes information about the tables, columns, and data types in the database.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
+.schema<span class="w"> </span>my_table
+</pre></div>
+</div>
+</section>
+<section id="mode-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.mode</span></code> Command<a class="headerlink" href="#mode-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.mode</span></code> command is used to set the output mode of the SQLite CLI. The output mode can be set to various formats, such as CSV, HTML, or tab-separated values (TSV).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
+.mode<span class="w"> </span>csv
+</pre></div>
+</div>
+</section>
+<section id="headers-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.headers</span></code> Command<a class="headerlink" href="#headers-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.headers</span></code> command is used to set the headers for the output of the SQLite CLI. The headers can be set to on or off.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
+.headers<span class="w"> </span>on
+</pre></div>
+</div>
+</section>
+<section id="import-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.import</span></code> Command<a class="headerlink" href="#import-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.import</span></code> command is used to import data from a file into a SQLite database. The file can be in various formats, such as CSV or TSV.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
+.mode<span class="w"> </span>csv
+.import<span class="w"> </span>my_data.csv<span class="w"> </span>my_table
+</pre></div>
+</div>
+</section>
+<section id="output-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.output</span></code> Command<a class="headerlink" href="#output-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.output</span></code> command is used to set the output file for the SQLite CLI. The output file can be in various formats, such as CSV or TSV.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sqlite3<span class="w"> </span>my_database.db
+.output<span class="w"> </span>my_output.csv
+</pre></div>
+</div>
+</section>
+<section id="exit-command">
+<h3><code class="docutils literal notranslate"><span class="pre">.exit</span></code> Command<a class="headerlink" href="#exit-command" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.exit</span></code> command is used to exit the SQLite CLI.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.exit
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -626,7 +686,17 @@ The SQLite3 command line interface provides a powerful and flexible way to inter
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite3-command-line-interface">3.3.1 SQLite3 Command Line Interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-sqlite-cli">1. Introduction to SQLite CLI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help-command"><code class="docutils literal notranslate"><span class="pre">.help</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tables-command"><code class="docutils literal notranslate"><span class="pre">.tables</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-command"><code class="docutils literal notranslate"><span class="pre">.schema</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-command"><code class="docutils literal notranslate"><span class="pre">.mode</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#headers-command"><code class="docutils literal notranslate"><span class="pre">.headers</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-command"><code class="docutils literal notranslate"><span class="pre">.import</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-command"><code class="docutils literal notranslate"><span class="pre">.output</span></code> Command</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exit-command"><code class="docutils literal notranslate"><span class="pre">.exit</span></code> Command</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

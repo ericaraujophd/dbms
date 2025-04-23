@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Database Normalization &#8212; Database Management Systems</title>
+    <title>Class 2. Database Normalization &#8212; Database Management Systems</title>
   
   
   
@@ -61,6 +61,8 @@
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="First Normal Form (1NF)" href="B-1NF.html" />
+    <link rel="prev" title="🚘 Week 4 Project" href="../../projects/proj04.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -258,7 +258,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj03.html">🐸 Week 3 Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 - Databases Design</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">🔎 Week 4 Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../c01/B-INDEX.html">INDEX</a></li>
@@ -269,6 +269,21 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj04.html">🚘 Week 4 Project</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 2. Database Normalization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="B-1NF.html">First Normal Form (1NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="C-2NF.html">Second Normal Form (2NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="D-3NF.html">Third Normal Form (3NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homeworks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../homeworks/data-modeling-consistency.html">📘 CS354 Homework: Data Modeling &amp; Consistency</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../projects/final.html">Final Project</a></li>
 </ul>
 
     </div>
@@ -503,7 +518,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Database Normalization</h1>
+    <h1>Class 2. Database Normalization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -514,34 +529,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-normalization-important">Why is Normalization Important?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-normalization">Levels of Normalization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-normal-form-1nf">First Normal Form (1NF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-normal-form-2nf">Second Normal Form (2NF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#third-normal-form-3nf">Third Normal Form (3NF)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">First Normal Form (1NF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-1nf">Table Violating 1NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-1nf">Converting to 1NF</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Second Normal Form (2NF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-2nf">Table Violating 2NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-2nf">Converting to 2NF</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Third Normal Form (3NF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-3nf">Table Violating 3NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-3nf">Converting to 3NF</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-normalization">Levels of Normalization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-normalization">Benefits of Normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boyce-codd-normal-form-bcnf">Boyce-Codd Normal Form (BCNF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table Violating BCNF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-table-not-in-bcnf">Example: A Table Not in BCNF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -553,21 +542,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="database-normalization">
-<h1>Database Normalization<a class="headerlink" href="#database-normalization" title="Link to this heading">#</a></h1>
-<p>Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing a database into smaller tables and defining relationships between them.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import SQLite library</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
-
-<span class="c1"># Create an in-memory SQLite database</span>
-<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-2-database-normalization">
+<h1>Class 2. Database Normalization<a class="headerlink" href="#class-2-database-normalization" title="Link to this heading">#</a></h1>
+<p>Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.</p>
+<p>It involves dividing a database into smaller tables and defining relationships between them.</p>
 <section id="why-is-normalization-important">
 <h2>Why is Normalization Important?<a class="headerlink" href="#why-is-normalization-important" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -579,372 +557,15 @@ document.write(`
 </section>
 <section id="levels-of-normalization">
 <h2>Levels of Normalization<a class="headerlink" href="#levels-of-normalization" title="Link to this heading">#</a></h2>
-<section id="first-normal-form-1nf">
-<h3>First Normal Form (1NF)<a class="headerlink" href="#first-normal-form-1nf" title="Link to this heading">#</a></h3>
+<p>There are multiple normal forms, whose relashionships are hierarchical and sequential.</p>
+<p><img alt="" src="../../_images/CH06_UN03_Hao.png" /></p>
+<p>In practice, when all tables are in BCNF, we consider the database to be fully normalized. For that, the table has to have the following properties:</p>
 <ul class="simple">
-<li><p>Ensures each column contains atomic values.</p></li>
-<li><p>Each column must have a unique name.</p></li>
-<li><p>The order of data does not matter.</p></li>
+<li><p>Each table has a primary key.</p></li>
+<li><p>Each table has no multivalued columns.</p></li>
+<li><p>All columns are functionally dependent on a key but nothing else.</p></li>
+<li><p>No transitive dependencies exist.</p></li>
 </ul>
-</section>
-<section id="second-normal-form-2nf">
-<h3>Second Normal Form (2NF)<a class="headerlink" href="#second-normal-form-2nf" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Builds on 1NF.</p></li>
-<li><p>Eliminates partial dependencies.</p></li>
-<li><p>Non-key attributes depend only on the primary key.</p></li>
-</ul>
-</section>
-<section id="third-normal-form-3nf">
-<h3>Third Normal Form (3NF)<a class="headerlink" href="#third-normal-form-3nf" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Builds on 2NF.</p></li>
-<li><p>Removes transitive dependencies.</p></li>
-<li><p>Non-key attributes depend only on the primary key.</p></li>
-</ul>
-</section>
-</section>
-<section id="id1">
-<h2>First Normal Form (1NF)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>A table is in 1NF if it contains only atomic (indivisible) values and each column contains values of a single type.</p>
-<section id="table-violating-1nf">
-<h3>Table Violating 1NF<a class="headerlink" href="#table-violating-1nf" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>StudentID</p></th>
-<th class="head"><p>Name</p></th>
-<th class="head"><p>Subjects</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Alice</p></td>
-<td><p>Math, Science</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Bob</p></td>
-<td><p>History, Literature</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Why it violates 1NF:</strong> The “Subjects” column contains non-atomic values (multiple subjects in a single cell).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table that violates 1NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Students (</span>
-<span class="s1">    StudentID INTEGER PRIMARY KEY,</span>
-<span class="s1">    Name TEXT,</span>
-<span class="s1">    Subjects TEXT</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data with non-atomic values</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Students (StudentID, Name, Subjects) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Math, Science&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;History, Literature&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Students&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, &#39;Alice&#39;, &#39;Math, Science&#39;)
-(2, &#39;Bob&#39;, &#39;History, Literature&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="converting-to-1nf">
-<h3>Converting to 1NF<a class="headerlink" href="#converting-to-1nf" title="Link to this heading">#</a></h3>
-<p>To achieve 1NF, we split the Subjects column into separate rows.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table in 1NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE StudentSubjects (</span>
-<span class="s1">    StudentID INTEGER,</span>
-<span class="s1">    Name TEXT,</span>
-<span class="s1">    Subject TEXT,</span>
-<span class="s1">    PRIMARY KEY (StudentID, Subject)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data in 1NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO StudentSubjects (StudentID, Name, Subject) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Science&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;History&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Literature&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the 1NF table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM StudentSubjects&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, &#39;Alice&#39;, &#39;Math&#39;)
-(1, &#39;Alice&#39;, &#39;Science&#39;)
-(2, &#39;Bob&#39;, &#39;History&#39;)
-(2, &#39;Bob&#39;, &#39;Literature&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="id2">
-<h2>Second Normal Form (2NF)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>A table is in 2NF if it is in 1NF and all non-key attributes are fully functionally dependent on the primary key.</p>
-<section id="table-violating-2nf">
-<h3>Table Violating 2NF<a class="headerlink" href="#table-violating-2nf" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>OrderID</p></th>
-<th class="head"><p>ProductID</p></th>
-<th class="head"><p>ProductName</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>101</p></td>
-<td><p>Laptop</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>102</p></td>
-<td><p>Mouse</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>101</p></td>
-<td><p>Laptop</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Why it violates 2NF:</strong> The “ProductName” column depends only on “ProductID” and not on the composite primary key (OrderID, ProductID).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table that violates 2NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Orders (</span>
-<span class="s1">    OrderID INTEGER,</span>
-<span class="s1">    ProductID INTEGER,</span>
-<span class="s1">    ProductName TEXT,</span>
-<span class="s1">    PRIMARY KEY (OrderID, ProductID)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Orders (OrderID, ProductID, ProductName) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;Mouse&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Orders&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 101, &#39;Laptop&#39;)
-(1, 102, &#39;Mouse&#39;)
-(2, 101, &#39;Laptop&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="converting-to-2nf">
-<h3>Converting to 2NF<a class="headerlink" href="#converting-to-2nf" title="Link to this heading">#</a></h3>
-<p>To achieve 2NF, we separate the ProductName into a new table.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create tables in 2NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Products (</span>
-<span class="s1">    ProductID INTEGER PRIMARY KEY,</span>
-<span class="s1">    ProductName TEXT</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE OrderDetails (</span>
-<span class="s1">    OrderID INTEGER,</span>
-<span class="s1">    ProductID INTEGER,</span>
-<span class="s1">    PRIMARY KEY (OrderID, ProductID),</span>
-<span class="s1">    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data into 2NF tables</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Products (ProductID, ProductName) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;Mouse&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO OrderDetails (OrderID, ProductID) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">102</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the 2NF tables</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Products Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Products&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">OrderDetails Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM OrderDetails&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Products Table:
-(101, &#39;Laptop&#39;)
-(102, &#39;Mouse&#39;)
-
-OrderDetails Table:
-(1, 101)
-(1, 102)
-(2, 101)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="id3">
-<h2>Third Normal Form (3NF)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>A table is in 3NF if it is in 2NF and all non-key attributes are not only dependent on the primary key but are also non-transitively dependent.</p>
-<p>That is, no non-key attribute depends on another non-key attribute.</p>
-<section id="table-violating-3nf">
-<h3>Table Violating 3NF<a class="headerlink" href="#table-violating-3nf" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>EmployeeID</p></th>
-<th class="head"><p>DepartmentID</p></th>
-<th class="head"><p>DepartmentName</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>10</p></td>
-<td><p>HR</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>20</p></td>
-<td><p>Finance</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>10</p></td>
-<td><p>HR</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Why it violates 3NF:</strong> The “DepartmentName” column is transitively dependent on “DepartmentID” through “EmployeeID”.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table that violates 3NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Employees (</span>
-<span class="s1">    EmployeeID INTEGER PRIMARY KEY,</span>
-<span class="s1">    DepartmentID INTEGER,</span>
-<span class="s1">    DepartmentName TEXT</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Employees (EmployeeID, DepartmentID, DepartmentName) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;Finance&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Employees&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 10, &#39;HR&#39;)
-(2, 20, &#39;Finance&#39;)
-(3, 10, &#39;HR&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="converting-to-3nf">
-<h3>Converting to 3NF<a class="headerlink" href="#converting-to-3nf" title="Link to this heading">#</a></h3>
-<p>To achieve 3NF, we separate the DepartmentName into a new table.</p>
-<p>The new tables are in 3NF as they do not contain any transitive dependencies.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create tables in 3NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Departments (</span>
-<span class="s1">    DepartmentID INTEGER PRIMARY KEY,</span>
-<span class="s1">    DepartmentName TEXT</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE EmployeeDetails (</span>
-<span class="s1">    EmployeeID INTEGER PRIMARY KEY,</span>
-<span class="s1">    DepartmentID INTEGER,</span>
-<span class="s1">    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data into 3NF tables</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Departments (DepartmentID, DepartmentName) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;Finance&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO EmployeeDetails (EmployeeID, DepartmentID) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the 3NF tables</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Departments Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Departments&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">EmployeeDetails Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM EmployeeDetails&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Departments Table:
-(10, &#39;HR&#39;)
-(20, &#39;Finance&#39;)
-
-EmployeeDetails Table:
-(1, 10)
-(2, 20)
-(3, 10)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="benefits-of-normalization">
 <h2>Benefits of Normalization<a class="headerlink" href="#benefits-of-normalization" title="Link to this heading">#</a></h2>
@@ -954,135 +575,8 @@ EmployeeDetails Table:
 <li><p><strong>Simplified Maintenance</strong>: Makes it easier to update and manage data.</p></li>
 </ul>
 </section>
-<section id="boyce-codd-normal-form-bcnf">
-<h2>Boyce-Codd Normal Form (BCNF)<a class="headerlink" href="#boyce-codd-normal-form-bcnf" title="Link to this heading">#</a></h2>
-<p>BCNF is an advanced version of the Third Normal Form (3NF). A table is in BCNF if it is in 3NF and every determinant is a candidate key.</p>
-<section id="table-violating-bcnf">
-<h3>Table Violating BCNF<a class="headerlink" href="#table-violating-bcnf" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>CourseID</p></th>
-<th class="head"><p>Instructor</p></th>
-<th class="head"><p>Classroom</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Dr. Smith</p></td>
-<td><p>Room 101</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Dr. Smith</p></td>
-<td><p>Room 102</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Dr. Johnson</p></td>
-<td><p>Room 101</p></td>
-</tr>
-</tbody>
-</table>
+<div class="toctree-wrapper compound">
 </div>
-<p><strong>Why it violates BCNF:</strong> The “Instructor” column determines “Classroom”, but “Instructor” is not a candidate key.</p>
-</section>
-<section id="example-a-table-not-in-bcnf">
-<h3>Example: A Table Not in BCNF<a class="headerlink" href="#example-a-table-not-in-bcnf" title="Link to this heading">#</a></h3>
-<p>Consider a table that stores information about courses, instructors, and classrooms.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table that is not in BCNF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Courses (</span>
-<span class="s1">    CourseID INTEGER PRIMARY KEY,</span>
-<span class="s1">    Instructor TEXT,</span>
-<span class="s1">    Classroom TEXT</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Courses (CourseID, Instructor, Classroom) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 102&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Dr. Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Courses&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, &#39;Dr. Smith&#39;, &#39;Room 101&#39;)
-(2, &#39;Dr. Smith&#39;, &#39;Room 102&#39;)
-(3, &#39;Dr. Johnson&#39;, &#39;Room 101&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="decomposing-into-bcnf">
-<h3>Decomposing into BCNF<a class="headerlink" href="#decomposing-into-bcnf" title="Link to this heading">#</a></h3>
-<p>To convert the table into BCNF, we decompose it into two tables: one for instructors and classrooms, and another for courses and instructors.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create tables in BCNF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Instructors (</span>
-<span class="s1">    Instructor TEXT,</span>
-<span class="s1">    Classroom TEXT,</span>
-<span class="s1">    PRIMARY KEY (Instructor, Classroom)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE CourseAssignments (</span>
-<span class="s1">    CourseID INTEGER,</span>
-<span class="s1">    Instructor TEXT,</span>
-<span class="s1">    PRIMARY KEY (CourseID, Instructor),</span>
-<span class="s1">    FOREIGN KEY (Instructor) REFERENCES Instructors(Instructor)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert data into BCNF tables</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Instructors (Instructor, Classroom) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 102&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Dr. Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO CourseAssignments (CourseID, Instructor) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Dr. Johnson&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the BCNF tables</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Instructors Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Instructors&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">CourseAssignments Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM CourseAssignments&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Instructors Table:
-(&#39;Dr. Smith&#39;, &#39;Room 101&#39;)
-(&#39;Dr. Smith&#39;, &#39;Room 102&#39;)
-(&#39;Dr. Johnson&#39;, &#39;Room 101&#39;)
-
-CourseAssignments Table:
-(1, &#39;Dr. Smith&#39;)
-(2, &#39;Dr. Smith&#39;)
-(3, &#39;Dr. Johnson&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1115,6 +609,24 @@ CourseAssignments Table:
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../../projects/proj04.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🚘 Week 4 Project</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="B-1NF.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">First Normal Form (1NF)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1132,34 +644,8 @@ CourseAssignments Table:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-normalization-important">Why is Normalization Important?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-normalization">Levels of Normalization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-normal-form-1nf">First Normal Form (1NF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-normal-form-2nf">Second Normal Form (2NF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#third-normal-form-3nf">Third Normal Form (3NF)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">First Normal Form (1NF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-1nf">Table Violating 1NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-1nf">Converting to 1NF</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Second Normal Form (2NF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-2nf">Table Violating 2NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-2nf">Converting to 2NF</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Third Normal Form (3NF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-3nf">Table Violating 3NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-3nf">Converting to 3NF</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-normalization">Levels of Normalization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-normalization">Benefits of Normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boyce-codd-normal-form-bcnf">Boyce-Codd Normal Form (BCNF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table Violating BCNF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-table-not-in-bcnf">Example: A Table Not in BCNF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
-</ul>
-</li>
 </ul>
   </nav></div>
 
