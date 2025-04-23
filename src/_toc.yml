@@ -90,8 +90,6 @@ parts:
           - file: w04/c01/C-ANALIZE
           - file: w04/c01/D-EXPLAIN
           - file: w04/c01/E-Activity
-      - file: homeworks/hw04
-      - file: projects/proj04
       # Class 2 - Database Normalization
       - file: w04/c02/A-normalization
         sections:
@@ -99,12 +97,14 @@ parts:
           - file: w04/c02/C-2NF
           - file: w04/c02/D-3NF
           - file: w04/c02/E-BCNF
-          - file: w04/c02/Z-practice
+          - file: w04/c02/Z-Practice
   - caption: Homeworks
     chapters:
+      - file: homeworks/hw04
       - file: homeworks/data-modeling-consistency
   - caption: Projects
     chapters:
+      - file: projects/proj04
       - file: projects/final
   # - file: week04
   # - file: week05
