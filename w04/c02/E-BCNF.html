@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 2. Database Normalization &#8212; Database Management Systems</title>
+    <title>Boyce-Codd Normal Form (BCNF) &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c02/A-normalization';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c02/E-BCNF';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="First Normal Form (1NF)" href="B-1NF.html" />
-    <link rel="prev" title="🚘 Week 4 Project" href="../../projects/proj04.html" />
+    <link rel="next" title="📘 CS354 Homework: Data Modeling &amp; Consistency" href="../../homeworks/data-modeling-consistency.html" />
+    <link rel="prev" title="Third Normal Form (3NF)" href="D-3NF.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -269,11 +269,11 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../homeworks/hw04.html">🎓 Week 4 Homework: University Clubs Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj04.html">🚘 Week 4 Project</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 2. Database Normalization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-normalization.html">Class 2. Database Normalization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="B-1NF.html">First Normal Form (1NF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="C-2NF.html">Second Normal Form (2NF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="D-3NF.html">Third Normal Form (3NF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Boyce-Codd Normal Form (BCNF)</a></li>
 </ul>
 </details></li>
 </ul>
@@ -338,7 +338,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c02/A-normalization.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c02/E-BCNF.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,7 +404,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c02/A-normalization.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c02/E-BCNF.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -434,7 +434,7 @@
       
       
       
-      <li><a href="../../_sources/w04/c02/A-normalization.ipynb" target="_blank"
+      <li><a href="../../_sources/w04/c02/E-BCNF.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -518,7 +518,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 2. Database Normalization</h1>
+    <h1>Boyce-Codd Normal Form (BCNF)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -528,9 +528,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-normalization-important">Why is Normalization Important?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-normalization">Levels of Normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-normalization">Benefits of Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table violating BCNF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-a-table-in-bcnf">🧠 When is a table in BCNF?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-table-violating-bcnf">Another Table Violating BCNF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">💡 Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -542,41 +544,192 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-2-database-normalization">
-<h1>Class 2. Database Normalization<a class="headerlink" href="#class-2-database-normalization" title="Link to this heading">#</a></h1>
-<p>Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.</p>
-<p>It involves dividing a database into smaller tables and defining relationships between them.</p>
-<section id="why-is-normalization-important">
-<h2>Why is Normalization Important?<a class="headerlink" href="#why-is-normalization-important" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Reduces Redundancy</strong>: Eliminates duplicate data, saving storage space.</p></li>
-<li><p><strong>Improves Query Performance</strong>: Simplifies queries and enhances performance.</p></li>
-<li><p><strong>Minimizes Update Anomalies</strong>: Ensures data consistency during updates.</p></li>
-<li><p><strong>Enhances Data Integrity</strong>: Maintains accurate and consistent data.</p></li>
-</ul>
-</section>
-<section id="levels-of-normalization">
-<h2>Levels of Normalization<a class="headerlink" href="#levels-of-normalization" title="Link to this heading">#</a></h2>
-<p>There are multiple normal forms, whose relashionships are hierarchical and sequential.</p>
-<p><img alt="" src="../../_images/CH06_UN03_Hao.png" /></p>
-<p>In practice, when all tables are in BCNF, we consider the database to be fully normalized. For that, the table has to have the following properties:</p>
-<ul class="simple">
-<li><p>Each table has a primary key.</p></li>
-<li><p>Each table has no multivalued columns.</p></li>
-<li><p>All columns are functionally dependent on a key but nothing else.</p></li>
-<li><p>No transitive dependencies exist.</p></li>
-</ul>
-</section>
-<section id="benefits-of-normalization">
-<h2>Benefits of Normalization<a class="headerlink" href="#benefits-of-normalization" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Data Integrity</strong>: Ensures data remains accurate and consistent.</p></li>
-<li><p><strong>Storage Optimization</strong>: Reduces unnecessary storage usage.</p></li>
-<li><p><strong>Simplified Maintenance</strong>: Makes it easier to update and manage data.</p></li>
-</ul>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="boyce-codd-normal-form-bcnf">
+<h1>Boyce-Codd Normal Form (BCNF)<a class="headerlink" href="#boyce-codd-normal-form-bcnf" title="Link to this heading">#</a></h1>
+<p>You can think of BCNF as a stricter version of <strong>Third Normal Form (3NF)</strong>. It makes sure that <strong>every piece of information in a table depends only on a “true” unique identifier</strong>—what we call a <strong>candidate key</strong>.</p>
+<p>That is, if you have a table with a composite key (a key made up of two or more columns), BCNF ensures that all the other columns depend on the entire composite key, not just part of it.</p>
+<section id="table-violating-bcnf">
+<h2>Table violating BCNF<a class="headerlink" href="#table-violating-bcnf" title="Link to this heading">#</a></h2>
+<p>Imagine a table that stores course registrations:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>StudentID</p></th>
+<th class="head"><p>CourseCode</p></th>
+<th class="head"><p>Instructor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S1</p></td>
+<td><p>CS101</p></td>
+<td><p>Prof. Kim</p></td>
+</tr>
+<tr class="row-odd"><td><p>S2</p></td>
+<td><p>CS101</p></td>
+<td><p>Prof. Kim</p></td>
+</tr>
+<tr class="row-even"><td><p>S3</p></td>
+<td><p>CS102</p></td>
+<td><p>Prof. Jones</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>This table seems fine. But notice:</p>
+<ul class="simple">
+<li><p>The <strong>instructor name is repeated</strong> for every student in the same course.</p></li>
+<li><p>What if someone <strong>changes one instance</strong> of the instructor to “Dr. Kim” but forgets to update the others?</p></li>
+<li><p>Or if <strong>we delete the last student from CS101</strong>, we might lose the information about the instructor for that course.</p></li>
+</ul>
+<p>These are <strong>update and deletion anomalies</strong>. BCNF helps avoid them.</p>
+</section>
+<section id="when-is-a-table-in-bcnf">
+<h2>🧠 When is a table in BCNF?<a class="headerlink" href="#when-is-a-table-in-bcnf" title="Link to this heading">#</a></h2>
+<p>A table is in <strong>BCNF</strong> if:</p>
+<p>For every <strong>functional dependency</strong> in the table, the <strong>left-hand side</strong> is a candidate key.</p>
+<p>In other words:</p>
+<p>If some column(s) determine other columns, then those column(s) must uniquely identify a row in the table.</p>
+</section>
+<section id="another-table-violating-bcnf">
+<h2>Another Table Violating BCNF<a class="headerlink" href="#another-table-violating-bcnf" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>CourseID</p></th>
+<th class="head"><p>Instructor</p></th>
+<th class="head"><p>Classroom</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Dr. Smith</p></td>
+<td><p>Room 101</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dr. Smith</p></td>
+<td><p>Room 102</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Dr. Johnson</p></td>
+<td><p>Room 101</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Why it violates BCNF:</strong> The “Instructor” column determines “Classroom”, but “Instructor” is not a candidate key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import SQLite library</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+
+<span class="c1"># Create an in-memory SQLite database</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table that is not in BCNF</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE Courses (</span>
+<span class="s1">    CourseID INTEGER PRIMARY KEY,</span>
+<span class="s1">    Instructor TEXT,</span>
+<span class="s1">    Classroom TEXT</span>
+<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Insert data</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Courses (CourseID, Instructor, Classroom) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 102&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Dr. Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Query the table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Courses&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, &#39;Dr. Smith&#39;, &#39;Room 101&#39;)
+(2, &#39;Dr. Smith&#39;, &#39;Room 102&#39;)
+(3, &#39;Dr. Johnson&#39;, &#39;Room 101&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="decomposing-into-bcnf">
+<h2>Decomposing into BCNF<a class="headerlink" href="#decomposing-into-bcnf" title="Link to this heading">#</a></h2>
+<p>To convert the table into BCNF, we decompose it into two tables: one for instructors and classrooms, and another for courses and instructors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create tables in BCNF</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE Instructors (</span>
+<span class="s1">    Instructor TEXT,</span>
+<span class="s1">    Classroom TEXT,</span>
+<span class="s1">    PRIMARY KEY (Instructor, Classroom)</span>
+<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE CourseAssignments (</span>
+<span class="s1">    CourseID INTEGER,</span>
+<span class="s1">    Instructor TEXT,</span>
+<span class="s1">    PRIMARY KEY (CourseID, Instructor),</span>
+<span class="s1">    FOREIGN KEY (Instructor) REFERENCES Instructors(Instructor)</span>
+<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Insert data into BCNF tables</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Instructors (Instructor, Classroom) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Dr. Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 102&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Dr. Johnson&#39;</span><span class="p">,</span> <span class="s1">&#39;Room 101&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO CourseAssignments (CourseID, Instructor) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Dr. Smith&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Dr. Johnson&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Query the BCNF tables</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Instructors Table:&#39;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Instructors&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">CourseAssignments Table:&#39;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM CourseAssignments&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Instructors Table:
+(&#39;Dr. Smith&#39;, &#39;Room 101&#39;)
+(&#39;Dr. Smith&#39;, &#39;Room 102&#39;)
+(&#39;Dr. Johnson&#39;, &#39;Room 101&#39;)
+
+CourseAssignments Table:
+(1, &#39;Dr. Smith&#39;)
+(2, &#39;Dr. Smith&#39;)
+(3, &#39;Dr. Johnson&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>💡 Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>BCNF is about making sure only candidate keys determine other columns.</p></li>
+<li><p>It prevents data anomalies by keeping your design clean.</p></li>
+<li><p>If a table has a dependency where a non-candidate key determines other data, it’s not in BCNF, and you should split it.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -610,20 +763,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../projects/proj04.html"
+       href="D-3NF.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">🚘 Week 4 Project</p>
+        <p class="prev-next-title">Third Normal Form (3NF)</p>
       </div>
     </a>
     <a class="right-next"
-       href="B-1NF.html"
+       href="../../homeworks/data-modeling-consistency.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">First Normal Form (1NF)</p>
+        <p class="prev-next-title">📘 CS354 Homework: Data Modeling &amp; Consistency</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -643,9 +796,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-normalization-important">Why is Normalization Important?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-normalization">Levels of Normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-normalization">Benefits of Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table violating BCNF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-a-table-in-bcnf">🧠 When is a table in BCNF?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-table-violating-bcnf">Another Table Violating BCNF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">💡 Summary</a></li>
 </ul>
   </nav></div>
 

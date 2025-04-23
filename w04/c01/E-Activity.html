@@ -273,6 +273,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../c02/B-1NF.html">First Normal Form (1NF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c02/C-2NF.html">Second Normal Form (2NF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c02/D-3NF.html">Third Normal Form (3NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
 </ul>
 </details></li>
 </ul>
@@ -634,8 +635,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITHOUT index or analyze: 0.000768 seconds
-Rows returned: 200
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITHOUT index or analyze: 0.000797 seconds
+Rows returned: 209
 </pre></div>
 </div>
 </div>
@@ -689,8 +690,8 @@ Rows returned: 200
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index: 0.000574 seconds
-Rows returned: 200
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index: 0.000659 seconds
+Rows returned: 209
 </pre></div>
 </div>
 </div>
@@ -742,8 +743,8 @@ Rows returned: 200
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index AND analyze: 0.000496 seconds
-Rows returned: 200
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time WITH index AND analyze: 0.000512 seconds
+Rows returned: 209
 </pre></div>
 </div>
 </div>
@@ -757,7 +758,7 @@ Rows returned: 200
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 0, 100, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 0, 101, &#39;SEARCH sales USING INDEX idx_customer (customer=?)&#39;)
 </pre></div>
 </div>
 </div>
