@@ -529,11 +529,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table violating BCNF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-a-table-in-bcnf">🧠 When is a table in BCNF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-table-violating-bcnf">Another Table Violating BCNF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">💡 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bcnf">🧠 What is BCNF?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-textbooks">📚 From the Textbooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">🧾 Key Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-room-scheduling-in-3nf-but-not-in-bcnf">🚫 Example 1: Room Scheduling (In 3NF but Not in BCNF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-university-advisors-in-3nf-but-not-in-bcnf">🚫 Example 2: University Advisors (In 3NF but Not in BCNF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">✅ Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">🤖 Coding Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table violating BCNF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-a-table-in-bcnf">🧠 When is a table in BCNF?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-table-violating-bcnf">Another Table Violating BCNF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -547,10 +555,309 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="boyce-codd-normal-form-bcnf">
 <h1>Boyce-Codd Normal Form (BCNF)<a class="headerlink" href="#boyce-codd-normal-form-bcnf" title="Link to this heading">#</a></h1>
-<p>You can think of BCNF as a stricter version of <strong>Third Normal Form (3NF)</strong>. It makes sure that <strong>every piece of information in a table depends only on a “true” unique identifier</strong>—what we call a <strong>candidate key</strong>.</p>
-<p>That is, if you have a table with a composite key (a key made up of two or more columns), BCNF ensures that all the other columns depend on the entire composite key, not just part of it.</p>
+<section id="what-is-bcnf">
+<h2>🧠 What is BCNF?<a class="headerlink" href="#what-is-bcnf" title="Link to this heading">#</a></h2>
+<p>A table is in <strong>Boyce-Codd Normal Form (BCNF)</strong> if:</p>
+<ol class="arabic simple">
+<li><p>It is already in <strong>Third Normal Form (3NF)</strong>, and</p></li>
+<li><p>For every functional dependency X → Y, X must be a <strong>superkey</strong>.</p></li>
+</ol>
+<p>This is <strong>stricter than 3NF</strong>, which allows certain dependencies if the right-hand side is a prime attribute.</p>
+<p><strong>Key idea:</strong> In BCNF, <strong>the left-hand side of every functional dependency must uniquely identify rows</strong> — in other words, it must be a <strong>superkey</strong>.</p>
+</section>
+<section id="from-the-textbooks">
+<h2>📚 From the Textbooks<a class="headerlink" href="#from-the-textbooks" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“A relation schema R is in Boyce-Codd Normal Form (BCNF) if for every one of its nontrivial functional dependencies X → A, X is a superkey of R.”</p>
+<p>— Silberschatz, Korth &amp; Sudarshan</p>
+</div></blockquote>
+<blockquote>
+<div><p>“BCNF eliminates all redundancy that can be discovered based on functional dependencies, not just anomalies due to transitive or partial dependencies.”</p>
+<p>— Elmasri &amp; Navathe</p>
+</div></blockquote>
+<blockquote>
+<div><p>“BCNF is a slightly stronger version of 3NF. Every BCNF relation is also in 3NF, but not vice versa.”</p>
+<p>— Ramakrishnan &amp; Gehrke</p>
+</div></blockquote>
+</section>
+<section id="key-terms">
+<h2>🧾 Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Term</p></th>
+<th class="head"><p><br>Definition</p></th>
+<th class="head"><p><br>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Candidate Key</p></td>
+<td><p><br>A minimal set of attributes that uniquely identify each row in a table.</p></td>
+<td><p><br>In a Student table, StudentID might be a candidate key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Superkey</p></td>
+<td><p><br>Any set of attributes that uniquely identify a row (including candidate keys and any superset).</p></td>
+<td><p><br>{StudentID}, {StudentID, Name}, {StudentID, Email} are all superkeys if StudentID is unique.</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Prime Attribute</p></td>
+<td><p><br>An attribute that is part of any candidate key.</p></td>
+<td><p><br>In the key (CourseID, StudentID), both are prime.</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Functional Dependency</p></td>
+<td><p><br>X → Y: Knowing X lets us determine Y.</p></td>
+<td><p><br>If Email → Name, then for each email there is one name.</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Violation of BCNF</p></td>
+<td><p><br>Occurs when a functional dependency exists where the determinant is not a superkey.</p></td>
+<td><p><br>Professor → Room is a violation if Professor is not a superkey.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>🤝 How is BCNF Different from 3NF?</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Aspect</p></th>
+<th class="head"><p><br>3NF Requirement</p></th>
+<th class="head"><p><br>BCNF Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Functional dependencies allowed</p></td>
+<td><p><br>X → A if A is prime, even if X is not a key</p></td>
+<td><p><br>X must be a superkey in all cases</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Focus</p></td>
+<td><p><br>Avoiding transitive dependencies</p></td>
+<td><p><br>Eliminating all non-superkey dependencies</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Stricter?</p></td>
+<td><p><br>❌ No</p></td>
+<td><p><br>✅ Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-1-room-scheduling-in-3nf-but-not-in-bcnf">
+<h2>🚫 Example 1: Room Scheduling (In 3NF but Not in BCNF)<a class="headerlink" href="#example-1-room-scheduling-in-3nf-but-not-in-bcnf" title="Link to this heading">#</a></h2>
+<p>🏫 <strong>Table: RoomSchedule</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Room</p></th>
+<th class="head"><p><br>Time</p></th>
+<th class="head"><p><br>Professor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>R101</p></td>
+<td><p><br>9 AM</p></td>
+<td><p><br>Smith</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>R101</p></td>
+<td><p><br>10 AM</p></td>
+<td><p><br>Smith</p></td>
+</tr>
+<tr class="row-even"><td><p><br>R102</p></td>
+<td><p><br>9 AM</p></td>
+<td><p><br>Johnson</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>R103</p></td>
+<td><p><br>9 AM</p></td>
+<td><p><br>Lee</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Functional Dependencies:</strong></p>
+<ul class="simple">
+<li><p>(Room, Time) → Professor ✅ Candidate key</p></li>
+<li><p><strong>Professor → Room</strong> ❌ Professor is <strong>not a superkey</strong>, so this violates BCNF.</p></li>
+</ul>
+<p>🔍 <strong>Why is this a problem?</strong></p>
+<p>Even though the table is in 3NF (no transitive dependencies), BCNF doesn’t allow a non-superkey like <code class="docutils literal notranslate"><span class="pre">Professor</span></code> to determine another value (<code class="docutils literal notranslate"><span class="pre">Room</span></code>).</p>
+<p>✅ <strong>Decomposing to BCNF</strong></p>
+<p>👤 <strong>Table: Professors</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Professor</p></th>
+<th class="head"><p><br>Room</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Smith</p></td>
+<td><p><br>R101</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Johnson</p></td>
+<td><p><br>R102</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Lee</p></td>
+<td><p><br>R103</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>🕒 <strong>Table: TeachingTimes</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Professor</p></th>
+<th class="head"><p><br>Time</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Smith</p></td>
+<td><p><br>9 AM</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Smith</p></td>
+<td><p><br>10 AM</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Johnson</p></td>
+<td><p><br>9 AM</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Lee</p></td>
+<td><p><br>9 AM</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>✅ Now, every functional dependency uses a <strong>superkey</strong> on the left → <strong>BCNF satisfied</strong>.</p>
+</section>
+<section id="example-2-university-advisors-in-3nf-but-not-in-bcnf">
+<h2>🚫 Example 2: University Advisors (In 3NF but Not in BCNF)<a class="headerlink" href="#example-2-university-advisors-in-3nf-but-not-in-bcnf" title="Link to this heading">#</a></h2>
+<p>📘 <strong>Table: AdvisingAssignments</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
+<th class="head"><p><br>AdvisorName</p></th>
+<th class="head"><p><br>Department</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>1001</p></td>
+<td><p><br>Dr. Smith</p></td>
+<td><p><br>Computer Science</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1002</p></td>
+<td><p><br>Dr. Smith</p></td>
+<td><p><br>Computer Science</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1003</p></td>
+<td><p><br>Dr. Taylor</p></td>
+<td><p><br>Mathematics</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1004</p></td>
+<td><p><br>Dr. Lee</p></td>
+<td><p><br>Physics</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1005</p></td>
+<td><p><br>Dr. Taylor</p></td>
+<td><p><br>Mathematics</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Functional Dependencies:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StudentID</span></code> → <code class="docutils literal notranslate"><span class="pre">AdvisorName</span></code>, <code class="docutils literal notranslate"><span class="pre">Department</span></code> ✅ <strong>Candidate key</strong> — every student has one advisor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AdvisorName</span></code> → <code class="docutils literal notranslate"><span class="pre">Department</span></code> ❌ Advisor is <strong>not a superkey</strong>, so this is a BCNF violation.</p></li>
+</ul>
+<p><strong>3NF vs BCNF:</strong></p>
+<ul class="simple">
+<li><p>This table is in 3NF because:</p>
+<ul>
+<li><p>There are no partial dependencies (StudentID is a single-attribute key).</p></li>
+<li><p>Department is dependent on AdvisorName, which is a non-prime attribute, but 3NF allows this if the right-hand side (Department) is prime or transitively dependent.</p></li>
+</ul>
+</li>
+<li><p>But it violates BCNF because AdvisorName is not a superkey.</p></li>
+</ul>
+<p>✅ <strong>Decomposing into BCNF</strong></p>
+<p>👨‍🏫 <strong>Table: Advisors</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>AdvisorName</p></th>
+<th class="head"><p><br>Department</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>Dr. Smith</p></td>
+<td><p><br>Computer Science</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Dr. Taylor</p></td>
+<td><p><br>Mathematics</p></td>
+</tr>
+<tr class="row-even"><td><p><br>Dr. Lee</p></td>
+<td><p><br>Physics</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>👩‍🎓 <strong>Table: Students</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
+<th class="head"><p><br>AdvisorName</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>1001</p></td>
+<td><p><br>Dr. Smith</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1002</p></td>
+<td><p><br>Dr. Smith</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1003</p></td>
+<td><p><br>Dr. Taylor</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>1004</p></td>
+<td><p><br>Dr. Lee</p></td>
+</tr>
+<tr class="row-even"><td><p><br>1005</p></td>
+<td><p><br>Dr. Taylor</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Benefits:</strong></p>
+<ul class="simple">
+<li><p>All functional dependencies now have a superkey on the left-hand side.</p></li>
+<li><p>The schema is in BCNF.</p></li>
+<li><p>It eliminates redundancy (we no longer repeat the department for each student).</p></li>
+</ul>
+</section>
+<section id="summary-table">
+<h2>✅ Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><br>Condition</p></th>
+<th class="head"><p><br>3NF Satisfied?</p></th>
+<th class="head"><p><br>BCNF Satisfied?</p></th>
+<th class="head"><p><br>Why?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><br>No transitive dependencies</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>Already handled in 3NF</p></td>
+</tr>
+<tr class="row-odd"><td><p><br>Functional dependency Advisor → Dept</p></td>
+<td><p><br>✅ Allowed</p></td>
+<td><p><br>❌ Violates BCNF</p></td>
+<td><p><br>Advisor is not a superkey</p></td>
+</tr>
+<tr class="row-even"><td><p><br>After decomposition</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>✅ Yes</p></td>
+<td><p><br>All LHS are superkeys</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="coding-example">
+<h2>🤖 Coding Example<a class="headerlink" href="#coding-example" title="Link to this heading">#</a></h2>
 <section id="table-violating-bcnf">
-<h2>Table violating BCNF<a class="headerlink" href="#table-violating-bcnf" title="Link to this heading">#</a></h2>
+<h3>Table violating BCNF<a class="headerlink" href="#table-violating-bcnf" title="Link to this heading">#</a></h3>
 <p>Imagine a table that stores course registrations:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -584,14 +891,14 @@ document.write(`
 <p>These are <strong>update and deletion anomalies</strong>. BCNF helps avoid them.</p>
 </section>
 <section id="when-is-a-table-in-bcnf">
-<h2>🧠 When is a table in BCNF?<a class="headerlink" href="#when-is-a-table-in-bcnf" title="Link to this heading">#</a></h2>
+<h3>🧠 When is a table in BCNF?<a class="headerlink" href="#when-is-a-table-in-bcnf" title="Link to this heading">#</a></h3>
 <p>A table is in <strong>BCNF</strong> if:</p>
 <p>For every <strong>functional dependency</strong> in the table, the <strong>left-hand side</strong> is a candidate key.</p>
 <p>In other words:</p>
 <p>If some column(s) determine other columns, then those column(s) must uniquely identify a row in the table.</p>
 </section>
 <section id="another-table-violating-bcnf">
-<h2>Another Table Violating BCNF<a class="headerlink" href="#another-table-violating-bcnf" title="Link to this heading">#</a></h2>
+<h3>Another Table Violating BCNF<a class="headerlink" href="#another-table-violating-bcnf" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>CourseID</p></th>
@@ -662,7 +969,7 @@ document.write(`
 </div>
 </section>
 <section id="decomposing-into-bcnf">
-<h2>Decomposing into BCNF<a class="headerlink" href="#decomposing-into-bcnf" title="Link to this heading">#</a></h2>
+<h3>Decomposing into BCNF<a class="headerlink" href="#decomposing-into-bcnf" title="Link to this heading">#</a></h3>
 <p>To convert the table into BCNF, we decompose it into two tables: one for instructors and classrooms, and another for courses and instructors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -723,13 +1030,6 @@ CourseAssignments Table:
 </div>
 </div>
 </section>
-<section id="summary">
-<h2>💡 Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>BCNF is about making sure only candidate keys determine other columns.</p></li>
-<li><p>It prevents data anomalies by keeping your design clean.</p></li>
-<li><p>If a table has a dependency where a non-candidate key determines other data, it’s not in BCNF, and you should split it.</p></li>
-</ul>
 </section>
 </section>
 
@@ -797,11 +1097,19 @@ CourseAssignments Table:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table violating BCNF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-a-table-in-bcnf">🧠 When is a table in BCNF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-table-violating-bcnf">Another Table Violating BCNF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">💡 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-bcnf">🧠 What is BCNF?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-textbooks">📚 From the Textbooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">🧾 Key Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-room-scheduling-in-3nf-but-not-in-bcnf">🚫 Example 1: Room Scheduling (In 3NF but Not in BCNF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-university-advisors-in-3nf-but-not-in-bcnf">🚫 Example 2: University Advisors (In 3NF but Not in BCNF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">✅ Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">🤖 Coding Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-bcnf">Table violating BCNF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-a-table-in-bcnf">🧠 When is a table in BCNF?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-table-violating-bcnf">Another Table Violating BCNF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-into-bcnf">Decomposing into BCNF</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
