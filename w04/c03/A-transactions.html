@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ANALYZE &#8212; Database Management Systems</title>
+    <title>Title &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,10 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c01/C-ANALIZE';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c03/A-transactions';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="EXPLAIN and EXPLAIN QUERY PLAN" href="D-EXPLAIN.html" />
-    <link rel="prev" title="INDEX" href="B-INDEX.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +122,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -258,13 +258,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj03.html">🐸 Week 3 Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 - Databases Design</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">🔎 Week 4 Overview</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-advanced-sql.html">Class 1. Indexes and Performance</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-Activity.html">📗 In-Class Activity</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c01/B-INDEX.html">INDEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c01/C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -339,7 +339,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c01/C-ANALIZE.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c03/A-transactions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -405,7 +405,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c01/C-ANALIZE.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c03/A-transactions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -435,7 +435,7 @@
       
       
       
-      <li><a href="../../_sources/w04/c01/C-ANALIZE.ipynb" target="_blank"
+      <li><a href="../../_sources/w04/c03/A-transactions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -506,9 +506,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -519,29 +517,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ANALYZE</h1>
+    <h1>Title</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-analyze">🧠 What is ANALYZE?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-database-and-table">🧱 1. Create a New Database and Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-indexes">📊 2. Create Indexes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-query-plan-before-analyze">🔍 3. Check Query Plan Before ANALYZE</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-analyze">🧠 4. Run ANALYZE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-statistics-table">📁 5. View the Statistics Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recheck-the-query-plan-after-analyze">🔁 6. Recheck the Query Plan After ANALYZE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-query-and-measure-time">🚀 7. Run the Query and Measure Time</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-analyze-in-sqlite">📌 Summary of ANALYZE in SQLite:</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -551,196 +531,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analyze">
-<h1>ANALYZE<a class="headerlink" href="#analyze" title="Link to this heading">#</a></h1>
-<section id="what-is-analyze">
-<h2>🧠 What is ANALYZE?<a class="headerlink" href="#what-is-analyze" title="Link to this heading">#</a></h2>
-<p>In SQLite, the <strong>query planner</strong> chooses how to execute SQL statements (e.g., which index to use).
-By default, SQLite uses <strong>basic heuristics</strong>, but it doesn’t know how <strong>data is distributed</strong>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">ANALYZE</span></code> command builds a special internal table (<em>sqlite_stat1</em>) containing <strong>statistics about indexes and columns</strong>. This helps SQLite make smarter choices when running queries — especially when multiple indexes exist.</p>
-</section>
-<section id="create-a-new-database-and-table">
-<h2>🧱 1. Create a New Database and Table<a class="headerlink" href="#create-a-new-database-and-table" title="Link to this heading">#</a></h2>
-<p>We’ll start by creating a fresh in-memory SQLite database and a table with customer sales data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
-
-<span class="c1"># Create a new connection and cursor</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="c1"># Create the sales table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE sales (</span>
-<span class="s1">    id INTEGER PRIMARY KEY AUTOINCREMENT,</span>
-<span class="s1">    customer TEXT,</span>
-<span class="s1">    product TEXT,</span>
-<span class="s1">    sale_date TEXT,</span>
-<span class="s1">    amount REAL</span>
-<span class="s1">)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="c1"># Insert 1,000 rows of sample data</span>
-<span class="n">customers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Eve&#39;</span><span class="p">]</span>
-<span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dice Set&#39;</span><span class="p">,</span> <span class="s1">&#39;Board Game&#39;</span><span class="p">,</span> <span class="s1">&#39;Card Sleeves&#39;</span><span class="p">,</span> <span class="s1">&#39;Miniatures&#39;</span><span class="p">,</span> <span class="s1">&#39;Rulebook&#39;</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="n">customer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">customers</span><span class="p">)</span>
-    <span class="n">product</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
-    <span class="n">days_ago</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
-    <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">days_ago</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">amount</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO sales (customer, product, sale_date, amount) VALUES (?, ?, ?, ?)&quot;</span><span class="p">,</span>
-                   <span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">amount</span><span class="p">))</span>
-
-<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="create-indexes">
-<h2>📊 2. Create Indexes<a class="headerlink" href="#create-indexes" title="Link to this heading">#</a></h2>
-<p>We now create indexes that can help the query planner — but only after <code class="docutils literal notranslate"><span class="pre">ANALYZE</span></code> will SQLite use them more intelligently.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE INDEX idx_customer ON sales(customer)&quot;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE INDEX idx_product ON sales(product)&quot;</span><span class="p">)</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="check-query-plan-before-analyze">
-<h2>🔍 3. Check Query Plan Before ANALYZE<a class="headerlink" href="#check-query-plan-before-analyze" title="Link to this heading">#</a></h2>
-<p>We run a query and inspect the plan before running ANALYZE.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM sales WHERE customer = &#39;Alice&#39; AND product = &#39;Board Game&#39;&quot;</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;EXPLAIN QUERY PLAN </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 0, 62, &#39;SEARCH sales USING INDEX idx_product (product=?)&#39;)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>👆 Here, SQLite may not know which index is better and might not optimize the query plan well.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-
-<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">results_before</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before ANALYZE: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results_before</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows in </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before ANALYZE: 40 rows in 0.000533 seconds
-</pre></div>
-</div>
-</div>
-</div>
-<section id="run-analyze">
-<h3>🧠 4. Run ANALYZE<a class="headerlink" href="#run-analyze" title="Link to this heading">#</a></h3>
-<p>Now we run the ANALYZE command, which creates internal statistics about the indexed columns.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;ANALYZE&quot;</span><span class="p">)</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="view-the-statistics-table">
-<h3>📁 5. View the Statistics Table<a class="headerlink" href="#view-the-statistics-table" title="Link to this heading">#</a></h3>
-<p>We inspect the contents of the <code class="docutils literal notranslate"><span class="pre">sqlite_stat1</span></code> table that <code class="docutils literal notranslate"><span class="pre">ANALYZE</span></code> created.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM sqlite_stat1&quot;</span><span class="p">)</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;sales&#39;, &#39;idx_product&#39;, &#39;1000 200&#39;)
-(&#39;sales&#39;, &#39;idx_customer&#39;, &#39;1000 200&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>These numbers describe how values are distributed.</p>
-<p>SQLite uses this to choose which index will filter more rows, which can drastically improve performance.</p>
-</section>
-<section id="recheck-the-query-plan-after-analyze">
-<h3>🔁 6. Recheck the Query Plan After ANALYZE<a class="headerlink" href="#recheck-the-query-plan-after-analyze" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;EXPLAIN QUERY PLAN </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 0, 100, &#39;SEARCH sales USING INDEX idx_product (product=?)&#39;)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>This plan might be more optimized — it may now <strong>use one of the indexes</strong> instead of a full scan or the wrong index.</p>
-</section>
-<section id="run-the-query-and-measure-time">
-<h3>🚀 7. Run the Query and Measure Time<a class="headerlink" href="#run-the-query-and-measure-time" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query returned </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows in </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Query returned 40 rows in 0.000385 seconds
-</pre></div>
-</div>
-</div>
-</div>
-<p>You should observe that:</p>
-<ul class="simple">
-<li><p>The number of results should remain the same</p></li>
-<li><p>The time might improve slightly</p></li>
-<li><p>More importantly, the query planner may now use the better index</p></li>
-</ul>
-</section>
-</section>
-<section id="summary-of-analyze-in-sqlite">
-<h2>📌 Summary of ANALYZE in SQLite:<a class="headerlink" href="#summary-of-analyze-in-sqlite" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>✅ ANALYZE collects statistics about table and index contents.</p></li>
-<li><p>📁 It stores these in the sqlite_stat1 table.</p></li>
-<li><p>🧠 The query planner uses these stats to choose better execution plans.</p></li>
-<li><p>⚡ Especially helpful when multiple indexes are available.</p></li>
-<li><p>🔁 Rerun ANALYZE after major data changes to keep optimization up to date.</p></li>
-</ul>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="title">
+<h1>Title<a class="headerlink" href="#title" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -756,7 +548,7 @@ By default, SQLite uses <strong>basic heuristics</strong>, but it doesn’t know
         },
         kernelOptions: {
             name: "python3",
-            path: "./w04/c01"
+            path: "./w04/c03"
         },
         predefinedOutput: true
     }
@@ -773,55 +565,12 @@ By default, SQLite uses <strong>basic heuristics</strong>, but it doesn’t know
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="B-INDEX.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">INDEX</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="D-EXPLAIN.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">EXPLAIN and EXPLAIN QUERY PLAN</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-analyze">🧠 What is ANALYZE?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-database-and-table">🧱 1. Create a New Database and Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-indexes">📊 2. Create Indexes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-query-plan-before-analyze">🔍 3. Check Query Plan Before ANALYZE</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-analyze">🧠 4. Run ANALYZE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-statistics-table">📁 5. View the Statistics Table</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recheck-the-query-plan-after-analyze">🔁 6. Recheck the Query Plan After ANALYZE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-query-and-measure-time">🚀 7. Run the Query and Measure Time</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-analyze-in-sqlite">📌 Summary of ANALYZE in SQLite:</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
