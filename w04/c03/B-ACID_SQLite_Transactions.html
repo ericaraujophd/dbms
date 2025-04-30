@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Second Normal Form (2NF) &#8212; Database Management Systems</title>
+    <title>ACID Properties and Transactions in SQLite &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c02/C-2NF';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c03/B-ACID_SQLite_Transactions';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Third Normal Form (3NF)" href="D-3NF.html" />
-    <link rel="prev" title="First Normal Form (1NF)" href="B-1NF.html" />
+    <link rel="next" title="📝 In-Class Activity: Exploring ACID Properties with SQLite" href="Z-ACID_SQLite_Activity.html" />
+    <link rel="prev" title="Class 3. Transactions" href="A-transactions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -267,17 +267,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-normalization.html">Class 2. Database Normalization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="B-1NF.html">First Normal Form (1NF)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Second Normal Form (2NF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="D-3NF.html">Third Normal Form (3NF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Z-Practice.html">📝 BCNF Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c02/B-1NF.html">First Normal Form (1NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/C-2NF.html">Second Normal Form (2NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/D-3NF.html">Third Normal Form (3NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/Z-Practice.html">📝 BCNF Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../c03/A-transactions.html">Class 3. Transactions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../c03/B-ACID_SQLite_Transactions.html">ACID Properties and Transactions in SQLite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/Z-ACID_SQLite_Activity.html">📝 In-Class Activity: Exploring ACID Properties with SQLite</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-transactions.html">Class 3. Transactions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ACID Properties and Transactions in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Z-ACID_SQLite_Activity.html">📝 In-Class Activity: Exploring ACID Properties with SQLite</a></li>
 </ul>
 </details></li>
 </ul>
@@ -344,7 +344,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c02/C-2NF.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c03/B-ACID_SQLite_Transactions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c02/C-2NF.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c03/B-ACID_SQLite_Transactions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -440,7 +440,7 @@
       
       
       
-      <li><a href="../../_sources/w04/c02/C-2NF.ipynb" target="_blank"
+      <li><a href="../../_sources/w04/c03/B-ACID_SQLite_Transactions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -524,7 +524,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Second Normal Form (2NF)</h1>
+    <h1>ACID Properties and Transactions in SQLite</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -534,17 +534,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-2nf">🧠 What is 2NF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-textbooks">📚 From the Textbooks:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">🧾 Key Terms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-course-enrollments-violates-2nf">🚫 Example 1: Course Enrollments (Violates 2NF)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-orders-with-repeated-customer-and-product-info">🚫 Example 2: Orders with Repeated Customer and Product Info</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">✅ Summary Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">🤖 Coding Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-2nf">Table Violating 2NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-2nf">Converting to 2NF</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity">Atomicity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency">Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation">Isolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#durability">Durability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -556,467 +551,253 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="second-normal-form-2nf">
-<h1>Second Normal Form (2NF)<a class="headerlink" href="#second-normal-form-2nf" title="Link to this heading">#</a></h1>
-<section id="what-is-2nf">
-<h2>🧠 What is 2NF?<a class="headerlink" href="#what-is-2nf" title="Link to this heading">#</a></h2>
-<p>A table is in <strong>Second Normal Form (2NF)</strong> if:</p>
-<ol class="arabic simple">
-<li><p>It is already in First Normal Form (1NF), and</p></li>
-<li><p><strong>Every non-prime attribute is fully functionally dependent on the entire primary key</strong>, not just part of it.</p></li>
-</ol>
-</section>
-<section id="from-the-textbooks">
-<h2>📚 From the Textbooks:<a class="headerlink" href="#from-the-textbooks" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>“A relation is in second normal form (2NF) if it is in first normal form and every non-prime attribute is fully functionally dependent on the primary key.”</p>
-<p>— Silberschatz, Korth &amp; Sudarshan</p>
-</div></blockquote>
-<blockquote>
-<div><p>“Partial dependencies—dependencies on a part of a composite key—are removed in 2NF.”</p>
-<p>— Elmasri &amp; Navathe</p>
-</div></blockquote>
-<blockquote>
-<div><p>“2NF fixes problems with attributes that depend on only part of a composite key. This is crucial in many-to-many relationships.”</p>
-<p>— Ramakrishnan &amp; Gehrke</p>
-</div></blockquote>
-</section>
-<section id="key-terms">
-<h2>🧾 Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>Term</p></th>
-<th class="head"><p><br>Definition</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>Candidate Key</p></td>
-<td><p><br>A minimal set of attributes that can uniquely identify a tuple (row) in a table. There can be multiple candidate keys; one is chosen as the primary key.</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>Composite Key</p></td>
-<td><p><br>A primary key consisting of more than one attribute.</p></td>
-</tr>
-<tr class="row-even"><td><p><br>Prime Attribute</p></td>
-<td><p><br>An attribute that is part of any candidate key.</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>Non-prime Attribute</p></td>
-<td><p><br>An attribute that is not part of any candidate key.</p></td>
-</tr>
-<tr class="row-even"><td><p><br>Partial Dependency</p></td>
-<td><p><br>A non-prime attribute depends on only part of a composite key, rather than the full key.</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>Full Functional Dependency</p></td>
-<td><p><br>A dependency where a non-prime attribute depends on the entire candidate key. This is required for 2NF.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="example-1-course-enrollments-violates-2nf">
-<h2>🚫 Example 1: Course Enrollments (Violates 2NF)<a class="headerlink" href="#example-1-course-enrollments-violates-2nf" title="Link to this heading">#</a></h2>
-<p>🎓 <strong>Table: CourseEnrollments — In 1NF, but not in 2NF</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
-<th class="head"><p><br>CourseID</p></th>
-<th class="head"><p><br>StudentName</p></th>
-<th class="head"><p><br>CourseName</p></th>
-<th class="head"><p><br>Credits</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>1001</p></td>
-<td><p><br>CS101</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br>Intro to CS</p></td>
-<td><p><br>4</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>1001</p></td>
-<td><p><br>MATH201</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br>Calculus I</p></td>
-<td><p><br>3</p></td>
-</tr>
-<tr class="row-even"><td><p><br>1002</p></td>
-<td><p><br>CS101</p></td>
-<td><p><br>Bob</p></td>
-<td><p><br>Intro to CS</p></td>
-<td><p><br>4</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>1003</p></td>
-<td><p><br>CS101</p></td>
-<td><p><br>Clara</p></td>
-<td><p><br>Intro to CS</p></td>
-<td><p><br>4</p></td>
-</tr>
-<tr class="row-even"><td><p><br>1003</p></td>
-<td><p><br>MATH201</p></td>
-<td><p><br>Clara</p></td>
-<td><p><br>Calculus I</p></td>
-<td><p><br>3</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="acid-properties-and-transactions-in-sqlite">
+<h1>ACID Properties and Transactions in SQLite<a class="headerlink" href="#acid-properties-and-transactions-in-sqlite" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../../_images/acid.png" /></p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
+<p>This class demonstrates the ACID properties of database systems using SQLite:</p>
 <ul class="simple">
-<li><p><strong>Candidate Key:</strong> (StudentID, CourseID)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">StudentName</span></code> depends only on <code class="docutils literal notranslate"><span class="pre">StudentID</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CourseName</span></code> and <code class="docutils literal notranslate"><span class="pre">Credits</span></code> depend only on <code class="docutils literal notranslate"><span class="pre">CourseID</span></code></p></li>
+<li><p><strong>Atomicity</strong>: All or nothing execution</p></li>
+<li><p><strong>Consistency</strong>: Database must remain valid</p></li>
+<li><p><strong>Isolation</strong>: Transactions should not interfere</p></li>
+<li><p><strong>Durability</strong>: Committed changes must persist</p></li>
 </ul>
-<p>💥 These are <strong>partial dependencies</strong> — violating 2NF.</p>
-<p>✅ <strong>Decomposed into 2NF</strong></p>
-<p>👩‍🎓 <strong>Table: Students</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
-<th class="head"><p><br>StudentName</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>1001</p></td>
-<td><p><br>Alice</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>1002</p></td>
-<td><p><br>Bob</p></td>
-</tr>
-<tr class="row-even"><td><p><br>1003</p></td>
-<td><p><br>Clara</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>📚 <strong>Table: Courses</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>CourseID</p></th>
-<th class="head"><p><br>CourseName</p></th>
-<th class="head"><p><br>Credits</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>CS101</p></td>
-<td><p><br>Intro to CS</p></td>
-<td><p><br>4</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>MATH201</p></td>
-<td><p><br>Calculus I</p></td>
-<td><p><br>3</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>📈 <strong>Table: Enrollments</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>StudentID</p></th>
-<th class="head"><p><br>CourseID</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>1001</p></td>
-<td><p><br>CS101</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>1001</p></td>
-<td><p><br>MATH201</p></td>
-</tr>
-<tr class="row-even"><td><p><br>1002</p></td>
-<td><p><br>CS101</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>1003</p></td>
-<td><p><br>CS101</p></td>
-</tr>
-<tr class="row-even"><td><p><br>1003</p></td>
-<td><p><br>MATH201</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>✅ Now, every non-prime attribute depends on the <strong>entire candidate key</strong> — 2NF satisfied.</p>
-</section>
-<section id="example-2-orders-with-repeated-customer-and-product-info">
-<h2>🚫 Example 2: Orders with Repeated Customer and Product Info<a class="headerlink" href="#example-2-orders-with-repeated-customer-and-product-info" title="Link to this heading">#</a></h2>
-<p>🛒 <strong>Table: OrderItems — In 1NF, not 2NF</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
-<th class="head"><p><br>ProductID</p></th>
-<th class="head"><p><br>CustomerName</p></th>
-<th class="head"><p><br>CustomerEmail</p></th>
-<th class="head"><p><br>ProductName</p></th>
-<th class="head"><p><br>Price</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>5001</p></td>
-<td><p><br>P001</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br><a class="reference external" href="mailto:alice&#37;&#52;&#48;example&#46;com">alice<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-<td><p><br>Pen</p></td>
-<td><p><br>1.50</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>5001</p></td>
-<td><p><br>P002</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br><a class="reference external" href="mailto:alice&#37;&#52;&#48;example&#46;com">alice<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-<td><p><br>Notebook</p></td>
-<td><p><br>3.00</p></td>
-</tr>
-<tr class="row-even"><td><p><br>5002</p></td>
-<td><p><br>P001</p></td>
-<td><p><br>Bob</p></td>
-<td><p><br><a class="reference external" href="mailto:bob&#37;&#52;&#48;example&#46;com">bob<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-<td><p><br>Pen</p></td>
-<td><p><br>1.50</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>5003</p></td>
-<td><p><br>P003</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br><a class="reference external" href="mailto:alice&#37;&#52;&#48;example&#46;com">alice<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-<td><p><br>Marker</p></td>
-<td><p><br>2.00</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul class="simple">
-<li><p><strong>Candidate Key:</strong> (OrderID, ProductID)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CustomerName</span></code>, <code class="docutils literal notranslate"><span class="pre">CustomerEmail</span></code> depend only on <code class="docutils literal notranslate"><span class="pre">OrderID</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ProductName</span></code>, <code class="docutils literal notranslate"><span class="pre">Price</span></code> depend only on <code class="docutils literal notranslate"><span class="pre">ProductID</span></code></p></li>
-</ul>
-<p>These are <strong>partial dependencies</strong> → violates 2NF.</p>
-<p>✅ <strong>2NF-Compliant Decomposition</strong></p>
-<p>👤 <strong>Table: Orders</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
-<th class="head"><p><br>CustomerName</p></th>
-<th class="head"><p><br>CustomerEmail</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>5001</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br><a class="reference external" href="mailto:alice&#37;&#52;&#48;example&#46;com">alice<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-</tr>
-<tr class="row-odd"><td><p><br>5002</p></td>
-<td><p><br>Bob</p></td>
-<td><p><br><a class="reference external" href="mailto:bob&#37;&#52;&#48;example&#46;com">bob<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-</tr>
-<tr class="row-even"><td><p><br>5003</p></td>
-<td><p><br>Alice</p></td>
-<td><p><br><a class="reference external" href="mailto:alice&#37;&#52;&#48;example&#46;com">alice<span>&#64;</span>example<span>&#46;</span>com</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>🛍 <strong>Table: Products</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>ProductID</p></th>
-<th class="head"><p><br>ProductName</p></th>
-<th class="head"><p><br>Price</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>P001</p></td>
-<td><p><br>Pen</p></td>
-<td><p><br>1.50</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>P002</p></td>
-<td><p><br>Notebook</p></td>
-<td><p><br>3.00</p></td>
-</tr>
-<tr class="row-even"><td><p><br>P003</p></td>
-<td><p><br>Marker</p></td>
-<td><p><br>2.00</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>📦 <strong>Table: OrderItems</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>OrderID</p></th>
-<th class="head"><p><br>ProductID</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>5001</p></td>
-<td><p><br>P001</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>5001</p></td>
-<td><p><br>P002</p></td>
-</tr>
-<tr class="row-even"><td><p><br>5002</p></td>
-<td><p><br>P001</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>5003</p></td>
-<td><p><br>P003</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>✅ No attribute is partially dependent on a candidate key → Fully normalized to 2NF.</p>
-</section>
-<section id="summary-table">
-<h2>✅ Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><br>Requirement</p></th>
-<th class="head"><p><br>Satisfied?</p></th>
-<th class="head"><p><br>Explanation</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><br>Table is in 1NF</p></td>
-<td><p><br>✅ Yes</p></td>
-<td><p><br>No repeating groups</p></td>
-</tr>
-<tr class="row-odd"><td><p><br>Every non-prime attribute depends on full key</p></td>
-<td><p><br>❌ (before) / ✅ (after)</p></td>
-<td><p><br>Partial dependencies were removed</p></td>
-</tr>
-<tr class="row-even"><td><p><br>Composite candidate key used correctly</p></td>
-<td><p><br>✅ Yes</p></td>
-<td><p><br>Dependencies are now full and clear</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="coding-example">
-<h2>🤖 Coding Example<a class="headerlink" href="#coding-example" title="Link to this heading">#</a></h2>
-<section id="table-violating-2nf">
-<h3>Table Violating 2NF<a class="headerlink" href="#table-violating-2nf" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>OrderID</p></th>
-<th class="head"><p>ProductID</p></th>
-<th class="head"><p>ProductName</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>101</p></td>
-<td><p>Laptop</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>102</p></td>
-<td><p>Mouse</p></td>
-</tr>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>101</p></td>
-<td><p>Laptop</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Why it violates 2NF:</strong> The “ProductName” column depends only on “ProductID” and not on the composite primary key (OrderID, ProductID).</p>
+<p>We will simulate common transaction operations and analyze their behavior.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import SQLite library</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
 
-<span class="c1"># Create an in-memory SQLite database</span>
-<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a table that violates 2NF</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Create a simple accounts table</span>
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Orders (</span>
-<span class="s1">    OrderID INTEGER,</span>
-<span class="s1">    ProductID INTEGER,</span>
-<span class="s1">    ProductName TEXT,</span>
-<span class="s1">    PRIMARY KEY (OrderID, ProductID)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="s1">    CREATE TABLE accounts (</span>
+<span class="s1">        id INTEGER PRIMARY KEY,</span>
+<span class="s1">        name TEXT NOT NULL,</span>
+<span class="s1">        balance INTEGER NOT NULL CHECK(balance &gt;= 0)</span>
+<span class="s1">    )</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
-<span class="c1"># Insert data</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Orders (OrderID, ProductID, ProductName) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;Mouse&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">)</span>
+<span class="c1"># Insert initial balances</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    INSERT INTO accounts (name, balance) VALUES (?, ?)</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="p">])</span>
 
-<span class="c1"># Query the table</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Orders&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database initialized.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 101, &#39;Laptop&#39;)
-(1, 102, &#39;Mouse&#39;)
-(2, 101, &#39;Laptop&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Database initialized.
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> defines a new table with constraints.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CHECK(balance</span> <span class="pre">&gt;=</span> <span class="pre">0)</span></code> enforces consistency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">executemany</span></code> inserts multiple records.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">commit()</span></code> saves the transaction permanently.</p></li>
+</ul>
 </section>
-<section id="converting-to-2nf">
-<h3>Converting to 2NF<a class="headerlink" href="#converting-to-2nf" title="Link to this heading">#</a></h3>
-<p>To achieve 2NF, we separate the <code class="docutils literal notranslate"><span class="pre">ProductName</span></code> into a new table.</p>
+<section id="atomicity">
+<h2>Atomicity<a class="headerlink" href="#atomicity" title="Link to this heading">#</a></h2>
+<p>A transaction should either fully happen or not happen at all.
+We simulate a transfer that fails midway to test rollback behavior.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create tables in 2NF</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE Products (</span>
-<span class="s1">    ProductID INTEGER PRIMARY KEY,</span>
-<span class="s1">    ProductName TEXT</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">transfer_with_failure</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>  <span class="c1"># Start transaction</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance - 50 WHERE name = &#39;Alice&#39;&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;System crash during transaction&quot;</span><span class="p">)</span>  <span class="c1"># Simulated failure</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance + 50 WHERE name = &#39;Bob&#39;&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>  <span class="c1"># Ensure rollback on error</span>
 
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">CREATE TABLE OrderDetails (</span>
-<span class="s1">    OrderID INTEGER,</span>
-<span class="s1">    ProductID INTEGER,</span>
-<span class="s1">    PRIMARY KEY (OrderID, ProductID),</span>
-<span class="s1">    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)</span>
-<span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">transfer_with_failure</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
 
-<span class="c1"># Insert data into 2NF tables</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Products (ProductID, ProductName) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;Mouse&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO OrderDetails (OrderID, ProductID) VALUES (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">102</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
-<span class="p">])</span>
-
-<span class="c1"># Query the 2NF tables</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Products Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Products&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">OrderDetails Table:&#39;</span><span class="p">)</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM OrderDetails&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM accounts&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Products Table:
-(101, &#39;Laptop&#39;)
-(102, &#39;Mouse&#39;)
-
-OrderDetails Table:
-(1, 101)
-(1, 102)
-(2, 101)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: System crash during transaction
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;Alice&#39;, 100), (2, &#39;Bob&#39;, 100)]
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> starts a transaction.</p></li>
+<li><p>If an error occurs mid-transaction, <code class="docutils literal notranslate"><span class="pre">rollback()</span></code> undoes the changes.</p></li>
+<li><p>This ensures <strong>atomicity</strong>: either all operations succeed or none do.</p></li>
+</ul>
 </section>
+<section id="consistency">
+<h2>Consistency<a class="headerlink" href="#consistency" title="Link to this heading">#</a></h2>
+<p>Database constraints (like non-negative balances) ensure data remains valid after any transaction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">violate_consistency</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance - 200 WHERE name = &#39;Alice&#39;&quot;</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance + 200 WHERE name = &#39;Bob&#39;&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+
+<span class="n">violate_consistency</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM accounts&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: CHECK constraint failed: balance &gt;= 0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;Alice&#39;, 100), (2, &#39;Bob&#39;, 100)]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p>This example attempts to make Alice’s balance negative.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">CHECK(balance</span> <span class="pre">&gt;=</span> <span class="pre">0)</span></code> constraint fails.</p></li>
+<li><p>SQLite rolls back the transaction to maintain <strong>consistency</strong>.</p></li>
+</ul>
+</section>
+<section id="isolation">
+<h2>Isolation<a class="headerlink" href="#isolation" title="Link to this heading">#</a></h2>
+<p>SQLite ensures isolation by default. Two connections working in parallel shouldn’t interfere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn1</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;acid_demo.db&quot;</span><span class="p">,</span> <span class="n">isolation_level</span><span class="o">=</span><span class="s2">&quot;DEFERRED&quot;</span><span class="p">)</span>
+<span class="n">conn2</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;acid_demo.db&quot;</span><span class="p">,</span> <span class="n">isolation_level</span><span class="o">=</span><span class="s2">&quot;DEFERRED&quot;</span><span class="p">)</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">conn1</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">conn2</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">c1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance - 30 WHERE name = &#39;Alice&#39;&quot;</span><span class="p">)</span>
+
+<span class="n">c2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">c2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance + 30 WHERE name = &#39;Bob&#39;&quot;</span><span class="p">)</span>
+    <span class="n">conn2</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Isolation error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="n">conn1</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM accounts&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">conn2</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">c1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">c1</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance - 30 WHERE name = &#39;Alice&#39;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">c2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span>: no such table: accounts
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p>Each connection starts its own transaction.</p></li>
+<li><p>Changes are not visible to the other transaction until <code class="docutils literal notranslate"><span class="pre">commit()</span></code> is called.</p></li>
+<li><p>This shows <strong>isolation</strong> in action.</p></li>
+</ul>
+</section>
+<section id="durability">
+<h2>Durability<a class="headerlink" href="#durability" title="Link to this heading">#</a></h2>
+<p>Committed transactions should persist even if the database is closed or the system crashes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;BEGIN&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;UPDATE accounts SET balance = balance + 10 WHERE name = &#39;Alice&#39;&quot;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c1"># Simulate closing and reopening the database</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;acid_demo.db&quot;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM accounts&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;Alice&#39;, 50), (2, &#39;Bob&#39;, 100)]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p>Once committed, changes are permanently written.</p></li>
+<li><p>Reopening the DB shows Alice’s balance updated, confirming <strong>durability</strong>.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ACID Property</p></th>
+<th class="head"><p>Demonstration Summary</p></th>
+<th class="head"><p>SQLite Feature Used</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Atomicity</p></td>
+<td><p>Rollback on failure</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BEGIN</span></code>, <code class="docutils literal notranslate"><span class="pre">rollback</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Consistency</p></td>
+<td><p>Valid data only</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHECK</span></code> constraints</p></td>
+</tr>
+<tr class="row-even"><td><p>Isolation</p></td>
+<td><p>Separate transactions</p></td>
+<td><p>Multiple connections</p></td>
+</tr>
+<tr class="row-odd"><td><p>Durability</p></td>
+<td><p>Changes persist</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">commit()</span></code> + reopen</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 
@@ -1033,7 +814,7 @@ OrderDetails Table:
         },
         kernelOptions: {
             name: "python3",
-            path: "./w04/c02"
+            path: "./w04/c03"
         },
         predefinedOutput: true
     }
@@ -1051,20 +832,20 @@ OrderDetails Table:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="B-1NF.html"
+       href="A-transactions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">First Normal Form (1NF)</p>
+        <p class="prev-next-title">Class 3. Transactions</p>
       </div>
     </a>
     <a class="right-next"
-       href="D-3NF.html"
+       href="Z-ACID_SQLite_Activity.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Third Normal Form (3NF)</p>
+        <p class="prev-next-title">📝 In-Class Activity: Exploring ACID Properties with SQLite</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1084,17 +865,12 @@ OrderDetails Table:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-2nf">🧠 What is 2NF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-textbooks">📚 From the Textbooks:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">🧾 Key Terms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-course-enrollments-violates-2nf">🚫 Example 1: Course Enrollments (Violates 2NF)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-orders-with-repeated-customer-and-product-info">🚫 Example 2: Orders with Repeated Customer and Product Info</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">✅ Summary Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">🤖 Coding Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-violating-2nf">Table Violating 2NF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-2nf">Converting to 2NF</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity">Atomicity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency">Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation">Isolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#durability">Durability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
 

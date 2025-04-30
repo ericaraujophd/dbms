@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 1. In the Beginning… &#8212; Database Management Systems</title>
+    <title>📝 In-Class Activity: Exploring ACID Properties with SQLite &#8212; Database Management Systems</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'w01/c01/A-intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'w04/c03/Z-ACID_SQLite_Activity';</script>
     <link rel="icon" href="../../_static/Calvin_College.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to Database Management Systems" href="B-intro-to-relational-databases.html" />
-    <link rel="prev" title="🔎 Week 1 Overview" href="../w1-overview.html" />
+    <link rel="next" title="🎓 Week 4 Homework: University Clubs Database" href="../../homeworks/hw04.html" />
+    <link rel="prev" title="ACID Properties and Transactions in SQLite" href="B-ACID_SQLite_Transactions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,26 +181,26 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1 - Introduction to SQL</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../w1-overview.html">🔎 Week 1 Overview</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 1. In the Beginning…</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="B-intro-to-relational-databases.html">Introduction to Database Management Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="C-history-relational-models.html">History of Relational Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="D-relational-dbs-dissected.html">Relational Database Dissected</a></li>
-<li class="toctree-l2"><a class="reference internal" href="E-sql-brief-history.html">A Brief History of SQL</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../w01/w1-overview.html">🔎 Week 1 Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../w01/c01/A-intro.html">Class 1. In the Beginning…</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/B-intro-to-relational-databases.html">Introduction to Database Management Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/C-history-relational-models.html">History of Relational Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/D-relational-dbs-dissected.html">Relational Database Dissected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c01/E-sql-brief-history.html">A Brief History of SQL</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../c02/A-methods.html">Class 2. SQLite, Jupyter etc.</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../c02/B-first-query.html">Creating a First Query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c02/C-order-by.html">Sorting and Collating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c02/D-distinct.html">Sorting and Collating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c02/E-practice.html">Class 2: Practicing What You Learned</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../w01/c02/A-methods.html">Class 2. SQLite, Jupyter etc.</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/B-first-query.html">Creating a First Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/C-order-by.html">Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/D-distinct.html">Sorting and Collating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c02/E-practice.html">Class 2: Practicing What You Learned</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../c03/A-expressions.html">Class 3. What are Expressions?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../c03/B-case.html">CASE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/C-where.html">WHERE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c03/D-practice.html">Class 3: Hands-on!</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../w01/c03/A-expressions.html">Class 3. What are Expressions?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/B-case.html">CASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/C-where.html">WHERE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../w01/c03/D-practice.html">Class 3: Hands-on!</a></li>
 </ul>
 </details></li>
 </ul>
@@ -258,26 +258,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../projects/proj03.html">🐸 Week 3 Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4 - Databases Design</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../w04/w4-overview.html">🔎 Week 4 Overview</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/B-INDEX.html">INDEX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/C-ANALIZE.html">ANALYZE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c01/E-Activity.html">📗 In-Class Activity</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../w4-overview.html">🔎 Week 4 Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../c01/A-advanced-sql.html">Class 1. Indexes and Performance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c01/B-INDEX.html">INDEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c01/C-ANALIZE.html">ANALYZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c01/D-EXPLAIN.html">EXPLAIN and EXPLAIN QUERY PLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c01/E-Activity.html">📗 In-Class Activity</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/B-1NF.html">First Normal Form (1NF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/C-2NF.html">Second Normal Form (2NF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/D-3NF.html">Third Normal Form (3NF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c02/Z-Practice.html">📝 BCNF Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../c02/A-normalization.html">Class 2. Database Normalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c02/B-1NF.html">First Normal Form (1NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/C-2NF.html">Second Normal Form (2NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/D-3NF.html">Third Normal Form (3NF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/E-BCNF.html">Boyce-Codd Normal Form (BCNF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c02/Z-Practice.html">📝 BCNF Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../w04/c03/A-transactions.html">Class 3. Transactions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c03/B-ACID_SQLite_Transactions.html">ACID Properties and Transactions in SQLite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../w04/c03/Z-ACID_SQLite_Activity.html">📝 In-Class Activity: Exploring ACID Properties with SQLite</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A-transactions.html">Class 3. Transactions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="B-ACID_SQLite_Transactions.html">ACID Properties and Transactions in SQLite</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">📝 In-Class Activity: Exploring ACID Properties with SQLite</a></li>
 </ul>
 </details></li>
 </ul>
@@ -336,6 +336,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ericaraujophd/dbms/main?urlpath=lab/tree/src/w04/c03/Z-ACID_SQLite_Activity.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -361,7 +410,7 @@
       
       
       
-      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw01/c01/A-intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ericaraujophd/dbms/issues/new?title=Issue%20on%20page%20%2Fw04/c03/Z-ACID_SQLite_Activity.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -391,7 +440,7 @@
       
       
       
-      <li><a href="../../_sources/w01/c01/A-intro.md" target="_blank"
+      <li><a href="../../_sources/w04/c03/Z-ACID_SQLite_Activity.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,7 +450,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -462,7 +511,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -473,11 +524,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 1. In the Beginning…</h1>
+    <h1>📝 In-Class Activity: Exploring ACID Properties with SQLite</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">🎯 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-instructions">📂 Setup Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-atomicity">🧠 Section 1: Atomicity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-consistency">🧩 Section 2: Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-isolation">🔐 Section 3: Isolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-durability">💾 Section 4: Durability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-challenge">🔧 Hands-On Challenge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">💬 Reflection Questions</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -487,14 +553,80 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-1-in-the-beginning">
-<h1>Class 1. In the Beginning…<a class="headerlink" href="#class-1-in-the-beginning" title="Link to this heading">#</a></h1>
-<p>Welcome to the first class of this exciting journey into the world of databases! In this session, we will lay the foundation for understanding how data is stored, organized, and retrieved in modern systems. Databases are at the heart of countless applications, from social media platforms to financial systems, and mastering them is a crucial skill for any aspiring developer or data professional.</p>
-<p>In the beginning, there was the word. And the word was “SELECT”.</p>
-<p>This simple yet powerful command is your gateway to unlocking the potential of relational databases. By the end of this class, you will have a solid grasp of the basics and be ready to dive deeper into the fascinating world of database management systems.</p>
-<p><img alt="" src="../../_images/w01c01.png" /></p>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="in-class-activity-exploring-acid-properties-with-sqlite">
+<h1>📝 In-Class Activity: Exploring ACID Properties with SQLite<a class="headerlink" href="#in-class-activity-exploring-acid-properties-with-sqlite" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>🎯 Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this activity, you will be able to:</p>
+<ul class="simple">
+<li><p>Identify and explain each of the ACID properties.</p></li>
+<li><p>Analyze the effects of transactions using SQLite.</p></li>
+<li><p>Modify and experiment with SQL transaction behavior.</p></li>
+<li><p>Reflect on real-world implications of ACID guarantees.</p></li>
+</ul>
+</section>
+<section id="setup-instructions">
+<h2>📂 Setup Instructions<a class="headerlink" href="#setup-instructions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Open the Jupyter notebook titled <strong><code class="docutils literal notranslate"><span class="pre">ACID_SQLite_Transactions.ipynb</span></code></strong>.</p></li>
+<li><p>Run each cell one at a time, observing the printed outputs.</p></li>
+<li><p>Answer the questions and complete the tasks below.</p></li>
+</ol>
+</section>
+<section id="section-1-atomicity">
+<h2>🧠 Section 1: Atomicity<a class="headerlink" href="#section-1-atomicity" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“A transaction should be all or nothing.”</p>
+</div></blockquote>
+<p><strong>1.1.</strong> What happens to Alice’s balance when the simulated crash occurs?<br />
+<strong>1.2.</strong> Why is it important to call <code class="docutils literal notranslate"><span class="pre">rollback()</span></code> after an error?<br />
+<strong>1.3.</strong> Modify the code so the transfer completes without an error. What is the resulting balance for Alice and Bob?</p>
+</section>
+<section id="section-2-consistency">
+<h2>🧩 Section 2: Consistency<a class="headerlink" href="#section-2-consistency" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“Only valid data should be stored.”</p>
+</div></blockquote>
+<p><strong>2.1.</strong> Try removing the <code class="docutils literal notranslate"><span class="pre">CHECK(balance</span> <span class="pre">&gt;=</span> <span class="pre">0)</span></code> constraint from the table. What happens when Alice transfers 200 credits?<br />
+<strong>2.2.</strong> How does the constraint help ensure the database stays in a consistent state?<br />
+<strong>2.3.</strong> Add another constraint: each account must have a unique name. What SQL change is required?</p>
+</section>
+<section id="section-3-isolation">
+<h2>🔐 Section 3: Isolation<a class="headerlink" href="#section-3-isolation" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“Concurrent transactions shouldn’t interfere.”</p>
+</div></blockquote>
+<p><strong>3.1.</strong> In the simulation with two connections, do the changes from both transactions persist?<br />
+<strong>3.2.</strong> Add a <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">accounts</span></code> inside each transaction before committing. Do you see uncommitted changes?<br />
+<strong>3.3.</strong> What might go wrong in a real banking system if isolation is not enforced?</p>
+</section>
+<section id="section-4-durability">
+<h2>💾 Section 4: Durability<a class="headerlink" href="#section-4-durability" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“Committed data is safe—even after a crash.”</p>
+</div></blockquote>
+<p><strong>4.1.</strong> After closing and reopening the database, does Alice’s bonus still exist?<br />
+<strong>4.2.</strong> Try simulating a crash by exiting Python after a <code class="docutils literal notranslate"><span class="pre">commit()</span></code> and restarting the notebook. Do changes persist?<br />
+<strong>4.3.</strong> Research: What does SQLite do under the hood to ensure durability?</p>
+</section>
+<section id="hands-on-challenge">
+<h2>🔧 Hands-On Challenge<a class="headerlink" href="#hands-on-challenge" title="Link to this heading">#</a></h2>
+<p><strong>Task:</strong><br />
+Write a function that transfers funds from one user to another and logs each successful transaction in a separate <code class="docutils literal notranslate"><span class="pre">transactions</span></code> table. Include the following:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> block for the transaction.</p></li>
+<li><p>Updates to both users’ balances.</p></li>
+<li><p>A log insertion like:<br />
+<code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">transactions</span> <span class="pre">(sender,</span> <span class="pre">receiver,</span> <span class="pre">amount,</span> <span class="pre">timestamp)</span> <span class="pre">VALUES</span> <span class="pre">(...)</span></code></p></li>
+<li><p>A commit at the end.</p></li>
+</ul>
+<p><strong>Bonus:</strong> Add a <code class="docutils literal notranslate"><span class="pre">CHECK</span></code> constraint that prevents transferring more than 100 at a time.</p>
+</section>
+<section id="reflection-questions">
+<h2>💬 Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<p><strong>R1.</strong> Which ACID property is most important in your opinion for banking systems? Why?<br />
+<strong>R2.</strong> What trade-offs might a system make if it wants to be fast but can’t afford full isolation or durability?</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -510,7 +642,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./w01/c01"
+            path: "./w04/c03"
         },
         predefinedOutput: true
     }
@@ -528,20 +660,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../w1-overview.html"
+       href="B-ACID_SQLite_Transactions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">🔎 Week 1 Overview</p>
+        <p class="prev-next-title">ACID Properties and Transactions in SQLite</p>
       </div>
     </a>
     <a class="right-next"
-       href="B-intro-to-relational-databases.html"
+       href="../../homeworks/hw04.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Database Management Systems</p>
+        <p class="prev-next-title">🎓 Week 4 Homework: University Clubs Database</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -551,6 +683,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">🎯 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-instructions">📂 Setup Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-atomicity">🧠 Section 1: Atomicity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-consistency">🧩 Section 2: Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-isolation">🔐 Section 3: Isolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-durability">💾 Section 4: Durability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-challenge">🔧 Hands-On Challenge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">💬 Reflection Questions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
