@@ -98,6 +98,11 @@ parts:
           - file: w04/c02/D-3NF
           - file: w04/c02/E-BCNF
           - file: w04/c02/Z-Practice
+      # Class 3 - ACID
+      - file: w04/c03/A-transactions
+        sections:
+          - file: w04/c03/B-ACID_SQLite_Transactions
+          - file: w04/c03/Z-ACID_SQLite_Activity
   - caption: Homeworks
     chapters:
       - file: homeworks/hw04
